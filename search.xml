@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F11%2F17%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[Git删除远程仓库文件夹或文件的方法]]></title>
+    <url>%2F2018%2F11%2F18%2FGit%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E6%88%96%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Git删除远程仓库文件夹或文件的方法 背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？1234git rm -r -n --cached *git rm -r --cached *git commit -m &quot;移除src目录下所有文件的版本控制&quot;git push origin master 如下，我把src里的全部移除，但是本地文件还保留: git rm -r -n –cached /src/\ //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。 git rm -r –cached /src/\ //最终执行命令. git commit -m”移除src目录下所有文件的版本控制” //提交 git push origin master //提交到远程服务器 原文链接：http://www.cnblogs.com/xusir/p/4111723.html]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
 </search>
