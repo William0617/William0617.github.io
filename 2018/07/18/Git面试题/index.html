@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Git删除远程仓库文件夹或文件的方法 背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？1234git rm -r -n --cached  *git rm -r --cached *git commit -m &amp;quot;移除src目录下所有文件的版本控制&amp;quot;git push origin master 如下，我把src里的全部移除，但是本地文件还保留:">
+<meta name="description" content="fetch和merge和pull的区别pull相当于git fetch 和 git merge，即更新远程仓库的代码到本地仓库，然后将内容合并到当前分支。git fetch：相当于是从远程获取最新版本到本地，不会自动mergegit merge :  将内容合并到当前分支git pull：相当于是从远程获取最新版本并merge到本地  tagtag指向一次commit的id，通常用来给开发分支做">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git删除远程仓库文件夹或文件的方法">
-<meta property="og:url" content="http://yoursite.com/2018/11/18/Git删除远程仓库文件夹或文件的方法/index.html">
+<meta property="og:title" content="Git面试题">
+<meta property="og:url" content="http://yoursite.com/2018/07/18/Git面试题/index.html">
 <meta property="og:site_name" content="William&#39;s Blog">
-<meta property="og:description" content="Git删除远程仓库文件夹或文件的方法 背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？1234git rm -r -n --cached  *git rm -r --cached *git commit -m &amp;quot;移除src目录下所有文件的版本控制&amp;quot;git push origin master 如下，我把src里的全部移除，但是本地文件还保留:">
+<meta property="og:description" content="fetch和merge和pull的区别pull相当于git fetch 和 git merge，即更新远程仓库的代码到本地仓库，然后将内容合并到当前分支。git fetch：相当于是从远程获取最新版本到本地，不会自动mergegit merge :  将内容合并到当前分支git pull：相当于是从远程获取最新版本并merge到本地  tagtag指向一次commit的id，通常用来给开发分支做">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-18T20:02:06.225Z">
+<meta property="og:updated_time" content="2018-11-18T20:18:35.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git删除远程仓库文件夹或文件的方法">
-<meta name="twitter:description" content="Git删除远程仓库文件夹或文件的方法 背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？1234git rm -r -n --cached  *git rm -r --cached *git commit -m &amp;quot;移除src目录下所有文件的版本控制&amp;quot;git push origin master 如下，我把src里的全部移除，但是本地文件还保留:">
+<meta name="twitter:title" content="Git面试题">
+<meta name="twitter:description" content="fetch和merge和pull的区别pull相当于git fetch 和 git merge，即更新远程仓库的代码到本地仓库，然后将内容合并到当前分支。git fetch：相当于是从远程获取最新版本到本地，不会自动mergegit merge :  将内容合并到当前分支git pull：相当于是从远程获取最新版本并merge到本地  tagtag指向一次commit的id，通常用来给开发分支做">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/18/Git删除远程仓库文件夹或文件的方法/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/18/Git面试题/">
 
 
 
 
 
-  <title>Git删除远程仓库文件夹或文件的方法 | William's Blog</title>
+  <title>Git面试题 | William's Blog</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/Git删除远程仓库文件夹或文件的方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Git面试题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git删除远程仓库文件夹或文件的方法</h1>
+          <h1 class="post-title" itemprop="name headline">Git面试题</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T14:59:43-05:00">
-                2018-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T14:59:43-04:00">
+                2018-07-18
               </time>
             
 
@@ -384,16 +384,32 @@
       
 
       
-        <p>Git删除远程仓库文件夹或文件的方法</p>
-<p>背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm -r -n --cached  *</span><br><span class="line">git rm -r --cached *</span><br><span class="line">git commit -m &quot;移除src目录下所有文件的版本控制&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
-<p>如下，我把src里的全部移除，但是本地文件还保留:</p>
-<ol>
-<li>git rm -r -n –cached  <em>/src/\</em>      //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。</li>
-<li>git rm -r –cached  <em>/src/\</em>      //最终执行命令.</li>
-<li>git commit -m”移除src目录下所有文件的版本控制”    //提交</li>
-<li>git push origin master   //提交到远程服务器</li>
+        <ol>
+<li><p>fetch和merge和pull的区别<br>pull相当于git fetch 和 git merge，即更新远程仓库的代码到本地仓库，然后将内容合并到当前分支。<br>git fetch：相当于是从远程获取最新版本到本地，不会自动merge<br>git merge :  将内容合并到当前分支<br>git pull：相当于是从远程获取最新版本并merge到本地</p>
+</li>
+<li><p>tag<br>tag指向一次commit的id，通常用来给开发分支做一个标记<br>打标签 : git tag -a v1.01 -m “Relase version 1.01”<br>提交标签到远程仓库 :  git push origin –tags<br>查看标签 : git tag<br>查看某两次tag之间的commit：git log –pretty=oneline tagA..tagB<br>查看某次tag之后的commit: git log –pretty=oneline tagA..</p>
+</li>
+<li><p>Git和SVN的区别<br>Git是分布式版本控制系统，SVN是集中式版本控制系统</p>
+</li>
+<li><p>Git工作流程</p>
+<ul>
+<li>在工作目录中修改某些文件</li>
+<li>对修改后的文件进行快照，然后保存到暂存区域</li>
+<li>提交更新，将保存在暂存区域的文件快照永久转储到Git目录中</li>
+</ul>
+</li>
+<li><p>常用命令<br>git show # 显示某次提交的内容 git show $id<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git rm <file> # 从版本库中删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset HEAD^ # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git log -p <file> # 查看每次详细修改内容的diff<br>git branch -r # 查看远程分支<br>git merge <branch> # 将branch分支合并到当前分支<br>git stash # 暂存<br>git stash pop #恢复最近一次的暂存<br>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git push origin master # 将本地主分支推到远程主分支</branch></file></file></file></file></file></p>
+</li>
+<li><p>git add 和 git stage 有什么区别？<br>其实，他们两是同义的，所以，惊不惊喜，意不意外？这个问题竟然是个陷阱…引入 git stage 的原因其实比较有趣：是因为要跟 svn add 区分，两者的功能是完全不一样的，svn add 是将某个文件加入版本控制，而 git add 则是把某个文件加入暂存区，因为在 git 出来之前大家用 svn 比较多，所以为了避免误导，git 引入了git stage，然后把 git diff –staged 做为 git diff –cached 的相同命令。基于这个原因，我们建议使用 git stage 以及 git diff –staged。</p>
+</li>
+<li><p>git reset、git revert 和 git checkout 有什么区别？<br>首先是它们的共同点：用来撤销代码仓库中的某些更改。<br>然后是不同点：<br>首先，从 commit 层面来说：<br>git reset 可以将一个分支的末端指向之前的一个 commit。然后再下次 git 执行垃圾回收的时候，会把这个 commit 之后的 commit 都扔掉。git reset 还支持三种标记，用来标记 reset 指令影响的范围。<br>git checkout 可以将 HEAD 移到一个新的分支，并更新工作目录。因为可能会覆盖本地的修改，所以执行这个指令之前，你需要 stash 或者 commit 暂存区和工作区的更改。<br>git revert 和 git reset 的目的是一样的，但是做法不同，它会以创建新的 commit 的方式来撤销 commit，这样能保留之前的 commit 历史，比较安全。另外，同样因为可能会覆盖本地的修改，所以执行这个指令之前，你需要 stash 或者 commit 暂存区和工作区的更改。</p>
+</li>
 </ol>
-<p>原文链接：<a href="http://www.cnblogs.com/xusir/p/4111723.html" target="_blank" rel="noopener">http://www.cnblogs.com/xusir/p/4111723.html</a></p>
+<p>然后，从文件层面来说：<br><br>git reset 只是把文件从历史记录区拿到暂存区，不影响工作区的内容，而且不支持 –mixed、–soft 和 –hard。<br>git checkout 则是把文件从历史记录拿到工作区，不影响暂存区的内容。<br>git revert 不支持文件层面的操作.</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://www.jianshu.com/p/e1e9692f3d88" target="_blank" rel="noopener">面试中的那些 Git 问题 - 基础部分</a></li>
+<li><a href="https://blog.csdn.net/xal0610/article/details/79558622" target="_blank" rel="noopener">git常见面试题</a></li>
+</ol>
 
       
     </div>
@@ -450,6 +466,22 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/20/Git删除远程仓库文件夹或文件的方法/" rel="next" title="Git删除远程仓库文件夹或文件的方法">
+                <i class="fa fa-chevron-left"></i> Git删除远程仓库文件夹或文件的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
       
@@ -497,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -515,7 +556,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -588,6 +629,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git面试题]]></title>
+    <url>%2F2018%2F07%2F18%2FGit%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[fetch和merge和pull的区别pull相当于git fetch 和 git merge，即更新远程仓库的代码到本地仓库，然后将内容合并到当前分支。git fetch：相当于是从远程获取最新版本到本地，不会自动mergegit merge : 将内容合并到当前分支git pull：相当于是从远程获取最新版本并merge到本地 tagtag指向一次commit的id，通常用来给开发分支做一个标记打标签 : git tag -a v1.01 -m “Relase version 1.01”提交标签到远程仓库 : git push origin –tags查看标签 : git tag查看某两次tag之间的commit：git log –pretty=oneline tagA..tagB查看某次tag之后的commit: git log –pretty=oneline tagA.. Git和SVN的区别Git是分布式版本控制系统，SVN是集中式版本控制系统 Git工作流程 在工作目录中修改某些文件 对修改后的文件进行快照，然后保存到暂存区域 提交更新，将保存在暂存区域的文件快照永久转储到Git目录中 常用命令git show # 显示某次提交的内容 git show $idgit add # 将工作文件修改提交到本地暂存区git rm # 从版本库中删除文件git reset # 从暂存区恢复到工作文件git reset HEAD^ # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改git diff # 比较当前文件和暂存区文件差异 git diffgit log -p # 查看每次详细修改内容的diffgit branch -r # 查看远程分支git merge # 将branch分支合并到当前分支git stash # 暂存git stash pop #恢复最近一次的暂存git pull # 抓取远程仓库所有分支更新并合并到本地git push origin master # 将本地主分支推到远程主分支 git add 和 git stage 有什么区别？其实，他们两是同义的，所以，惊不惊喜，意不意外？这个问题竟然是个陷阱…引入 git stage 的原因其实比较有趣：是因为要跟 svn add 区分，两者的功能是完全不一样的，svn add 是将某个文件加入版本控制，而 git add 则是把某个文件加入暂存区，因为在 git 出来之前大家用 svn 比较多，所以为了避免误导，git 引入了git stage，然后把 git diff –staged 做为 git diff –cached 的相同命令。基于这个原因，我们建议使用 git stage 以及 git diff –staged。 git reset、git revert 和 git checkout 有什么区别？首先是它们的共同点：用来撤销代码仓库中的某些更改。然后是不同点：首先，从 commit 层面来说：git reset 可以将一个分支的末端指向之前的一个 commit。然后再下次 git 执行垃圾回收的时候，会把这个 commit 之后的 commit 都扔掉。git reset 还支持三种标记，用来标记 reset 指令影响的范围。git checkout 可以将 HEAD 移到一个新的分支，并更新工作目录。因为可能会覆盖本地的修改，所以执行这个指令之前，你需要 stash 或者 commit 暂存区和工作区的更改。git revert 和 git reset 的目的是一样的，但是做法不同，它会以创建新的 commit 的方式来撤销 commit，这样能保留之前的 commit 历史，比较安全。另外，同样因为可能会覆盖本地的修改，所以执行这个指令之前，你需要 stash 或者 commit 暂存区和工作区的更改。 然后，从文件层面来说：git reset 只是把文件从历史记录区拿到暂存区，不影响工作区的内容，而且不支持 –mixed、–soft 和 –hard。git checkout 则是把文件从历史记录拿到工作区，不影响暂存区的内容。git revert 不支持文件层面的操作. 参考资料 面试中的那些 Git 问题 - 基础部分 git常见面试题]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git删除远程仓库文件夹或文件的方法]]></title>
-    <url>%2F2018%2F11%2F18%2FGit%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E6%88%96%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <url>%2F2018%2F06%2F20%2FGit%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E6%88%96%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Git删除远程仓库文件夹或文件的方法 背景：想删除一个git目录里的文件，当时提交了，但想删除master里的，怎么办？1234git rm -r -n --cached *git rm -r --cached *git commit -m &quot;移除src目录下所有文件的版本控制&quot;git push origin master 如下，我把src里的全部移除，但是本地文件还保留: git rm -r -n –cached /src/\ //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。 git rm -r –cached /src/\ //最终执行命令. git commit -m”移除src目录下所有文件的版本控制” //提交 git push origin master //提交到远程服务器 原文链接：http://www.cnblogs.com/xusir/p/4111723.html]]></content>
       <categories>
         <category>git</category>
