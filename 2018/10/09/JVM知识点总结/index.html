@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="秋招,面试题,Java,面经,JVM,">
+  <meta name="keywords" content="秋招,面试题,面经,Java,JVM,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="JVM：垃圾回收算法，垃圾回收器。垃圾回收算法： 标记-清除法：标记出没有用的对象，然后一个一个回收掉；缺点：标记和清除两个过程效率不高，产生内存碎片导致需要分配较大对象时无法找到足够的连续内存而需要触发一次GC操作。   复制算法: 按照容量划分二个大小相等的内存区域，当一块用完的时候将活着的对象复制到另一块上，然后再把已使用的内存空间一次清理掉；缺点：将内存缩小为了原来的一半 标记-整理法：">
-<meta name="keywords" content="秋招,面试题,Java,面经,JVM">
+<meta name="keywords" content="秋招,面试题,面经,Java,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM知识点总结">
 <meta property="og:url" content="http://yoursite.com/2018/10/09/JVM知识点总结/index.html">
@@ -414,16 +414,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/09/JVM知识点总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/10/09/JVM知识点总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -631,9 +621,9 @@
           
             <a href="/tags/面试题/" rel="tag"># 面试题</a>
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
             <a href="/tags/面经/" rel="tag"># 面经</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/JVM/" rel="tag"># JVM</a>
           
@@ -691,9 +681,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTE2NC8xNzcxMg=="></div>
     </div>
 
   
@@ -982,48 +970,22 @@
 
 
   
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
 
 
 
 
 
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'William0617',
-            repo: 'gitment-comments',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'aa3e83a11d9fa192030426c4ff7d0b4b4b05aac4',
-            
-                client_id: '3d7d975d0f90f9960af3'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
