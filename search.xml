@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo配置busuanzi统计插件]]></title>
+    <url>%2F2019%2F05%2F03%2Fhexo%E9%85%8D%E7%BD%AEbusuanzi%E7%BB%9F%E8%AE%A1%E6%8F%92%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[Next主题为5.x版本，直接在配置文件中配置。 ‘’’’ Show PV/UV of the website/page with busuanzi.Get more information on http://ibruce.info/2015/04/04/busuanzi/busuanzi_count: count values only if the other configs are false enable: true custom uv span for the whole site site_uv: true site_uv_header: site_uv_footer: 人次 custom pv span for the whole site site_pv: true site_pv_header: site_pv_footer: 次 custom pv span for one page only page_pv: true page_pv_header: page_pv_footer: 次 ‘’’’ Busuanzi网站统计失效问题由于 busuanzi(不蒜子) 的域名更新，导致了使用 Hexo Next 主题时统计数据失效。不蒜子的域名由原来的 dn-lbstatics.qbox.me 更换为了 busuanzi.ibruce.info。 解决办法 到 hexo 的 themes 文件夹下, 进入 \themes\next\layout_third-party\analytics 目录 打开 busuanzi-counter.swig 将 src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot; 修改为 src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot; hexo g hexo d]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo, blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[毕业啦！！！]]></title>
     <url>%2F2018%2F12%2F18%2F%E6%AF%95%E4%B8%9A%E5%95%A6%2F</url>
     <content type="text"><![CDATA[小学6年，初中3年，高中3年，大学本科4年，第二学士学位2年，硕士1.5年，读了差不多20年。前12年很快乐，后8年痛苦中成长。从高考学了天坑专业，再到自己转行从头开始学计算机，再到现在毕业并且找到满意的工作，其间太多不易。感谢陪我走来的朋友，同学，导师，还有父母。工作了，稳定了，也要加油！ 每一个优秀的人，都有一段沉默的时光。那一段时光，是付出了很多努力，忍受了很多孤独和寂寞，不抱怨，不诉苦，只有自己知道。而当日后说起时，连自己都能被这段日子所感动。]]></content>
