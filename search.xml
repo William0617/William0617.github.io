@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu服务器安装docker遇到的坑]]></title>
+    <url>%2F2019%2F05%2F14%2FUbuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[一、 离线安装 下载docker18.06.1-ce安装包 安装docker:sudo dpkg -i docker-ce_18.06.1_ce_3-0_ubuntu_amd64.deb 检查安装是否成功:docker -v 二、遇到的问题在以上第二步时候，弹出启动失败。报错：docker.service Failed with result &#39;start-limit-hit&#39;.错误状态信息：code=exited, status=205/LIMITS。关于这个错误码205，google仅仅搜到一篇中文文章。说的是Linux打开文件数默认1024，需要调整。但是我修改为65535后，使用命令systemctl status docker.service查看状态，还是报同样的错误。 三、解决办法使用命令：sysctl -w fs.nr_open=1048576，然后重启服务：sudo service docker restart。查看状态：systemctl status docker.service，docker启动成功，可以用-v查看版本。 四、彻底卸载离线安装docker网上都是卸载apt-get的。离线安装包卸载如下：1234# 查询相关软件包dpkg -l | grep docker# 删除这个包sudo apt remove --purge dock.io]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>Env</category>
+        <category>Docker</category>
+        <category>坑</category>
+      </categories>
+      <tags>
+        <tag>software</tag>
+        <tag>docker</tag>
+        <tag>env</tag>
+        <tag>坑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu配环境装软件的坑]]></title>
     <url>%2F2019%2F05%2F08%2FUbuntu%E9%85%8D%E7%8E%AF%E5%A2%83%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9D%91%2F</url>
-    <content type="text"><![CDATA[Python Pycharm start guide virtualenv教程 Python最佳实践指南！ Pytest官方教程 修改ubuntu的默认python版本 Python函数（function）与方法（method）区别 【python】sys.path.append 使用Pycharm安装Python第三方库 pycharm调整字母长度分割线为80 Apache Kafka Apache Kafka 教程 Ubuntu linux 解决 “ command not found: shopt “的 “~/.bashrc” 配置问题 Ubuntu 16.04 如何把Unity启动器移动到桌面底部 K8S kubectl命令 Jenkins 【Jenkins】使用Jenkin集成单元测试 Jenkins定时构建 Mongodb mongodb启动时报错ERROR: child process failed, exited with error number 1 Ubuntu 安装 Mongodb推荐方式二，但是命令不全。 IDEA clone的文件找不到getter/setter：安装lombok插件，并在setting配置注解生效 Gradle Ubuntu安装Gradle Docker Docker菜鸟教程，Ubuntu安装部分不正确，看下面评论【Ubuntu 18.04 安装 Docker-ce】部分。该教程较为简单。 从Docker到Kubernetes进阶，该教程较深 解决docker：pull access denied for hello-wrold, repository does not exist or may require ‘docker login’. Docker 入门教程 10分钟看懂Docker和K8S oh-my-zsh 在Ubuntu上完美安装oh-my-zsh Ubuntu上搜狗输入法 Ubuntu16.04搜狗拼音输入法候选栏无法显示中文（英文乱码） Ubuntu菜单栏出现两个输入法图标 ubuntu 搜狗输入法重启方法 Postman Postman工具——下载与安装 postman（一）批量执行接口测试用例 自动化接口测试之Postman Swagger Swagger从入门到精通 Swagger Editor OL Swagger (YAML OpenAPI) 从放弃到入门 ##Sublime Sublime Text 3 配置和使用方法]]></content>
+    <content type="text"><![CDATA[Python Pycharm start guide virtualenv教程 Python最佳实践指南！ Pytest官方教程 修改ubuntu的默认python版本 Python函数（function）与方法（method）区别 【python】sys.path.append 使用Pycharm安装Python第三方库 pycharm调整字母长度分割线为80 Apache Kafka Apache Kafka 教程 Ubuntu linux 解决 “ command not found: shopt “的 “~/.bashrc” 配置问题 Ubuntu 16.04 如何把Unity启动器移动到桌面底部 K8S kubectl命令 Jenkins 【Jenkins】使用Jenkin集成单元测试 Jenkins定时构建 Mongodb mongodb启动时报错ERROR: child process failed, exited with error number 1 Ubuntu 安装 Mongodb推荐方式二，但是命令不全。 IDEA clone的文件找不到getter/setter：安装lombok插件，并在setting配置注解生效 Gradle Ubuntu安装Gradle Docker Docker菜鸟教程，Ubuntu安装部分不正确，看下面评论【Ubuntu 18.04 安装 Docker-ce】部分。该教程较为简单。 从Docker到Kubernetes进阶，该教程较深 解决docker：pull access denied for hello-wrold, repository does not exist or may require ‘docker login’. Docker 入门教程 10分钟看懂Docker和K8S oh-my-zsh 在Ubuntu上完美安装oh-my-zsh Ubuntu上搜狗输入法 Ubuntu16.04搜狗拼音输入法候选栏无法显示中文（英文乱码） Ubuntu菜单栏出现两个输入法图标 ubuntu 搜狗输入法重启方法 Postman Postman工具——下载与安装 postman（一）批量执行接口测试用例 自动化接口测试之Postman Swagger Swagger从入门到精通 Swagger Editor OL Swagger (YAML OpenAPI) 从放弃到入门 Sublime Sublime Text 3 配置和使用方法]]></content>
       <categories>
         <category>Ubuntu</category>
         <category>Env</category>
         <category>Config</category>
+        <category>坑</category>
       </categories>
       <tags>
-        <tag>software</tag>
         <tag>config</tag>
+        <tag>software</tag>
         <tag>env</tag>
+        <tag>坑</tag>
       </tags>
   </entry>
   <entry>
@@ -37,8 +56,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>config</tag>
         <tag>python</tag>
+        <tag>config</tag>
       </tags>
   </entry>
   <entry>
