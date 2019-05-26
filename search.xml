@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我的CS学习路线]]></title>
+    <url>%2F2019%2F05%2F27%2F%E6%88%91%E7%9A%84CS%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
+    <content type="text"><![CDATA[一、北京科技大学阶段课程 大学计算机基础 C语言程序设计 微机原理 高等数学 线性代数 概率论与数理统计 二、北京大学阶段课程 离散数学 计算机网络 数据库及其应用 CS导论 数据结构与算法 Java语言程序设计 Hadoop理论与实践 软件测试 软件工程 信息安全基础 面向对象程序设计 三、Penn State阶段课程 Introduction to Computer Architechture Data Mining Computer Networks(500 level) Operating System Introduction to Computer Security Programming Language Concept Fundamentals of Computer Architecture Wireless and Mobile Security Parallel Computing Database Management System Computer Science Project Management 四、在校期间学习总结根据这张图来看，转专业在校期间也学得七七八八。唯一缺陷是没学计算机组成与结构和Cpp。 五、Java开发实习阶段 Spring MVC Spring Security MongoDB Bootstrap Jenkins Maven IntelliJ IDEA Tomcat MySQL VPN ROUTER Git SSH TestNG JUnit 六、测试开发工程师阶段 Python Ansible Jekins Docker Swagger Yaml Gradle Yarn Scrum JIRA Confluence Shell/Linux Pytest]]></content>
+      <categories>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>road</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu服务器安装docker遇到的坑]]></title>
     <url>%2F2019%2F05%2F14%2FUbuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85docker%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%2F</url>
     <content type="text"><![CDATA[一、 离线安装 下载docker18.06.1-ce安装包 安装docker:sudo dpkg -i docker-ce_18.06.1_ce_3-0_ubuntu_amd64.deb 检查安装是否成功:docker -v 二、遇到的问题在以上第二步时候，弹出启动失败。报错：docker.service Failed with result &#39;start-limit-hit&#39;.错误状态信息：code=exited, status=205/LIMITS。关于这个错误码205，google仅仅搜到一篇中文文章。说的是Linux打开文件数默认1024，需要调整。但是我修改为65535后，使用命令systemctl status docker.service查看状态，还是报同样的错误。 三、解决办法使用命令：sysctl -w fs.nr_open=1048576，然后重启服务：sudo service docker restart。查看状态：systemctl status docker.service，docker启动成功，可以用-v查看版本。 四、彻底卸载离线安装docker网上都是卸载apt-get的。离线安装包卸载如下：1234# 查询相关软件包dpkg -l | grep docker# 删除这个包sudo apt remove --purge dock.io]]></content>
@@ -107,8 +119,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java</tag>
+        <tag>面经</tag>
         <tag>汇总</tag>
       </tags>
   </entry>
@@ -126,8 +138,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>Java Web</tag>
         <tag>面经</tag>
+        <tag>Java Web</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -145,8 +157,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>Java Web</tag>
         <tag>面经</tag>
+        <tag>Java Web</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -208,8 +220,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java</tag>
+        <tag>面经</tag>
         <tag>Java多线程</tag>
       </tags>
   </entry>
@@ -246,8 +258,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java</tag>
+        <tag>面经</tag>
         <tag>JVM</tag>
       </tags>
   </entry>
@@ -296,8 +308,8 @@
         <category>面经</category>
       </categories>
       <tags>
-        <tag>面经</tag>
         <tag>Java</tag>
+        <tag>面经</tag>
         <tag>秋招总结</tag>
         <tag>基础</tag>
       </tags>
@@ -315,8 +327,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java</tag>
+        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
