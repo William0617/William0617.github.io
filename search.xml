@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TPS和QPS的区别]]></title>
+    <url>%2F2019%2F06%2F02%2FTPS%E5%92%8CQPS%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[工作中总遇到TPS和QPS，感觉差不多，整理如下。 一、什么是TPSTPS = Transactions Per Second，即服务器每秒处理的事务数。TPS包括一条消息入和一条消息出，加上一次用户数据库访问。TPS是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 二、什么是QPSQPS = Queries Per Second，每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准，在因特网上，作为域名系统服务器的机器的性能经常用每秒查询率来衡量。 三、TPS和QPS有什么区别？QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入“QPS”之中。]]></content>
+      <categories>
+        <category>Test</category>
+        <category>Concept</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+        <tag>concept</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我的CS学习路线]]></title>
     <url>%2F2019%2F05%2F27%2F%E6%88%91%E7%9A%84CS%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
     <content type="text"><![CDATA[一、北京科技大学阶段课程 大学计算机基础 C语言程序设计 微机原理 高等数学 线性代数 概率论与数理统计 二、北京大学阶段课程 离散数学 计算机网络 数据库及其应用 CS导论 数据结构与算法 Java语言程序设计 Hadoop理论与实践 软件测试 软件工程 信息安全基础 面向对象程序设计 三、Penn State阶段课程 Introduction to Computer Architechture Data Mining Computer Networks(500 level) Operating System Introduction to Computer Security Programming Language Concept Fundamentals of Computer Architecture Wireless and Mobile Security Parallel Computing Database Management System Computer Science Project Management 四、在校期间学习总结根据这张图来看，转专业在校期间也学得七七八八。唯一缺陷是没学计算机组成与结构和Cpp。 五、Java开发实习阶段 Spring MVC Spring Security MongoDB Bootstrap Jenkins Maven IntelliJ IDEA Tomcat MySQL VPN ROUTER Git SSH TestNG JUnit 六、测试开发工程师阶段 Python Ansible Jekins Docker Swagger Yaml Gradle Yarn Scrum JIRA Confluence Shell/Linux Pytest]]></content>
