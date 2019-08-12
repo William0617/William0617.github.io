@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[工作中常用的git命令]]></title>
+    <url>%2F2019%2F08%2F12%2F%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84git%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[对工作中经常使用的git命令进行总结。实际工作中写代码，一般情况是创建个人开发分支，再从主分支拉去代码到个人分支上，开发完毕后，提merge request，代码无误后提交到主分支。以下为常用命令： 一、克隆远程仓库到本地git clone ${repo-address} git clone -b ${分支名} ${仓库地址} # 使用git克隆指定分支的代码 二、拉去远程代码到本地分支git pull ${远程主机名} ${远程分支名}:${本地分支名} 三、管理分支1. 查看本地分支123git branch* master... 2. 查看远程分支git branch -r 3. 查看所有分支git branch -a 4. 创建本地的新分支git branch ${branch-name} 5. 切换到新的分支git checkout ${branch-name} 6. 创建+切换分支git checkout -b ${branch-name} 7. 将新分支推送到githubgit push origin ${branch-name} 8. 删除本地分支git branch -d ${branch-name} 9. 删除远程分支git push origin:${branch-name} 10. 切换远程分支git checkout -b ${local-branch} origin/${remote-branch} # 作用是checkout远程的dev分支，在本地起名为dev分支，并切换到本地的dev分支 四、删除错误上传到远程仓库的文件夹12345git clone 你的文件路径ls -lagit rm -r --cached 要删除的文件夹git commit -m '删除了target' # 提交,添加操作说明git push -u origin master # 将本次更改更新到github项目上去 关于git rm -r --cached中的“cached”参数，经查阅StackOverflow，解释如下： git rm on the other hand removes a file from the working directory and the index and when you commit, the file is removed from the tree as well. git rm –cached however removes the file from index alone and keeps it in your working copy. This is the exact opposite of git add file In this case, you made index to be different from the HEAD and the working, in it that the HEAD has the previously committed version of the file, working copy had the las modification if any or content from HEAD of the file and you removed the file from the index. A commit now will sync the index and tree and the file will be removed.]]></content>
+      <categories>
+        <category>Development</category>
+        <category>Cheatsheet</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>cheatsheet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一篇文章搞清楚Nginx、Apache和Tomcat]]></title>
     <url>%2F2019%2F06%2F17%2F%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E6%B8%85%E6%A5%9ANginx%E3%80%81Apache%E5%92%8CTomcat%2F</url>
     <content type="text"><![CDATA[当前网站主要分为静态页面和动态页面两部分。负责处理这些页面的软件我们通常称之为web容器，是一种服务程序，负责处理浏览器发来的访问请求：如果是静态页面会直接将文件内容呈现给浏览器，如果是动态页面会将其解析成静态内容之后再呈现给浏览器。 0. 网站页面类型和区别首先要搞清楚什么是静态页面，什么是动态页面，它们之间有什么区别？ 0.1 静态页面通常是以html、htm、shtml等结尾的文件，所有数据都是写在文件里的。客户端加载静态页面时，无须对数据库进行操作，直接将文件内容呈现出来。静态页面的优点：相对于另外两种页面（动态页面和伪静态），速度最快，不需要从数据库里面提取数据，也不会对服务器产生压力。静态页面的缺点：由于数据都是写在文件里，很有可能会导致文件非常大，占用大量的服务器磁盘空间，每次添加内容都会生成新的文件。更改源代码的话必须全部更改，而不能更改一个地方，全站的静态页面就自动更改了。 0.2 动态页面通常是以php、jsp、asp等结尾的文件，不是独立存在于服务器上的网页文件，当用户请求时服务器才会返回一个完整的网页。数据都是存储在数据库中，根据用户发出的不同请求从数据库里提取不同的数据，从而提供个性化的网页内容。动态页面的优点：占用磁盘空间小，一般几万条数据的网站，文件大小可能只有几M。数据都是从数据库里提取出来，如果需要修改某些数据，可直接修改数据库，所有动态页面就都会自动更新。动态页面的缺点：相对于静态页面而言，访问速度较慢，因为动态页面需要处理成静态内容，才能呈现给用户。动态页面的数据是从数据库里提取出来的，如果访问量大的话，会导致数据库的压力很大。现在动态网站多数都使用了缓存技术，但相对于静态网站而言，服务器的压力比较大，访问的人越多服务器的压力越大。 0.3 网站页面的处理流程以Apache服务器为例，用户使用浏览器访问一个网站时，分为以下三种情况： 访问静态页面：当浏览器发起一个访问网站资源的请求时，首先由DNS服务器将域名解析为网站服务器的IP地址，http或者https协议将用户的请求发送给此IP地址对应的web服务器，web服务器收到请求后就在自己的网站目录下寻找相对应的页面文件（例如index.html），将文件内容返回浏览器，浏览器收到web服务器的响应后，接收并下载服务器的html静态代码，然后浏览器解读代码，最终将网页内容呈现出来。 访问动态页面：流程和静态页面是一样的，只不过是多一步解析动态脚本的步骤。首先DNS域名解析，然后web服务器收到用户的请求后找到对应的php脚本文件，然后将此脚本委托给php服务器处理，php服务器将脚本解析成静态代码，再将静态代码返回给web服务器，web服务器再将静态代码返回给用户，最终在浏览器上呈现出来。 访问数据库：流程和动态页面是一样的，只不是多了一步访问数据库的步骤。首先DNS域名解析，web服务器收到请求后找到对应的php脚本文件，将此脚本委托给php服务器处理，php服务器通过解析脚本去连接数据库，从数据库里将数据取出来，再将数据生成静态代码发给web服务器，web服务器再将静态代码返回给用户，最终在浏览器上呈现出来。 1. Nginx、Apache和Tomcat1.1 NginxNginx是一款开源的轻量级的web服务器/反向代理服务器软件，其特点是占用内存少，并发能力强，也是目前比较流行的web服务器软件之一。静态页面处理能力较强，尤其是反向代理服务表现突出，常被用作负载均衡和代理服务器使用。常见的网站架构有：nginx+php、nginx+tomcat、nginx+apache+php等。 1.2 ApacheApache HTTP Server（简称Apache）是Apache软件基金会的一款开放源码的web服务器软件，可以在大多数计算机操作系统中运行，是目前最流行的web服务器端软件之一。apache支持的模块众多，性能稳定，本身只支持静态解析，但可以通过扩展脚本、模块等支持动态页面。常见的网站架构有：apache+php、apache+tomcat等。 1.3 TomcatTomcat是一款开源的Java web应用服务器软件，常被称之为servlet容器，用来处理jsp页面和运行servlet。上文中的Jsp全称是Java Server Pages，它和Servlet技术一样，都是SUN公司定义的一种用于开发动态web资源的技术。Jsp的最大特点在于，写jsp就像在写html，html只能为用户提供静态数据，而jsp技术允许在页面中嵌套java代码，为用户提供动态数据。tomcat在jsp页面的处理上与php一样，就是个解析器。tomcat与php相同的是，它们都是动态脚本解析器；不同的是，tomcat本身还能处理静态页面，同时又是一个web服务器。由于Tomcat技术先进、性能稳定、而且免费，因而深受Java爱好者的喜爱并得到了广泛使用。tomcat静态页面处理能力较弱，它的强项是运行Jave Servlet（用Java编写的服务器端程序）。 1.4 总结这三款软件各有优势，身为运维人员需要清楚的知道，在哪个场合下使用哪个软件： 如果你只是处理静态页面，那就使用nginx； 如果你需要处理php语言编写的动态页面，那就使用apache+php； 如果是java语言编写的程序，那tomcat无疑是最好的选择。 2. Nginx和Apache2.1 Nginx相对Apache的优点 轻量级。同样起web服务，Nginx比Apache占用更少的内存及资源； 抗并发。Nginx处理请求是异步非阻塞的，而Apache则是阻塞型的。在高并发下Nginx能保持低资源、低消耗、高性能。 高度模块化的设计，编写模块相对简单。 社区活跃。各种高性能模块出品迅速啊。 2.2 Apache相对Nginx的优点 rewrite。比Nginx的rewrite强大。 模块超多。基本想到的都可以找到。 少bug。Nginx的bug相对较多。 超稳定。 2.3 Apache本身不是不能处理动态页面吗？关于动静态分离，经常有人问，不是说apache本身不能处理动态页面吗，那为什么会有人说用nginx处理静态页面，用apache处理动态页面？那我只能说是你理解错了，apache本身是不支持动态页面处理的，而是将动态页面交由php或者tomcat等其他服务程序去处理，php或者tomcat等服务程序将处理后的静态页面返回给apache，apache再将静态内容呈现给客户。 那又有人说了，即然动态页面是由php程序处理的，那为什么会有人说apache处理动态页面要比nginx好，既然都是由php处理动态页面，那nginx和apache有什么区别，不都是把处理后的静态内容返回给客户吗，为什么要说处理动态页面apache要比nginx好呢？那我只能说还是你理解错了，应该说apache和php结合的更好一些，但这是以前，如果站在现在这个角度上讲，谁好谁差还不一定呢。 2.3 总结Nginx适合处理静态请求和反向代理[1]，Apache适合处理动态请求。但这个差异化只有在请求量达到一定的阈值时表现差异才能表现出来。流量阈值需求不到的时候，选择Nginx是性价比最好的选择。也就是说，如果考虑到性能的因素，考虑使用Nginx，否则可以使用Apache。 但是处理动态请求真的是Apache更好吗？以PHP为例，Nginx使用FastCGI（FastCGI模式是指由单独的进程管理器如php-fpm启动并管理多个解释器进程，web服务器只需将脚本传给php-fpm执行即可）处理动态请求，而Apache使用mod_php（把php服务做为模块来进行调用，模块将相关函数嵌入web服务请求处理流程，不需要额外的解释器进程）处理动态请求。mod_php方式就如同php是它的一个部门，关于php的问题这个部门可以直接处理；FastCGI模式相当于公司之间的合作，web和php分别是两家公司，web公司将php业务外包给php公司负责。其实无论是mod_php、还是FastCGI，都有其自己的优势。以前在FastCGI技术还不成熟的时候，自然是mod_php稳定、处理速度更快一些，可是社会是不断在向前进步的，现如今FastCGI技术已经非常成熟了，网上也有很多人做了相关的测试，说是FastCGI比mod_php更稳定、速度更快。 名词解释[1]正向代理：代理客户端，为客户端收发请求，使真实客户端对服务器不可见。 [2]反向代理：代理服务器，为服务器收发请求，使真实服务器对客户端不可见。 参考文档 详谈Apache、Nginx和tomcat的区别以及处理静态页面和动态页面的方式 我为什么推荐大家使用 Nginx 而不是 Apache？]]></content>
@@ -41,6 +55,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[软件测试基本流程]]></title>
+    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[TPS和QPS的区别]]></title>
     <url>%2F2019%2F06%2F02%2FTPS%E5%92%8CQPS%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[工作中总遇到TPS和QPS，感觉差不多，整理如下。 一、什么是TPSTPS = Transactions Per Second，即服务器每秒处理的事务数。TPS包括一条消息入和一条消息出，加上一次用户数据库访问。TPS是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 二、什么是QPSQPS = Queries Per Second，每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准，在因特网上，作为域名系统服务器的机器的性能经常用每秒查询率来衡量。 三、TPS和QPS有什么区别？QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入“QPS”之中。]]></content>
@@ -51,17 +76,6 @@
       <tags>
         <tag>test</tag>
         <tag>concept</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[软件测试基本流程]]></title>
-    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -409,24 +423,24 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[java对象排序-Comparator和Comparable]]></title>
-    <url>%2F2018%2F08%2F15%2Fjava%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F-Comparator%E5%92%8CComparable%2F</url>
-    <content type="text"><![CDATA[当需要排序的集合或数组不是单纯的数字型时，通常可以使用Comparator或Comparable，以简单的方式实现对象排序或自定义排序。 一、Comparator强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。接口方法：int compare(Object o1, Object o2);举例：12345678910111213141516171819202122import java.util.Arrays;import java.util.Comparator;public class SampleComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return toInt(o1) - toInt(o2); &#125; private int toInt(Object o) &#123; String str = (String) o; str = str.replaceAll(&quot;一&quot;, &quot;1&quot;); str = str.replaceAll(&quot;二&quot;, &quot;2&quot;); str = str.replaceAll(&quot;三&quot;, &quot;3&quot;); // return Integer.parseInt(str); &#125; public static void main(String[] args) &#123; String[] array = new String[] &#123; &quot;一二&quot;, &quot;三&quot;, &quot;二&quot; &#125;; Arrays.sort(array, new SampleComparator()); for (int i = 0; i &lt; array.length; i++) &#123; System.out.println(array[i]); &#125; &#125;&#125; 二、Comparable强行对实现它的每个类的对象进行整体排序，实现此接口的对象列表（和数组）可以通过Collections.sort或Arrays.sort进行自动排序。接口方法: int compareTo(Object o);假设对象User，需要按年龄排序：123456789101112131415161718192021222324252627public class User &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 改造后的对象： 12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.Arrays;public class User implements Comparable &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125; public int compareTo(Object o) &#123; return this.age - ((User) o).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 三、Comparator和Comparable的区别先看一下使用Comparator对User集合实现排序的方式：1234567891011121314151617import java.util.Arrays;import java.util.Comparator;public class UserComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return ((User) o1).getAge() - ((User) o2).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users, new UserComparator()); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 一个类实现了Camparable接口则表明这个类的对象之间是可以相互比较的，这个类对象组成的集合就可以直接使用sort方法排序。Comparator可以看成一种算法的实现，将算法和数据分离，Comparator也可以在下面两种环境下使用： 类的设计师没有考虑到比较问题而没有实现Comparable，可以通过Comparator来实现排序而不必改变对象本身 可以使用多种排序标准，比如升序、降序等 四、补充一个例子：12345678List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;(); Collections.sort(persons, new Comparator&lt;Person&gt;() &#123; @Override public int compare(Person o1, Person o2) &#123; Collator collator = Collator.getInstance(Locale.CHINA); return collator.compare(o1.getName(), o2.getName()); &#125; &#125;); 使用Collections.sort方法，传一个Comparator实现类，比较对象字段实现compare方法。 References java对象排序-Comparator和Comparable Java根据对象的某个字段排序]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Development</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JDK1.5与JDK8新特性]]></title>
     <url>%2F2018%2F08%2F15%2FJDK1.5%E4%B8%8EJDK8%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[一、JDK1.5新特性 自动装箱与拆箱：自动装箱的过程：每当需要一种类型的对象时，这种基本类型就自动地封装到与它相同类型的包装中。自动拆箱的过程：每当需要一个值时，被装箱对象中的值就被自动地提取出来，没必要再去调用intValue()和doubleValue()方法。自动装箱，只需将该值赋给一个类型包装器引用，java会自动创建一个对象。自动拆箱，只需将该对象值赋给一个基本类型即可。java——类的包装器类型包装器有：Double,Float,Long,Integer,Short,Character和Boolean 枚举把集合里的对象元素一个一个提取出来。枚举类型使代码更具可读性，理解清晰，易于维护。枚举类型是强类型的，从而保证了系统安全性。而以类的静态字段实现的类似替代模型，不具有枚举的简单性和类型安全性。简单的用法：JavaEnum简单的用法一般用于代表一组常用常量，可用来代表一类相同类型的常量值。复杂用法：Java为枚举类型提供了一些内置的方法，同事枚举常量还可以有自己的方法。可以很方便的遍历枚举对象。 静态导入通过使用 import static，就可以不用指定 Constants 类名而直接使用静态成员，包括静态方法。import xxxx 和 import static xxxx的区别是前者一般导入的是类文件如import java.util.Scanner;后者一般是导入静态的方法，import static java.lang.System.out。 可变参数（Varargs）可变参数的简单语法格式为：methodName([argumentList], dataType…argumentName); 内省（Introspector）是Java语言对Bean类属性、事件的一种缺省处理方法。例如类A中有属性name,那我们可以通过getName,setName来得到其值或者设置新 的值。通过getName/setName来访问name属性，这就是默认的规则。Java中提供了一套API用来访问某个属性的getter /setter方法，通过这些API可以使你不需要了解这个规则（但你最好还是要搞清楚），这些API存放于包java.beans中。一 般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器 （PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来 调用这些方法。 泛型(Generic)C++通过模板技术可以指定集合的元素类型，而Java在1.5之前一直没有相对应的功能。一个集合可以放任何类型的对象，相应地从集合里面拿对象的时候我们也 不得不对他们进行强制得类型转换。猛虎引入了泛型，它允许指定集合里元素的类型，这样你可以得到强类型在编译时刻进行类型检查的好处。 For-Each循环For-Each循环得加入简化了集合的遍历。假设我们要遍历一个集合对其中的元素进行一些处理。 JUCConcurrentHashMap(简称CHM)是在Java 1.5作为Hashtable的替代选择新引入的,是concurrent包的重要成员。 二、JDK8新特性 Lambda表达式Lambda表达式可以说是Java 8最大的卖点，她将函数式编程引入了Java。Lambda允许把函数作为一个方法的参数，或者把代码看成数据。 接口的默认方法与静态方法我们可以在接口中定义默认方法，使用default关键字，并提供默认的实现。所有实现这个接口的类都会接受默认方法的实现，除非子类提供的自己的实现。 方法引用通常与Lambda表达式联合使用，可以直接引用已有Java类或对象的方法。一般有四种不同的方法引用。 构造器引用。语法是Class::new，或者更一般的Class&lt; T &gt;::new，要求构造器方法是没有参数。 静态方法引用。语法是Class::static_method，要求接受一个Class类型的参数。 特定类的任意对象方法引用。它的语法是Class::method。要求方法是没有参数的。 特定对象的方法引用，它的语法是instance::method。要求方法接受一个参数，与3不同的地方在于，3是在列表元素上分别调用方法，而4是在某个对象上调用方法，将列表元素作为参数传入。 重复注解在Java 5中使用注解有一个限制，即相同的注解在同一位置只能声明一次。Java 8引入重复注解，这样相同的注解在同一地方也可以声明多次。重复注解机制本身需要用@Repeatable注解。Java 8在编译器层做了优化，相同注解会以集合的方式保存，因此底层的原理并没有变化。 扩展注解的支持Java 8扩展了注解的上下文，几乎可以为任何东西添加注解，包括局部变量、泛型类、父类与接口的实现，连方法的异常也能添加注解。 OptionalJava 8引入Optional类来防止空指针异常，Optional类最先是由Google的Guava项目引入的。Optional类实际上是个容器：它可以保存类型T的值，或者保存null。使用Optional类我们就不用显式进行空指针检查了。 StreamStream API是把真正的函数式编程风格引入到Java中。其实简单来说可以把Stream理解为MapReduce，当然Google的MapReduce的灵感也是来自函数式编程。她其实是一连串支持连续、并行聚集操作的元素。从语法上看，也很像linux的管道、或者链式编程，代码写起来简洁明了，非常酷帅！ Date/Time API (JSR 310)Java 8新的Date-Time API (JSR 310)受Joda-Time的影响，提供了新的java.time包，可以用来替代 java.util.Date和java.util.Calendar。一般会用到Clock、LocaleDate、LocalTime、LocaleDateTime、ZonedDateTime、Duration这些类，对于时间日期的改进还是非常不错的。 JavaScript引擎NashornNashorn允许在JVM上开发运行JavaScript应用，允许Java与JavaScript相互调用。 Base64在Java 8中，Base64编码成为了Java类库的标准。Base64类同时还提供了对URL、MIME友好的编码器与解码器。 除了这十大新特性之外，还有另外的一些新特性： 更好的类型推测机制：Java 8在类型推测方面有了很大的提高，这就使代码更整洁，不需要太多的强制类型转换了。 编译器优化：Java 8将方法的参数名加入了字节码中，这样在运行时通过反射就能获取到参数名，只需要在编译时使用-parameters参数。 并行（parallel）数组：支持对数组进行并行处理，主要是parallelSort()方法，它可以在多核机器上极大提高数组排序的速度。 并发（Concurrency）：在新增Stream机制与Lambda的基础之上，加入了一些新方法来支持聚集操作。 Nashorn引擎jjs：基于Nashorn引擎的命令行工具。它接受一些JavaScript源代码为参数，并且执行这些源代码。 类依赖分析器jdeps：可以显示Java类的包级别或类级别的依赖。 JVM的PermGen空间被移除：取代它的是Metaspace（JEP 122）。另外Java8在JDK JUC 增加新的并发API。 三、参考资料 JDK各个版本的新特性jdk1.5-jdk8 Java8的十大新特性]]></content>
       <categories>
         <category>Development</category>
         <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java对象排序-Comparator和Comparable]]></title>
+    <url>%2F2018%2F08%2F15%2Fjava%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F-Comparator%E5%92%8CComparable%2F</url>
+    <content type="text"><![CDATA[当需要排序的集合或数组不是单纯的数字型时，通常可以使用Comparator或Comparable，以简单的方式实现对象排序或自定义排序。 一、Comparator强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。接口方法：int compare(Object o1, Object o2);举例：12345678910111213141516171819202122import java.util.Arrays;import java.util.Comparator;public class SampleComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return toInt(o1) - toInt(o2); &#125; private int toInt(Object o) &#123; String str = (String) o; str = str.replaceAll(&quot;一&quot;, &quot;1&quot;); str = str.replaceAll(&quot;二&quot;, &quot;2&quot;); str = str.replaceAll(&quot;三&quot;, &quot;3&quot;); // return Integer.parseInt(str); &#125; public static void main(String[] args) &#123; String[] array = new String[] &#123; &quot;一二&quot;, &quot;三&quot;, &quot;二&quot; &#125;; Arrays.sort(array, new SampleComparator()); for (int i = 0; i &lt; array.length; i++) &#123; System.out.println(array[i]); &#125; &#125;&#125; 二、Comparable强行对实现它的每个类的对象进行整体排序，实现此接口的对象列表（和数组）可以通过Collections.sort或Arrays.sort进行自动排序。接口方法: int compareTo(Object o);假设对象User，需要按年龄排序：123456789101112131415161718192021222324252627public class User &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 改造后的对象： 12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.Arrays;public class User implements Comparable &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125; public int compareTo(Object o) &#123; return this.age - ((User) o).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 三、Comparator和Comparable的区别先看一下使用Comparator对User集合实现排序的方式：1234567891011121314151617import java.util.Arrays;import java.util.Comparator;public class UserComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return ((User) o1).getAge() - ((User) o2).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users, new UserComparator()); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 一个类实现了Camparable接口则表明这个类的对象之间是可以相互比较的，这个类对象组成的集合就可以直接使用sort方法排序。Comparator可以看成一种算法的实现，将算法和数据分离，Comparator也可以在下面两种环境下使用： 类的设计师没有考虑到比较问题而没有实现Comparable，可以通过Comparator来实现排序而不必改变对象本身 可以使用多种排序标准，比如升序、降序等 四、补充一个例子：12345678List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;(); Collections.sort(persons, new Comparator&lt;Person&gt;() &#123; @Override public int compare(Person o1, Person o2) &#123; Collator collator = Collator.getInstance(Locale.CHINA); return collator.compare(o1.getName(), o2.getName()); &#125; &#125;); 使用Collections.sort方法，传一个Comparator实现类，比较对象字段实现compare方法。 References java对象排序-Comparator和Comparable Java根据对象的某个字段排序]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Development</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -515,8 +529,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>秋招</tag>
         <tag>java</tag>
+        <tag>秋招</tag>
         <tag>面试</tag>
       </tags>
   </entry>

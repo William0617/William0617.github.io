@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="William&#39;s Blog">
 <meta property="og:description" content="如何删除GitHub中的目录？ 有时候错误上传目录到GitHub上，需要删除。只需要执行以下步骤：  git clone 你的文件路径 ls -la git rm -r --cached 要删除的文件夹 git commit -m &amp;#39;删除了target&amp;#39;  //提交,添加操作说明 git push -u origin master 将本次更改更新到github项目上去  关于git">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-18T20:23:53.142Z">
+<meta property="og:updated_time" content="2019-08-12T03:20:23.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何删除GitHub中的目录?">
 <meta name="twitter:description" content="如何删除GitHub中的目录？ 有时候错误上传目录到GitHub上，需要删除。只需要执行以下步骤：  git clone 你的文件路径 ls -la git rm -r --cached 要删除的文件夹 git commit -m &amp;#39;删除了target&amp;#39;  //提交,添加操作说明 git push -u origin master 将本次更改更新到github项目上去  关于git">
@@ -569,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -591,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
