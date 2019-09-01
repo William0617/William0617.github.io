@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu修改系统默认使用的python版本]]></title>
+    <url>%2F2019%2F08%2F29%2Fubuntu%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%9A%84python%E7%89%88%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[12scons: *** SCons version 2.4.1 does not run under Python version 3.5.2.Python 3 is not yet supported. 今天在服务器上编译gem5的时候遇到了上述的问题，基本意思就是SCons在python3.5.2上面无法运行，Scons不支持python3。那问题就很明了了，我查看了一下系统目前的python版本：python --version，发现默认的python版本是3.5.2。然后我ls了一下系统存在的python版本都是有哪些：ls /usr/bin/python*发现系统有python2.7 和python3.5两个版本。 查了查资料发现可以只修改某个用户默认使用的python版本，只需要将该用户的主目录下的.bashrc文件中加上这么一行：alias python=’/usr/bin/python2.7’但这么修改其实只是给python这条命令使用了一个别名而已，也就是说下次改用户使用python xxx.py执行python文件时，会将python修改为“/usr/bin/python2.7”。gem5使用的SCons是去读取的系统默认使用的python版本，也就是说使用alias修改是不行的。又查了查资料发现可以使用命令手动切换系统使用的python版本：update-alternatives --config python。在列表中选择想要系统默认使用的python版本就可以了。 此时gem5就可以正常使用了。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[接口测试代码规范]]></title>
+    <url>%2F2019%2F08%2F23%2F%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%2F</url>
+    <content type="text"><![CDATA[1.1 style checkpython的代码风格应该遵循 pep8，目前在push代码后由 gitlab-ci 进行检查，检查是通过 flake8 执行。其中我们修改的规则有： 行宽限制，规定最大长度为120 目前automatic style check中没有enable，但是需要遵循，未来可能通过插件形式加入自动检查规则的包括 import顺序，应该遵循以下顺序，并且在每一个类别之间以一个空行分割： standard library third party library local application / library specific import tfws/libs 下引入的library与pep8风格差别较大，其中最大的区别是采用2空格缩进，修改后注意检查 1.2 命名规范 class 名首字母大写，使用CamelCase(PascalCase)方式命名 文件名、模块名、函数名、变量名全部小写，采用下划线分割（snakecase） 模块的 private 成员用单下划线 开头 全局以及Class Constants采用大写，下划线分割，如 CLASS_CONSTANTS 1.3 注释规范注释样例 所有的public class都应该有docstring注释， doccstring使用三个双引号开始(“””)docstring应该写明该类的主要作用 在Args段写明构造函数参数（init函数的docstring在此时可以省略 在Attrbutes段列出该类的所有public attributes 所有的public function以及methods都应该有doctring docstring的目标是让其他用户明确该函数的作用，以及可以在不阅读具体代码的情况下可以使用这个函数。 应当包含Args字段，以及Return（或者yield）字段 （Optional）列出该函数可能抛出的异常 块注释应该缩进到与该代码块相同的级别 1.4 其他规范 5行以上的代码块不允许出现重复 使用assertpy.assert_that，assertpy.assert_warn断言时，需要在第二个参数description描述清楚失败的原因eg. 对于检查http response的内容时，建议直接把response赋值给description，assertpy.assert_that(rsp.rtn, rsp).is_equal_to(0) 禁止代码里语义不明的数字，需要替换成带有语义的常量，比如一些响应错误码 测试用例函数下方请按以下顺序写出完整的测试用例描述 u””” @Title: 简要描述该用例主要测试点，函数名需和该描述一致 @Author: Weitai.Lin 写上自己的域账号，最后一个更新该用例的人需要更新Author为自己 @Description: 描述完整用例经过，step by step step 1: step 2: … @Checkpoint: 描述测试用例的检查点，即用例通过的标准 1.xxx 2.yyy “”” 所有的测试用例函数上面都需要用pytest.mark标识这个用例满足的规则，以满足不同时间的测试需求，分类由业务团队自己定义 eg. 有些用例跑起来非常耗时，且相关模块平时不怎么动，可以每周跑一次，有些用例则需要每天都跑，有些冒烟用例需要每次提交代码都测试, 则可以定义以下几种markpytest.mark.dailypytest.mark.weeklypytest.mark.smoke运行时加上-m smoke时就只会跑smoke标识的用例 可以根据feature加一些feature的mark，比如pytest.mark.retrieval 可以根据用例的优先级来定义一组 …… 变量的命名需和业务术语一致，像jiansuo，bukong这种变量命名是不被允许的 单词的缩写需要能完整表明语义 提交代码前需要保证pytest –collect-only不报错 同一个feature的测试用例应该放在相同的目录下 保证测试代码是幂等的]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>代码规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux分卷压缩命令]]></title>
+    <url>%2F2019%2F08%2F20%2FLinux%E5%88%86%E5%8D%B7%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1.使用tar分卷压缩 命令： 1tar cvzf - filedir | split -d -b 50m - filename 例子： 1tar cvzf - ./picture | split -d -b 10m - picture 将./picture 打包，并分割为10m的包。输出的文件为 filename00、filename01、filename02 …如果不加filename，则输出文件为 x00、x01、x02 …如果不加参数 -d，则输出aa、ab、ac … 2.解压分卷 首先将分卷包合拼： 1cat x* &gt; myzip.tar.gz 然后解压： 1tar xzvf myzip.tar.gz 例子： 12cat picture* &gt; picture.tar.gztar xzvf picture.tar.gz]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>压缩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tar.xz压缩与解压]]></title>
+    <url>%2F2019%2F08%2F17%2Ftar.xz%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%2F</url>
+    <content type="text"><![CDATA[1. XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数Linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。 我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。 最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩时间比较长，比7z压缩时间还长一些。不过压缩是一次性的，所以可以忽略。 2. xz压缩文件方法或命令xz -z 要压缩的文件 。如果要保留被压缩的文件加上参数 -k ，如果要设置压缩率加入参数 -0 到 -9调节压缩率。如果不设置，默认压缩等级是6. 3. 创建或解压tar.xz文件的方法习惯了 tar czvf 或 tar xzvf 的人可能碰到 tar.xz也会想用单一命令搞定解压或压缩。其实不行 tar里面没有征对xz格式的参数比如 z是针对 gzip，j是针对 bzip2。创建tar.xz文件：只要先 tar cvf xxx.tar xxx/ 这样创建xxx.tar文件先，然后使用 xz -z xxx.tar 来将 xxx.tar压缩成为 xxx.tar.xz解压tar.xz文件：先 xz -d xxx.tar.xz 将 xxx.tar.xz解压成 xxx.tar 然后，再用 tar xvf xxx.tar来解包。 4. Referencetar.xz压缩与解压]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>打包压缩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux打开txt文件乱码的解决方法]]></title>
+    <url>%2F2019%2F08%2F16%2FLinux%E6%89%93%E5%BC%80txt%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[今天发现打开windows下的txt文本出现问题，主要是编码问题，所以这里我记录下这个问题的解决方法。 Linux显示在Windows编辑过的中文就会显示乱码是由于两个操作系统使用的编码不同所致。Linux下使用的编码是utf8，而Windows使用的是gb18030。因此，解决Linux打开txt文件中文乱码可有如下两种方法。 方法一： 在附件终端中，进入到txt文件所在目录，使用命令符“iconv -f gb18030 -t utf8 1.txt -o 2.txt”把gb18030编码的1.txt转换成utf8的2.txt。这样2.txt就成为Linux支持的编码。 方法二： 在附件终端中,使用命令符“gconf-editor”，进入环境配置，依次展开“/apps/gedit-2/preferences/encodings/”，编辑右侧的“auto_detected”将“gb18030”添加到最顶上。以后文本编辑器就可以正常显示中文了。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>乱码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jmeter聚合报告99% 95% 90%Line正解]]></title>
+    <url>%2F2019%2F08%2F16%2FJmeter%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A99%25%2095%25%2090%25Line%E6%AD%A3%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[90% Line - 90% of the samples took no more than this time. The remaining samples took at least as long as this.百分之90的耗时在这个时间以内，剩下10%的耗时至少比这个时间长。 95% Line - 95% of the samples took no more than this time. The remaining samples took at least as long as this.百分之95的耗时在这个时间以内，剩下5%的耗时至少比这个时间长。 99% Line - 99% of the samples took no more than this time. The remaining samples took at least as long as this.百分之99的耗时在这个时间以内，剩下1%的耗时至少比这个时间长。]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>Jmeter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[工作中常用的git命令]]></title>
     <url>%2F2019%2F08%2F12%2F%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84git%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[对工作中经常使用的git命令进行总结。实际工作中写代码，一般情况是创建个人开发分支，再从主分支拉去代码到个人分支上，开发完毕后，提merge request，代码无误后提交到主分支。以下为常用命令： 一、克隆远程仓库到本地git clone ${repo-address} git clone -b ${分支名} ${仓库地址} # 使用git克隆指定分支的代码 二、拉取远程代码到本地分支git pull ${远程主机名} ${远程分支名}:${本地分支名} 三、管理分支1. 查看本地分支123git branch* master... 2. 查看远程分支git branch -r 3. 查看所有分支git branch -a 4. 创建本地的新分支git branch ${branch-name} 5. 切换到新的分支git checkout ${branch-name} 6. 创建+切换分支git checkout -b ${branch-name} 7. 将新分支推送到githubgit push origin ${branch-name} 8. 删除本地分支git branch -d ${branch-name} 9. 删除远程分支git push origin:${branch-name} 10. 切换远程分支git checkout -b ${local-branch} origin/${remote-branch} # 作用是checkout远程的dev分支，在本地起名为dev分支，并切换到本地的dev分支 四、删除错误上传到远程仓库的文件夹12345git clone 你的文件路径ls -lagit rm -r --cached 要删除的文件夹git commit -m '删除了target' # 提交,添加操作说明git push -u origin master # 将本次更改更新到github项目上去 关于git rm -r --cached中的“cached”参数，经查阅StackOverflow，解释如下： git rm on the other hand removes a file from the working directory and the index and when you commit, the file is removed from the tree as well. git rm –cached however removes the file from index alone and keeps it in your working copy. This is the exact opposite of git add file In this case, you made index to be different from the HEAD and the working, in it that the HEAD has the previously committed version of the file, working copy had the las modification if any or content from HEAD of the file and you removed the file from the index. A commit now will sync the index and tree and the file will be removed.]]></content>
@@ -12,6 +78,55 @@
       <tags>
         <tag>git</tag>
         <tag>cheatsheet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F08%2F12%2FPostman%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%92%8C%E5%A1%AB%E5%85%85%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[title: Postman自动获取和填充参数date: 2019-08-10 18:19:43categories: Test tags: postman在使用 Postman 调试时，经常会遇到这样的场景：首先通过一个接口获得一个 token，然后在后续的请求中使用这个 token 作为参数。使用 Postman 的测试功能，可以将获得的 token 自动保存在环境变量中，在后续的请求中通过读取环境变量就可以获取 token 的值。 1. 设置Environment 点击 Postman 右上角的齿轮按钮，选择“Manage Environments”； 点击Add添加一个 Environment； 输入 Environment 的名称； 然后在 Postman 右上角的下拉框中选中刚才建立的 Environment； 2. 获取并保存token到环境变量接下来为获取 token 的请求添加 Tests。举例来说，如果该请求的返回如下： 123456&#123; "data": &#123; "someKey": "someValue", "token": "123456789" &#125;&#125; 其中 token 的值是需要保存的值。选择该请求后，点击 Tests，输入： 12var response = JSON.parse(responseBody);postman.setEnvironmentVariable("token", response.data.token); 这里 responseBody 是该请求返回的 body，setEnvironmentVariable() 的第一个参数 “token” 是环境变量的名称；第二个参数 response.data.token 是环境变量的值。执行行该请求，成功后，点击Postman右上角的眼睛按钮，可以看到token环境变量已经被自动设置了。 3. 读取环境变量设置环境变量后，就可以通过的方式读取变量的值。 4. ReferencePostman自动获取和填充参数)]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[接口测试用例设计]]></title>
+    <url>%2F2019%2F08%2F12%2F%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%2F</url>
+    <content type="text"><![CDATA[导语随着测试分析和分层测试的深化，“接口测试”出现在我们视野的频次越来越高。那么接口测的用例设计常用哪些方法呢？本文将详细描述。 1 接口测试1.1 接口测试接口：主要是子模块或者子系统间交互并相互作用的部分。 这里说的接口是广义的，客户端与后台服务间的协议；插件间通信的接口；模块间的接口；再小到一个类提供的方法；都可以理解为接口。 接口测试：是指针对模块或系统间接口进行的测试。 1.2 接口测试发现的典型问题接口测试经常遇到的bug和问题，如下： （1）传入参数处理不当，导致程序crash； （2）类型溢出，导致数据读出和写入不一致； （3）因对象权限未进行校验，可以访问其他用户敏感信息； （4）状态处理不当，导致逻辑出现错乱； （5）逻辑校验不完善，可利用漏洞获取非正当利益等。 2 接口测试用例设计 上图为一个典型的接口。一个接口通常是有输入输出的，输入就是我们常见的入参，输出有时有，有时没有。调用相关接口，接口会执行相关处理逻辑。 接口测试的用例设计，主要从输入和接口处理两方面考虑： 1）针对输入，可按照参数类型进行设计； 2）针对接口处理，可按照逻辑进行用例设计； 3）针对输出，可根据结果进行分析设计。 2.1 针对输入设计 对于接口来说，输入就是入参。常见参数类型有: （1）数值型(int,long,float,double等） （2）字符串类型 （3）数组或链表 （4）结构体 结构体(struct)是一些元素的结合，元素实际也是数值型，字符串型，数组或链表。 下面详细说明数值型、字符串型、数组或链表三种参数类型用例设计。 2.1.1 数值型 数值型的参数主要考虑以下几个方面设计： 如果参数规定了值的范围，则需要考虑等价类取值范围内、取值范围外，取值的边界，如有需要，可能会遍历取值范围内的各个值。 例如检查权限的接口：TaskChecker.checkTask(int taskID) taskID的取值范围是1-35，那么设计时考虑： 1-35范围内和范围外的值； 1-35的边界：0，1,35,36； 类型的特殊值：-1,0 数据类型的边界值：int的最小值最大值； 因为1-35代码的权限ID不同，可能需要遍历1-35的每个值。 常见问题和风险： 特殊值处理不当导致程序异常退出； 类型边界溢出 取值范围外值未返回正确的错误信息等 2.1.2 字符串型 字符串型的参数，主要考虑字符串的长度和内容： 例如接口转换设置闹钟的接口DateUtil.getDayOfDDHH(String ddhh)，用例可以考虑： 长度为4位，比4位少，比4位多； 边界值：String的最大长度； 特殊值：空字符； 字符串内容可考虑类型：数字，非数字； 特殊字符。 如果是输入用户输入且其他用户可见的内容，则还需要考虑敏感字是否被正常过滤。 可能出现的问题和风险： 传入非特定类型程序异常退出 超长字符未进行处理，导致存储、显示等异常 其他用户可见设置的敏感字 2.1.3 数组或链表类型 参数类型为数组或链表时，用例可以考虑： 例如批量提交任务的接口submitTask(int[] taskID)，参数用例设计考虑： 正常取值：1-5个权限，范围外：6个权限； 边界值：1-35的边界值，请求允许最大最小值； 特殊值：0个； 合法ID和不合法的； 重复的ID等。 可能存在的问题和风险： 0个item时程序异常退出； 重复的item处理时未去重导致结果异常等。 2.2 针对逻辑设计 接口需要进行一些逻辑处理的，那么按逻辑设计用例可以从以下几个角度分析。 2.2.1 约束条件分析 （1）数值限制：分数限制、金币限制、等级限制等等。 例如：兑换Q币活动要求积分&gt;50才可参与。 （2）状态限制：登录状态等。 例如：同步用户信息需要先登录账号。 （3）关系限制：绑定的关系，好友关系等。 例如：帮家人防骗功能只能查询绑定家人的来电信息。 （4）权限限制：管理员等。 约束条件的测试在功能测试中经常遇到，在接口测试中更为重要。它的意义在于：用户进行操作时，在该操作的前端可以已经进行了约束条件的限制，故用户无法直接触发请求该接口。但是实际上，如果有其他手段：例如UI有bug或者通过技术手段直接调用接口，那么接口是否针对这些条件进行了限制就尤为重要。 例如常见的例子：要兑换5Q币需要200积分，但是我积分不足，所以兑换按钮是灰色无法点击的状态： 正常用户是无法操作的，但是兑换其实是调后台的一个接口，如果绕过页面按钮的限制，直接调用后台接口兑换呢？是否可以兑换？预期当然是不能兑换的。因此积分这个数值限制就需要针对接口进行测试，并且非常重要。 其他约束条件类似： 时间约束：22：00之前； 数值约束：积分200；限量5个； 状态约束：登录手机管家； 等等约束条件类似。 常见的问题和风险： 约束条件判断不足，导致用户可通过特殊手段获取利益 2.2.2 操作对象分析 操作通常是针对对象的，例如用户绑定电话号码，电话号码就是操作对象，而这个电话号码的话费、流量也是对象。 对象分析主要是针对合法和不合法对象进行操作。例如下述用例子: 用户A查询电话P1话费： 用户A查询电话P1流量； 用户A查询电话P2话费； 用户A查询电话P2流量。 后台的逻辑处理，如果一个电话已经被绑定过，从后台的角度是可以查询到该电话的话费和流量的。但是在用户侧，应该是A绑定了的电话，才能让A查询到该电话的话费。故类似对象的测试也必不可少。 常见的问题和风险： 用户可访问非权限内的其他用户信息、敏感信息，从而利用这些信息谋取利益。 2.2.3 状态转换分析 被测逻辑可以抽象成状态机，各个状态之间根据功能逻辑从一个状态切换到另一个状态。如果我们打乱了这个次序，从一个状态切换到另一个不在它下一状态集中的状态，那么逻辑将会打乱，就会出现逻辑问题。 如上图所示，从某状态改变到新的状态，依赖于转换接口。而对于某转换接口，其输入状态是确定的，比如Fun23, 这个函数只能把状态2转换为状态3，而不能把状态1转换为状态3。那么测试点就可以是： （1）状态为状态2，调用接口Fun23（），状态切换到状态23； （2） 状态为1,3等，调用接口Fun23（），状态不能切换。 例如在做任务的时候，任务有三种状态：未领取，已领取未提交，已完成三种状态。 那么可以这样设计： （1）正常的状态切换：未领取状态，领取任务后变为已领取状态；已领取满足任务条件提交后，变成已完成状态；完成后可以再次领取任务。 （2） 非正常的状态切换：未领取任务满足任务条件直接提交任务；已领取时再次领取任务等等。 常见的问题和风险： 可通过特殊手段达到原本不能的状态，从而谋取利益。 2.2.4 时序分析 在一些复杂的活动中，一个活动是由一系列动作按照指定顺序进行的，这些动作形成一个动作流，只有按照这个顺序依次执行，才能得到预期结果。 在正常的流程里，这些动作是根据程序调用依次进行的，并不会打乱，在接口测试时，需要考虑如果不安装时序执行，是否会出现问题。 例如，客户端数据同步是由客户端触发进行的，期间的同步用户无法干预。功能测试的时候可见的就是是否能正常进行同步，而进一步分析，同步流程实际涉及了一组动作： 从时序图可以看出，后台有3个接口：登陆获取用户ID，上报本地数据，上报本地冲突。三个接口需要依次调用执行，才能完成同步。那么在接口测试就可以考虑打乱上述接口的执行顺序去执行，会有怎样的结果，是否会出现异常。例如：获取用户ID后不上报本地数据而直接上报本地冲突。 常见的问题和风险： 非顺序执行后，数据出现异常，可能还会出现程序其他异常 通过打乱顺序获取利益 2.3 针对输出设计 针对输出设计其实是针对接口返回的结果进行分析。 2.3.1 针对输出结果 接口处理正确的结果可能只有一个，但是错误异常返回结果有很多情况很多值。如果知道返回结果有很多种，就可以针对不同结果设计用例。例如提交积分任务的时候我们通常能想到的是返回正确和错误，错误可能想到：无效任务，无效登录态，但是不一定能否完全覆盖所有错误码，而接口返回定义的返回码可以设计更多用例： 覆盖返回码也是用例设计的一种思路。 常见问题和风险： （1）错误前端处理不足，导致前端异常； （2）错误提示处理不当，导致用户看到晦涩的错误码； （3）错误提示不当，导致用户不知道哪里出了问题，如何解决。 2.3.2 接口超时 接口正常情况下是有返回的，那么如果接口不返回呢？也就是说接口超时后的处理也是测试需要考虑的部分。如果超时处理不当，可能会引起以下问题： （1）未进行超时处理，导致整个流程阻塞 （2）超时后又收到接口返回，导致逻辑出现错乱 2.4 其他测试设计2.4.1 已废弃接口测试 已废弃协议，是指之前有定义，但是因为需求变更或其他原因，目前版本不用。这些接口虽然不再使用，但有可能代码并没有及时删除。如果利用技术手段调用这些接口，可能获取额外利益。 例如，任务之前有个清理任务，在一个版本需求里将清理任务替换为下载任务。在新版本客户端已不再调用完成清理任务的接口；但是如果该接口未关闭，用户就可以继续请求submitTask(int taskID)接口完成清理任务获得积分。 因此新版本在考虑兼容旧版本的同时，还应做好相关废弃接口的检查，避免用户获得额外利益。 2.4.2 接口设计合理性分析 接口定义是否合理可以从以下几个方面分析： （1）接口字段是否冗余； （2）接口是否冗余； （3）接口是否返回了调用方期望得到的信息； （4）接口定义是否可满足所有调用需求； （5）接口定义调用是否方便。 2.5 一个完整的例子下面举一个完整例子，通过上述方法来分析如何对接口进行用例设计。 某模块提供了一个接口给其他模块，用户请求任务，接口定义如下： 2.5.1 针对输入设计 dialogDetailText（dialogButtonText类似） 长度 1）正常：请安装提示进行操作； 2）边界：一个字：请；长度非常长：无悬浮窗权限，可能影响XX功能无法使用，请开始悬浮窗权限，以便获得更好的用户体验；甚至更长； 3）特殊：空字符串。 内容 1）特定类型：中文，英文，数字等； 2）特殊字符：/n/r/t ,.&gt;&lt;?*$&amp;%~”ஜღ℡♬€✎等； 3）敏感字符：非用户设置，不涉及。 taskID（requestType类似） 等价类 取值范围内：1,5,10等； 取值范围外：0，99。 边界法 取值范围边界：0,1,38,39,40 数据类型边界：-2147483648 ,2147483648 特殊值：0,-1等。 遍历法：1,2,3,4,5…38,39对应每种不同ID。 2.5.2 针对逻辑设计 （1）约束条件分析 去引导某功能需要：未完成过任务，任务有任务数据。 那么用例可以是：以下情况下调requestTask： 1）未使用过有任务数据时； 2）未使用无任务数据时； 3）使用过有任务数据时； 4）使用过无任务数据时。 如果有其他约束条件类似设计。 （2）操作对象分析 调用请求接口后，会显根据任务数据，引导对应的任务。任务数据，任务操作方式，任务功能都可以是对象。 1）任务数据 数据类型：本地，云端 等 数据有效性：正确数据，错误数据 2）操作方式 方式：安装，下载，打开等等 。 3）任务功能 功能：用户操作了该功能，未正常操作该功能；什么都不操作；完成一个任务功能；完成多个任务功能；任务功能使用顺序等等。 对象：还需要关注，会不会操作到不合法的对象，例如任务数据和功能不对应等问题。 （3）状态转换分析 功能是有4个状态的：完成，未完成，未知。状态图如下：这里是产品里涉及的状态转换： 针对该状态： 1）正常状态转换：未完成状态请求并完成任务后是否可变成完成状态；未完成状态请求但不完成，还是未完成状态。 2）走不到的状态路径：未知和完成状态请求任务，不能进行进行该任务。 （4）时序分析 从时序的角度分析，调用请求接口前需要以下2步动作： 1）拉取任务数据； 2）判断任务状态。 从时序得到的用例有： 正常时序：按照正常时序请求1 2 3； 缺失的时序 缺少动作1调2 3；缺少动作2调1 3；缺少动作1和2直接调。 打乱的时序 打乱的时序：2 1 3，还可以有1 3 2，2 3 1，3 1 2，3 2 1。 针对处理逻辑的设计中，可能使用某一种或某几种方式就可以将用例覆盖前，故实际使用中，可能不会全部使用，只要找到最合适的方式覆盖用例即可。 2.5.3 针对输出分析 请求任务接口返回的数据是任务完成结果，即返回完成，未完成两种状态（未知都作为完成返回）。 从结果可以考虑遍历： 1）未完成 2）完成 3）完成-未知 从接口处理时间分析，考虑：请求后快速返回，很长时间才返回，甚至不返回结果的情况。 3 小结接口用例设计方法中，针对输入、输出的设计是通用的，接口设计时都可用到。对于接口逻辑的设计可能会应用比较适合的一种或几种方法，在接口用例设计时，需要选取最合适的方法去覆盖被测逻辑。 Reference[接口测试][腾讯 TMQ] 接口测试用例设计]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>testcase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pytest学习]]></title>
+    <url>%2F2019%2F08%2F11%2Fpytest%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[1. pytest用例规则 测试文件以test_开头（以_test结尾也可以） 测试类以Test开头，并且不能带有 init 方法 测试函数以test_开头 断言使用assert 所有的包package必须要有__init__.py文件 2. 参数化parametrizepytest.mark.parametrize装饰器可以实现测试用例参数化。 若要获得多个参数化参数的所有组合，可以堆叠参数化装饰器。 3. 常用断言pytest里面断言实际上就是python里面的assert断言方法，常用的有以下几种： assert xx 判断xx为真 assert not xx 判断xx不为真 assert a in b 判断b包含a assert a == b 判断a等于b assert a != b 判断a不等于b 4. skip跳过用例跳过测试函数的最简单方法是使用跳过装饰器标记它，可以传递一个可选的原因：`@pytest.mark.skip(reason=”no way of currently testing this”)` 如果您希望有条件地跳过某些内容，则可以使用skipif代替。 这是标记测试的示例在Python3.6之前的解释器上运行时要跳过的函数：`@pytest.mark.skipif(sys.version_info &lt; (3,6),)`]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pytest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible解决了什么]]></title>
+    <url>%2F2019%2F07%2F29%2FAnsible%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%2F</url>
+    <content type="text"><![CDATA[Ansible解决了什么首先，它是一个运维工具。当然要解决运维过程中遇到的问题了。运维过程遇到了什么问题？ 想像一下，你要在一台新的机器上安装Tomcat，你会怎么样呢，条件反射的： 123456ssh user@111.111.111.111wget -c http://apache.fayea.com/tomcat/tomcat-8.5.15.tar.gztar -zxf apache-tomcat-8.5.15.tar.gz.....省略 好，10分钟后你愉快地完成了老板给你的任务。但是现在你需要给100台机器安装Tomcat呢？手工的重复100次？ 而Ansible能让我们只定义一次，理论上可以在无限台机器上执行。换句话：减少运维工作中的重复工作。 同时，如果是人工执行100次，那么失误是难免的！自动化运维工具会严格根据我们所给指令来执行。 不少人反对自动化，认为那样太危险，因为一不小心就在上百台机器删错文件。显然，他们没有注意到：自动化实现的是准确地执行指令，解决人类执行任务时存在的指令理解不正确、执行不严格的问题。而机器不会出现这些问题的概念几乎为零。 有达到预期效果，往往是我们人类下达的指令不正确。 所以，Ansible还解决了人执行指令不准确的问题。 如果使用Ansible来实现上述的运维需求，怎么做呢？你需要做三件事情： 定义目标机器的列表：一种被称为inventory的类ini文件 定义这些机器的配置：使用YAML格式的文件来描述你机器的配置 执行 ansible-playbook -i inventory playbook.yml 以下是inventory文件：1234[tomcat-servers]111.111.111.111112.112.112.112.... 而这些ip的配置写在一种被称为playbook的YAML文件中：1234567891011121314---- hosts: tomcat-servers tasks: - name: download tomcat get_url: url: http://apache.fayea.com/tomcat/tomcat-8.5.15.tar.gz dest: /tmp - name: unarchive tomcat to /usr/local unarchive: src: /tmp/apache-tomcat-8.5.15.tar.gz dest: /usr/local/ remote_src: true.....省略 如果你想再添加100台机器，你需要做的，也只是在inventory文件里添加100个ip，再执行一遍ansible-playbook命令。 当然，写shell写得不错的人，也能实现上面的功能。 但是，使用Ansible有什么优势？模块化和标准化！ 手工写shell，甚至手工写python，要做到模块化和标准化，太困难了。 Ansible将大部分运维工作都抽象并标准化成一个个模块（module）。所有的模块都以这样形式使用： 123- name: &lt;描述说明(option)&gt; &lt;模块名&gt; &lt;属性名&gt;: &lt;属性值&gt; 比如使用Ansible的file模块创建文件夹，而且file模块会自行判断该文件夹是否存在： 1234567- name: create a directory file: path: &quot;/tmp/aa&quot; state: directory owner: &quot;centos&quot; group: &quot;centos&quot; mode: &quot;ug=rwx,o=rx&quot; 显然，不同的人使用shell或python在方法名上可能都不一样，是驼峰，还是使用下划线？是使用createDir？使用createDirectory？还是create_folder？ 小结 我们小结一下Ansible到底解决了什么问题？ 自动化：避免运维工作中重复的工作，以及人的不确定性问题 模块化：大部分运维工作能做到模块化，直接使用shell脚本或者python，还是过于低级，比如： 1234if [ ! -d &quot;/tmp/aa&quot; ]; then mkdir /tmp/aa fi .... 标准化：所有的模块的使用方式都是一样的，减少学习成本 Ansible解决以上问题都是为了实现一个最根本的目标：自动化配置！ Reference简单易懂Ansible系列 —— 解决了什么]]></content>
+      <categories>
+        <category>Dev&amp;Ops</category>
+      </categories>
+      <tags>
+        <tag>ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python函数参数前面单星号（*）和双星号（**）的区别]]></title>
+    <url>%2F2019%2F07%2F19%2Fpython%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%89%8D%E9%9D%A2%E5%8D%95%E6%98%9F%E5%8F%B7%EF%BC%88*%EF%BC%89%E5%92%8C%E5%8F%8C%E6%98%9F%E5%8F%B7%EF%BC%88**%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[在python的函数中经常能看到输入的参数前面有一个或者两个星号，例如： 12def foo(param1, *param2):def bar(param1, **param2): 这两种用法其实都是用来将任意个数的参数导入到python函数中。 单星号*agrs是将所以参数以元组(tuple)的形式导入； 双星号**kwargs将参数以字典的形式导入；]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -40,14 +155,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[软件测试基本流程]]></title>
-    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
+    <title><![CDATA[Linux下通过sed命令直接修改文件内容]]></title>
+    <url>%2F2019%2F06%2F07%2FLinux%E4%B8%8B%E9%80%9A%E8%BF%87sed%E5%91%BD%E4%BB%A4%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[sed是实现对流的编辑。通常，我们使用sed可以实现内容的编辑后然后保存成另外的一个文件，如果正确的话，才写入到源文件。但是某些时候，我们需要直接修改文件，因为，保存文件到一个文件，然后再覆盖原文件的办法显得很麻烦。 其实很简单，只需要一个-i 参数就可以了。 sed &#39;s/properties/property/g&#39; build.xml这种方式，其实并没有修改build.xml文件的内容。如果想保存修改，通常的做法就需要重定向到另外的一个文件sed &#39;s/properties/property/g&#39; build.xml &gt; build.xml.tmp这样，build.xml.tmp文件就是修改后的文件.如果无误，那么就可以用mv build.xml.tmp build.xml覆盖原文件。如果想直接修改源文件，而没有这样的过程，可以用下面的命令：sed -i &#39;s/properties/property/g&#39; build.xml 这样，就直接修改了build.xml文件。 注：还有一个更简单的方法 sed -in-place -e &#39;s/abc/cba/g&#39; build.xml。 Referencelinux下通过sed命令直接修改文件内容]]></content>
       <categories>
-        <category>Test</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>test</tag>
+        <tag>command</tag>
       </tags>
   </entry>
   <entry>
@@ -64,6 +179,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[软件测试基本流程]]></title>
+    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我的CS学习路线]]></title>
     <url>%2F2019%2F05%2F27%2F%E6%88%91%E7%9A%84CS%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
     <content type="text"><![CDATA[一、北京科技大学阶段课程 大学计算机基础 C语言程序设计 微机原理 高等数学 线性代数 概率论与数理统计 二、北京大学阶段课程 离散数学 计算机网络 数据库及其应用 CS导论 数据结构与算法 Java语言程序设计 Hadoop理论与实践 软件测试 软件工程 信息安全基础 面向对象程序设计 三、Penn State阶段课程 Introduction to Computer Architechture Data Mining Computer Networks(500 level) Operating System Introduction to Computer Security Programming Language Concept Fundamentals of Computer Architecture Wireless and Mobile Security Parallel Computing Database Management System Computer Science Project Management 四、在校期间学习总结根据这张图来看，转专业在校期间也学得七七八八。唯一缺陷是没学计算机组成与结构和Cpp。 五、Java开发实习阶段 Spring MVC Spring Security MongoDB Bootstrap Jenkins Maven IntelliJ IDEA Tomcat MySQL VPN ROUTER Git SSH TestNG JUnit 六、测试开发工程师阶段 Python Ansible Jekins Docker Swagger Yaml Gradle Yarn Scrum JIRA Confluence Shell/Linux Pytest]]></content>
@@ -73,6 +199,17 @@
       <tags>
         <tag>summary</tag>
         <tag>road</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下添加用户并赋予root权限]]></title>
+    <url>%2F2019%2F05%2F22%2FLinux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88root%E6%9D%83%E9%99%90%2F</url>
+    <content type="text"><![CDATA[1、添加用户，首先用adduser命令添加一个普通用户，命令如下： 1234567# adduser tommy//添加一个名为tommy的用户\#passwd tommy //修改密码Changing password for user tommy.New UNIX password: //在这里输入新密码Retype new UNIX password: //再次输入新密码passwd: all authentication tokens updated successfully. 2、赋予root权限 修改 /etc/sudoers 文件，找到下面一行，把前面的注释（#）去掉： 12## Allows people in group wheel to run all commands%wheel ALL=(ALL) ALL 然后修改用户，使其属于root组（wheel），命令如下： #usermod -g root tommy。修改完毕，现在可以用tommy帐号登录，然后用命令 su – ，即可获得root权限进行操作。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -87,9 +224,9 @@
       </categories>
       <tags>
         <tag>software</tag>
+        <tag>docker</tag>
         <tag>env</tag>
         <tag>坑</tag>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -408,24 +545,24 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[java对象排序-Comparator和Comparable]]></title>
-    <url>%2F2018%2F08%2F15%2Fjava%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F-Comparator%E5%92%8CComparable%2F</url>
-    <content type="text"><![CDATA[当需要排序的集合或数组不是单纯的数字型时，通常可以使用Comparator或Comparable，以简单的方式实现对象排序或自定义排序。 一、Comparator强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。接口方法：int compare(Object o1, Object o2);举例：12345678910111213141516171819202122import java.util.Arrays;import java.util.Comparator;public class SampleComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return toInt(o1) - toInt(o2); &#125; private int toInt(Object o) &#123; String str = (String) o; str = str.replaceAll(&quot;一&quot;, &quot;1&quot;); str = str.replaceAll(&quot;二&quot;, &quot;2&quot;); str = str.replaceAll(&quot;三&quot;, &quot;3&quot;); // return Integer.parseInt(str); &#125; public static void main(String[] args) &#123; String[] array = new String[] &#123; &quot;一二&quot;, &quot;三&quot;, &quot;二&quot; &#125;; Arrays.sort(array, new SampleComparator()); for (int i = 0; i &lt; array.length; i++) &#123; System.out.println(array[i]); &#125; &#125;&#125; 二、Comparable强行对实现它的每个类的对象进行整体排序，实现此接口的对象列表（和数组）可以通过Collections.sort或Arrays.sort进行自动排序。接口方法: int compareTo(Object o);假设对象User，需要按年龄排序：123456789101112131415161718192021222324252627public class User &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 改造后的对象： 12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.Arrays;public class User implements Comparable &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125; public int compareTo(Object o) &#123; return this.age - ((User) o).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 三、Comparator和Comparable的区别先看一下使用Comparator对User集合实现排序的方式：1234567891011121314151617import java.util.Arrays;import java.util.Comparator;public class UserComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return ((User) o1).getAge() - ((User) o2).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users, new UserComparator()); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 一个类实现了Camparable接口则表明这个类的对象之间是可以相互比较的，这个类对象组成的集合就可以直接使用sort方法排序。Comparator可以看成一种算法的实现，将算法和数据分离，Comparator也可以在下面两种环境下使用： 类的设计师没有考虑到比较问题而没有实现Comparable，可以通过Comparator来实现排序而不必改变对象本身 可以使用多种排序标准，比如升序、降序等 四、补充一个例子：12345678List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;(); Collections.sort(persons, new Comparator&lt;Person&gt;() &#123; @Override public int compare(Person o1, Person o2) &#123; Collator collator = Collator.getInstance(Locale.CHINA); return collator.compare(o1.getName(), o2.getName()); &#125; &#125;); 使用Collections.sort方法，传一个Comparator实现类，比较对象字段实现compare方法。 References java对象排序-Comparator和Comparable Java根据对象的某个字段排序]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Development</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JDK1.5与JDK8新特性]]></title>
     <url>%2F2018%2F08%2F15%2FJDK1.5%E4%B8%8EJDK8%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[一、JDK1.5新特性 自动装箱与拆箱：自动装箱的过程：每当需要一种类型的对象时，这种基本类型就自动地封装到与它相同类型的包装中。自动拆箱的过程：每当需要一个值时，被装箱对象中的值就被自动地提取出来，没必要再去调用intValue()和doubleValue()方法。自动装箱，只需将该值赋给一个类型包装器引用，java会自动创建一个对象。自动拆箱，只需将该对象值赋给一个基本类型即可。java——类的包装器类型包装器有：Double,Float,Long,Integer,Short,Character和Boolean 枚举把集合里的对象元素一个一个提取出来。枚举类型使代码更具可读性，理解清晰，易于维护。枚举类型是强类型的，从而保证了系统安全性。而以类的静态字段实现的类似替代模型，不具有枚举的简单性和类型安全性。简单的用法：JavaEnum简单的用法一般用于代表一组常用常量，可用来代表一类相同类型的常量值。复杂用法：Java为枚举类型提供了一些内置的方法，同事枚举常量还可以有自己的方法。可以很方便的遍历枚举对象。 静态导入通过使用 import static，就可以不用指定 Constants 类名而直接使用静态成员，包括静态方法。import xxxx 和 import static xxxx的区别是前者一般导入的是类文件如import java.util.Scanner;后者一般是导入静态的方法，import static java.lang.System.out。 可变参数（Varargs）可变参数的简单语法格式为：methodName([argumentList], dataType…argumentName); 内省（Introspector）是Java语言对Bean类属性、事件的一种缺省处理方法。例如类A中有属性name,那我们可以通过getName,setName来得到其值或者设置新 的值。通过getName/setName来访问name属性，这就是默认的规则。Java中提供了一套API用来访问某个属性的getter /setter方法，通过这些API可以使你不需要了解这个规则（但你最好还是要搞清楚），这些API存放于包java.beans中。一 般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器 （PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来 调用这些方法。 泛型(Generic)C++通过模板技术可以指定集合的元素类型，而Java在1.5之前一直没有相对应的功能。一个集合可以放任何类型的对象，相应地从集合里面拿对象的时候我们也 不得不对他们进行强制得类型转换。猛虎引入了泛型，它允许指定集合里元素的类型，这样你可以得到强类型在编译时刻进行类型检查的好处。 For-Each循环For-Each循环得加入简化了集合的遍历。假设我们要遍历一个集合对其中的元素进行一些处理。 JUCConcurrentHashMap(简称CHM)是在Java 1.5作为Hashtable的替代选择新引入的,是concurrent包的重要成员。 二、JDK8新特性 Lambda表达式Lambda表达式可以说是Java 8最大的卖点，她将函数式编程引入了Java。Lambda允许把函数作为一个方法的参数，或者把代码看成数据。 接口的默认方法与静态方法我们可以在接口中定义默认方法，使用default关键字，并提供默认的实现。所有实现这个接口的类都会接受默认方法的实现，除非子类提供的自己的实现。 方法引用通常与Lambda表达式联合使用，可以直接引用已有Java类或对象的方法。一般有四种不同的方法引用。 构造器引用。语法是Class::new，或者更一般的Class&lt; T &gt;::new，要求构造器方法是没有参数。 静态方法引用。语法是Class::static_method，要求接受一个Class类型的参数。 特定类的任意对象方法引用。它的语法是Class::method。要求方法是没有参数的。 特定对象的方法引用，它的语法是instance::method。要求方法接受一个参数，与3不同的地方在于，3是在列表元素上分别调用方法，而4是在某个对象上调用方法，将列表元素作为参数传入。 重复注解在Java 5中使用注解有一个限制，即相同的注解在同一位置只能声明一次。Java 8引入重复注解，这样相同的注解在同一地方也可以声明多次。重复注解机制本身需要用@Repeatable注解。Java 8在编译器层做了优化，相同注解会以集合的方式保存，因此底层的原理并没有变化。 扩展注解的支持Java 8扩展了注解的上下文，几乎可以为任何东西添加注解，包括局部变量、泛型类、父类与接口的实现，连方法的异常也能添加注解。 OptionalJava 8引入Optional类来防止空指针异常，Optional类最先是由Google的Guava项目引入的。Optional类实际上是个容器：它可以保存类型T的值，或者保存null。使用Optional类我们就不用显式进行空指针检查了。 StreamStream API是把真正的函数式编程风格引入到Java中。其实简单来说可以把Stream理解为MapReduce，当然Google的MapReduce的灵感也是来自函数式编程。她其实是一连串支持连续、并行聚集操作的元素。从语法上看，也很像linux的管道、或者链式编程，代码写起来简洁明了，非常酷帅！ Date/Time API (JSR 310)Java 8新的Date-Time API (JSR 310)受Joda-Time的影响，提供了新的java.time包，可以用来替代 java.util.Date和java.util.Calendar。一般会用到Clock、LocaleDate、LocalTime、LocaleDateTime、ZonedDateTime、Duration这些类，对于时间日期的改进还是非常不错的。 JavaScript引擎NashornNashorn允许在JVM上开发运行JavaScript应用，允许Java与JavaScript相互调用。 Base64在Java 8中，Base64编码成为了Java类库的标准。Base64类同时还提供了对URL、MIME友好的编码器与解码器。 除了这十大新特性之外，还有另外的一些新特性： 更好的类型推测机制：Java 8在类型推测方面有了很大的提高，这就使代码更整洁，不需要太多的强制类型转换了。 编译器优化：Java 8将方法的参数名加入了字节码中，这样在运行时通过反射就能获取到参数名，只需要在编译时使用-parameters参数。 并行（parallel）数组：支持对数组进行并行处理，主要是parallelSort()方法，它可以在多核机器上极大提高数组排序的速度。 并发（Concurrency）：在新增Stream机制与Lambda的基础之上，加入了一些新方法来支持聚集操作。 Nashorn引擎jjs：基于Nashorn引擎的命令行工具。它接受一些JavaScript源代码为参数，并且执行这些源代码。 类依赖分析器jdeps：可以显示Java类的包级别或类级别的依赖。 JVM的PermGen空间被移除：取代它的是Metaspace（JEP 122）。另外Java8在JDK JUC 增加新的并发API。 三、参考资料 JDK各个版本的新特性jdk1.5-jdk8 Java8的十大新特性]]></content>
       <categories>
         <category>Development</category>
         <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java对象排序-Comparator和Comparable]]></title>
+    <url>%2F2018%2F08%2F15%2Fjava%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F-Comparator%E5%92%8CComparable%2F</url>
+    <content type="text"><![CDATA[当需要排序的集合或数组不是单纯的数字型时，通常可以使用Comparator或Comparable，以简单的方式实现对象排序或自定义排序。 一、Comparator强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。接口方法：int compare(Object o1, Object o2);举例：12345678910111213141516171819202122import java.util.Arrays;import java.util.Comparator;public class SampleComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return toInt(o1) - toInt(o2); &#125; private int toInt(Object o) &#123; String str = (String) o; str = str.replaceAll(&quot;一&quot;, &quot;1&quot;); str = str.replaceAll(&quot;二&quot;, &quot;2&quot;); str = str.replaceAll(&quot;三&quot;, &quot;3&quot;); // return Integer.parseInt(str); &#125; public static void main(String[] args) &#123; String[] array = new String[] &#123; &quot;一二&quot;, &quot;三&quot;, &quot;二&quot; &#125;; Arrays.sort(array, new SampleComparator()); for (int i = 0; i &lt; array.length; i++) &#123; System.out.println(array[i]); &#125; &#125;&#125; 二、Comparable强行对实现它的每个类的对象进行整体排序，实现此接口的对象列表（和数组）可以通过Collections.sort或Arrays.sort进行自动排序。接口方法: int compareTo(Object o);假设对象User，需要按年龄排序：123456789101112131415161718192021222324252627public class User &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 改造后的对象： 12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.Arrays;public class User implements Comparable &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125; public int compareTo(Object o) &#123; return this.age - ((User) o).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 三、Comparator和Comparable的区别先看一下使用Comparator对User集合实现排序的方式：1234567891011121314151617import java.util.Arrays;import java.util.Comparator;public class UserComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return ((User) o1).getAge() - ((User) o2).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users, new UserComparator()); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 一个类实现了Camparable接口则表明这个类的对象之间是可以相互比较的，这个类对象组成的集合就可以直接使用sort方法排序。Comparator可以看成一种算法的实现，将算法和数据分离，Comparator也可以在下面两种环境下使用： 类的设计师没有考虑到比较问题而没有实现Comparable，可以通过Comparator来实现排序而不必改变对象本身 可以使用多种排序标准，比如升序、降序等 四、补充一个例子：12345678List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;(); Collections.sort(persons, new Comparator&lt;Person&gt;() &#123; @Override public int compare(Person o1, Person o2) &#123; Collator collator = Collator.getInstance(Locale.CHINA); return collator.compare(o1.getName(), o2.getName()); &#125; &#125;); 使用Collections.sort方法，传一个Comparator实现类，比较对象字段实现compare方法。 References java对象排序-Comparator和Comparable Java根据对象的某个字段排序]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Development</category>
       </categories>
       <tags>
         <tag>java</tag>
