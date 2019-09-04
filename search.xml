@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pytest测试用例出错重跑--flaky插件]]></title>
+    <url>%2F2019%2F09%2F04%2Fpytest%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%87%BA%E9%94%99%E9%87%8D%E8%B7%91--flaky%E6%8F%92%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[自动化测试的时候，经常会遇到这样的问题：大部分时候执行测试用例都能pass，只是偶然出现false，而出现false的时候是因为外部因素引起，比如WiFi不稳定、使用了第三方插件不稳定等，这些情况下往往重新再执行用例就可以pass。可能遇到这种用例false的情况，我们首先想到的会是去剔除失败的用例，但是这样做不是最明智的做法，当用例数量多的时候，很难去判定哪些用例容易由于第三方因素false。最好的办法是—-让出错的用例重跑。那么如何做到让出错的用例重跑呢？如果你用的是nose或者pytest框架编写用例，就可以使用flaky插件。该插件能够在那些不稳定的case失败之后，重复执行这些case。 1.flaky插件安装 1pip install flaky 2.测试脚本中的使用 2.1 将不稳定的case标记为flaky 12345from flaky import flaky@flakydef test_func(self): self.assertEqual(1+3,5) 备注：在case方法上方加上@flaky，用例执行失败的时候会默认重新执行一次。 12345from flaky import flaky@flaky(max_runs=3, min_passes=2)def test_func(self): self.assertEqual(1+3,5) 备注：flaky接收两个参数：max_runs,min_passes。max_runs表示测试失败之后，会重复执行这个测试的次数。min_passes表示执行max_runs这么多次中，成功的次数&gt;=min_passes的话，则认为这个case就pass了。如上用例表示：执行3次用例中，如果pass次数&gt;=2，则pass. 2.2 将不稳定的测试类标为flaky 12345678910from flaky import flaky@flakyclass testAdd(unittest.TestCase): def test_func(self): self.assertEqual(1+3,5) @flaky(max_run=3) def test_double(self): self.assertEqual(2+6,8) 备注：以上testAdd类下的所有方法都会应用到flaky。test_func失败之后会默认再执行一次。test_double失败之后会重新再执行3次。 命令行中使用flaky 3.1 强制所有的测试使用flaky 1py.test --force-flaky 3.2设置重复执行的次数 1py.test --force-flaky --max-runs=3 --min-passes=2 3.3不输出flaky执行的测试报告 1py.test --no-flaky-report 备注：正常情况下，测试完成后将输出flaky的测试报告，该报告中显示了有哪些测试重复执行了以及重复执行的情况。如果不想在测试完成后输出flaky报告，可以在执行测试的时候加上–no-flaky-report参数。 Reference测试用例出错重跑–flaky插件]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pytest</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu修改系统默认使用的python版本]]></title>
     <url>%2F2019%2F08%2F29%2Fubuntu%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%9A%84python%E7%89%88%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[12scons: *** SCons version 2.4.1 does not run under Python version 3.5.2.Python 3 is not yet supported. 今天在服务器上编译gem5的时候遇到了上述的问题，基本意思就是SCons在python3.5.2上面无法运行，Scons不支持python3。那问题就很明了了，我查看了一下系统目前的python版本：python --version，发现默认的python版本是3.5.2。然后我ls了一下系统存在的python版本都是有哪些：ls /usr/bin/python*发现系统有python2.7 和python3.5两个版本。 查了查资料发现可以只修改某个用户默认使用的python版本，只需要将该用户的主目录下的.bashrc文件中加上这么一行：alias python=’/usr/bin/python2.7’但这么修改其实只是给python这条命令使用了一个别名而已，也就是说下次改用户使用python xxx.py执行python文件时，会将python修改为“/usr/bin/python2.7”。gem5使用的SCons是去读取的系统默认使用的python版本，也就是说使用alias修改是不行的。又查了查资料发现可以使用命令手动切换系统使用的python版本：update-alternatives --config python。在列表中选择想要系统默认使用的python版本就可以了。 此时gem5就可以正常使用了。]]></content>
@@ -166,6 +177,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[软件测试基本流程]]></title>
+    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[TPS和QPS的区别]]></title>
     <url>%2F2019%2F06%2F02%2FTPS%E5%92%8CQPS%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[工作中总遇到TPS和QPS，感觉差不多，整理如下。 一、什么是TPSTPS = Transactions Per Second，即服务器每秒处理的事务数。TPS包括一条消息入和一条消息出，加上一次用户数据库访问。TPS是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 二、什么是QPSQPS = Queries Per Second，每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准，在因特网上，作为域名系统服务器的机器的性能经常用每秒查询率来衡量。 三、TPS和QPS有什么区别？QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入“QPS”之中。]]></content>
@@ -176,17 +198,6 @@
       <tags>
         <tag>test</tag>
         <tag>concept</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[软件测试基本流程]]></title>
-    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -651,8 +662,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>秋招</tag>
+        <tag>java</tag>
         <tag>面试</tag>
       </tags>
   </entry>
