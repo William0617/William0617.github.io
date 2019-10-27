@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[软考笔记]]></title>
+    <url>%2F2019%2F10%2F28%2F%E4%B8%8B%E5%8D%88%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[一、2012下午试题 主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载； 系统瓶颈分析： 响应速度慢的原因: 没有使用合适的并发/并行策略 数据库设计/优化不够 服务器带宽不足 CPU占用率高： CPU本身性能不足 程序没有使用合适的并发/并行策略 判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。 环路复杂度等于图中判定节点数+1. 控制流图的线性无关路径指的是：一条线性无关路径至少包含了一条在其他线性无关路径中从未有过的路径。 链接测试内容： 能否跳转到目标页面； 被链接的页面是否存在； 是否存在孤立页面； web应用安全性测试： 部署与基础结构 输入验证 授权 配置管理 敏感数据 会话管理 加密 参数操作 异常管理 审核和日志记录 兼容性测试： 浏览器 OS 移动终端 打印测试 用户权限控制测试点： 权限控制合理性：是否采用系统管理员、业务领导和操作人员三级分离；用户名唯一性，口令强度、加密强度、口令存储位置等； 权限分配合理性：系统本身分配的细致程度；特定权限用户访问系统功能的能力测试； 对访问控制系统攻击有： 冒充攻击：口令猜测； 重放攻击：截获有效请求并重放； 服务拒绝攻击：发送大量虚假请求占用系统带宽； 安全审计测试点： 能否进行系统数据收集、统一存储、集中审计； 能否支持基于PKI的应用审计； 能否支持XML等审计数据采集协议； 能否提供自定义审计规则； 可靠性测试的目的是： 发现系统需求、设计、编码、测试、实施等方面的各种缺陷； 为软件的使用和维护提供可靠性数据； 是否达到可靠性的定量需求； 可靠性目标是指客户对软件性能满意程度的期望。通常采用失效严重程度、可靠度、故障强度、平均无故障时间来描述。 失效严重程度： 对用户具有相同程度影响的失效的集合； 可靠度：规定条件和规定时间下，不发生失效的概率； 故障强度：单位时间内软件出现故障的概率； 平均无故障时间=平均无失效时间：软件运行后，到下一次出现失效的平均时间； 二、2013年下午试题 常见的性能测试包括： 负载测试； 压力测试 并发性能测试； 疲劳强度测试； 大数据量测试 负载压力测试中内容校验：如果没有执行结果正确的保证，那么负载压力测试就失去了意义。 表单测试的内容：每个字段的验证、字段的缺省值、表单中的输入、提交操作的完整性。 测试故障恢复：测试系统中是否存在单点故障；是否采用磁盘镜像技术； 测试数据备份：关键业务-&gt;双机热备/磁盘镜像；全部业务-&gt;外部存储器备份和恢复机制。 测试容灾备份：是否建立异地容灾备份中心；备份中心是否有足够的带宽；是否有足够的处理能力；能否快速可靠地与主中心切换。 数据库敏感数据的加密保护和访问方式的测试内容： 是否采用加密算法进行加密保护 是否为不同业务设置不同的专门用户用于访问；杜绝在代码中直接使用超级用户以及默认密码对数据库进行访问； 安全防护策略：安全日志、入侵检测、漏洞扫描、隔离防护 软件可靠性定义：在规定条件规定时限下，软件不引起系统失效的概率。 影响软件可靠性的因素：开发环境、开发方法、软件规模、内部结构、可靠性投入、运行剖面。 三、 2014下午试题 公式：系统的环路复杂度=线性无关路径条数 常见的黑盒测试用例设计方法：等价类划分、边界值分析、判定表、因果图、功能图、正交实验法、错误推测法。 如何测试XSS攻击？输入的参数中含有&lt;script&gt;&lt;/script&gt;或者&lt;html&gt;&lt;/html&gt; 如何防止XSS攻击？对功能符号进行转义。 图形界面测试点： 颜色饱和度和对比度是否合适 链接的颜色是否容易识别 是否正确加载了所有图形 页面测试测试点： 页面一致性 用户界面友好，页面导航直观 满足多种浏览器的需要 是否建立了页面文件的命名体系 合适的页面布局技术 口令攻击防护措施： 口令强度 口令传输和存储 口令管理：定时更新、口令锁定、历史口令不可用。 客户端USB key测试点： 功能测试： 是否支持AES RSA等常用加密算法 是否提供外部接口以支持用户证书和私钥的导入 是否提供外部接口支持数据传入key内，经过计算后导出 USB key插入状态实时监测 是否使用口令进行保护 性能测试： 私钥不能导出 加密算法的执行效率是否满足需求 证书服务器基本测试点： 功能测试： 证书的申请、审核、签发和管理等功能 证书格式.X509 是否提供加密证书和签名证书 证书撤销列表的发布和管理功能 性能测试： （水平）扩展 备份 可靠性：长时间运行 复杂压力、最大并发量 四、2015下午试题 基本路径测试法：在程序控制流图的基础上，通过分析控制构造的环路复杂度，导出基本可执行路径的集合，从而设计测试用例的方法。 边界值分析法是对等价类划分法的一种补充。若有a个等价类，有b个边界值，则从每个等价类中取任意一个值，然后再测b个边界值。 使用决策表进行测试用例设计的主要步骤： 确定规则个数 列出所有条件桩和动作桩 填入条件项和动作项 合并相似规则，化简决策表 web链接测试内容：内部链接测试、外部链接测试、邮件链接测试、断链测试。 常见的安全攻击手段：网络侦听、冒充攻击、拒绝服务攻击、web安全攻击。 安全测试方法：功能验证、漏洞扫描、模拟攻击实验、侦听检测。 表单输入测试：输入域、错误提示、必填项、选填项。 面向对象测试的对象为类和类中的方法。 面向对象多态的两个方法要分别进行测试。 类与类的关系主要有：继承、关联、依赖。关联包括：一般关联，组合，聚合。 继承对测试的影响有2个方面： 方法进行了修改，子类需要测试； 继承的方法无法修改，但是调用了子类其他修改了的方法； 笔记 运算器：算数逻辑单元ALU，累加寄存器，数据缓冲寄存器，状态条件寄存器 控制器：程序计数器PC，指数寄存器IR，指令译码器，时序部件 流水线计算公式2个：Nt+(k-1)t; 单条指令执行时间+（n-1）t 多级存储器结构：顺序存取-无地址-磁带 直接存取-有地址，与位置有关-磁盘光盘软盘 随机存取-有地址，与位置无关-内存U盘 相联存取-按内容存取-cache 操作系统作用：通过资源管理，提高计算机系统的效率；改善人机界面，提供友好交互。 进程=程序块+进程控制块（PCB）+数据块 进程状态管理 PV操作：信号量S&gt;=0时，S表示可用资源的数量。执行一次P操作意味着请求分配一个资源，因此S的值减1；当S&lt;0时，表示已经没有可用资源，S的绝对值表示当前等待该资源的进程数。请求者必须等待其他进程释放该类资源，才能继续运行。而执行一个V操作意味着释放一个资源，因此S的值加1。 死锁的4大条件：互斥，保持和等待，不剥夺，环路等待。（预防-&gt;打破四个条件） 外模式-视图；模式-表；内模式-文件； 等值连接，自然连接 无损压缩：熵编码法；有损压缩：熵压缩法 HIS：H色调，I光的强度，S饱和度 YUV：彩色空间：彩色电视制式 RGB：图像像素颜色值 A类地址：第一位0；B类地址：10；C类地址：110开头。 一维数组：a[i]的存储位置：a+i×len 二维数组a[m][n]中a[i][j]的存储位置：（1）按行存储：a+(i×n+j)len(2)按列存储：a+(j×n+i)len 项目三角形：范围，成本，时间 软件过程成熟度：初始级，可重复，已定义，已管理，优化 结构化分析：数据流图，数据字典，判定表判定树 聚合度：偶然，逻辑，时间，过程，通信，顺序，功能（低-&gt;高） 耦合度：非直接，数据，标记，控制，外部，公共，内容（低-&gt;高） 使用质量：有效性，生产率，安全性，满意度 软件评价过程的特性：可重复性，可再现性，公正性，客观性 词法错误：非法字符。关键字或标识符拼写错误。 语法错误：语法结构出错。if…end if不匹配，缺分号等。 语义错误：0除数，死循环等逻辑错误。 测试对象：文档，数据，程序 QA 关心过程，即活动本身。软件测试关心产物，不是活动本身。是对结果的剖析。 三类输入：软件配置，测试配置，测试工具。 软件错误-软件缺陷-软件故障-软件失效。 软件质量特性-外部质量和内部质量：功能性，可靠性，易用性，效率，维护性，可移植性。]]></content>
+      <categories>
+        <category>软考</category>
+      </categories>
+      <tags>
+        <tag>软考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pytest测试用例出错重跑--flaky插件]]></title>
     <url>%2F2019%2F09%2F04%2Fpytest%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%87%BA%E9%94%99%E9%87%8D%E8%B7%91--flaky%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[自动化测试的时候，经常会遇到这样的问题：大部分时候执行测试用例都能pass，只是偶然出现false，而出现false的时候是因为外部因素引起，比如WiFi不稳定、使用了第三方插件不稳定等，这些情况下往往重新再执行用例就可以pass。可能遇到这种用例false的情况，我们首先想到的会是去剔除失败的用例，但是这样做不是最明智的做法，当用例数量多的时候，很难去判定哪些用例容易由于第三方因素false。最好的办法是—-让出错的用例重跑。那么如何做到让出错的用例重跑呢？如果你用的是nose或者pytest框架编写用例，就可以使用flaky插件。该插件能够在那些不稳定的case失败之后，重复执行这些case。 1.flaky插件安装 1pip install flaky 2.测试脚本中的使用 2.1 将不稳定的case标记为flaky 12345from flaky import flaky@flakydef test_func(self): self.assertEqual(1+3,5) 备注：在case方法上方加上@flaky，用例执行失败的时候会默认重新执行一次。 12345from flaky import flaky@flaky(max_runs=3, min_passes=2)def test_func(self): self.assertEqual(1+3,5) 备注：flaky接收两个参数：max_runs,min_passes。max_runs表示测试失败之后，会重复执行这个测试的次数。min_passes表示执行max_runs这么多次中，成功的次数&gt;=min_passes的话，则认为这个case就pass了。如上用例表示：执行3次用例中，如果pass次数&gt;=2，则pass. 2.2 将不稳定的测试类标为flaky 12345678910from flaky import flaky@flakyclass testAdd(unittest.TestCase): def test_func(self): self.assertEqual(1+3,5) @flaky(max_run=3) def test_double(self): self.assertEqual(2+6,8) 备注：以上testAdd类下的所有方法都会应用到flaky。test_func失败之后会默认再执行一次。test_double失败之后会重新再执行3次。 命令行中使用flaky 3.1 强制所有的测试使用flaky 1py.test --force-flaky 3.2设置重复执行的次数 1py.test --force-flaky --max-runs=3 --min-passes=2 3.3不输出flaky执行的测试报告 1py.test --no-flaky-report 备注：正常情况下，测试完成后将输出flaky的测试报告，该报告中显示了有哪些测试重复执行了以及重复执行的情况。如果不想在测试完成后输出flaky报告，可以在执行测试的时候加上–no-flaky-report参数。 Reference测试用例出错重跑–flaky插件]]></content>
@@ -349,8 +360,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>Java Web</tag>
         <tag>面经</tag>
+        <tag>Java Web</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -368,8 +379,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>Java Web</tag>
         <tag>面经</tag>
+        <tag>Java Web</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -409,12 +420,12 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Linux</tag>
         <tag>Git</tag>
         <tag>Maven</tag>
         <tag>Jenkins</tag>
         <tag>软件工程</tag>
+        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
@@ -520,8 +531,8 @@
       </categories>
       <tags>
         <tag>面经</tag>
-        <tag>Java</tag>
         <tag>秋招总结</tag>
+        <tag>Java</tag>
         <tag>基础</tag>
       </tags>
   </entry>
@@ -556,24 +567,24 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JDK1.5与JDK8新特性]]></title>
-    <url>%2F2018%2F08%2F15%2FJDK1.5%E4%B8%8EJDK8%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
-    <content type="text"><![CDATA[一、JDK1.5新特性 自动装箱与拆箱：自动装箱的过程：每当需要一种类型的对象时，这种基本类型就自动地封装到与它相同类型的包装中。自动拆箱的过程：每当需要一个值时，被装箱对象中的值就被自动地提取出来，没必要再去调用intValue()和doubleValue()方法。自动装箱，只需将该值赋给一个类型包装器引用，java会自动创建一个对象。自动拆箱，只需将该对象值赋给一个基本类型即可。java——类的包装器类型包装器有：Double,Float,Long,Integer,Short,Character和Boolean 枚举把集合里的对象元素一个一个提取出来。枚举类型使代码更具可读性，理解清晰，易于维护。枚举类型是强类型的，从而保证了系统安全性。而以类的静态字段实现的类似替代模型，不具有枚举的简单性和类型安全性。简单的用法：JavaEnum简单的用法一般用于代表一组常用常量，可用来代表一类相同类型的常量值。复杂用法：Java为枚举类型提供了一些内置的方法，同事枚举常量还可以有自己的方法。可以很方便的遍历枚举对象。 静态导入通过使用 import static，就可以不用指定 Constants 类名而直接使用静态成员，包括静态方法。import xxxx 和 import static xxxx的区别是前者一般导入的是类文件如import java.util.Scanner;后者一般是导入静态的方法，import static java.lang.System.out。 可变参数（Varargs）可变参数的简单语法格式为：methodName([argumentList], dataType…argumentName); 内省（Introspector）是Java语言对Bean类属性、事件的一种缺省处理方法。例如类A中有属性name,那我们可以通过getName,setName来得到其值或者设置新 的值。通过getName/setName来访问name属性，这就是默认的规则。Java中提供了一套API用来访问某个属性的getter /setter方法，通过这些API可以使你不需要了解这个规则（但你最好还是要搞清楚），这些API存放于包java.beans中。一 般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器 （PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来 调用这些方法。 泛型(Generic)C++通过模板技术可以指定集合的元素类型，而Java在1.5之前一直没有相对应的功能。一个集合可以放任何类型的对象，相应地从集合里面拿对象的时候我们也 不得不对他们进行强制得类型转换。猛虎引入了泛型，它允许指定集合里元素的类型，这样你可以得到强类型在编译时刻进行类型检查的好处。 For-Each循环For-Each循环得加入简化了集合的遍历。假设我们要遍历一个集合对其中的元素进行一些处理。 JUCConcurrentHashMap(简称CHM)是在Java 1.5作为Hashtable的替代选择新引入的,是concurrent包的重要成员。 二、JDK8新特性 Lambda表达式Lambda表达式可以说是Java 8最大的卖点，她将函数式编程引入了Java。Lambda允许把函数作为一个方法的参数，或者把代码看成数据。 接口的默认方法与静态方法我们可以在接口中定义默认方法，使用default关键字，并提供默认的实现。所有实现这个接口的类都会接受默认方法的实现，除非子类提供的自己的实现。 方法引用通常与Lambda表达式联合使用，可以直接引用已有Java类或对象的方法。一般有四种不同的方法引用。 构造器引用。语法是Class::new，或者更一般的Class&lt; T &gt;::new，要求构造器方法是没有参数。 静态方法引用。语法是Class::static_method，要求接受一个Class类型的参数。 特定类的任意对象方法引用。它的语法是Class::method。要求方法是没有参数的。 特定对象的方法引用，它的语法是instance::method。要求方法接受一个参数，与3不同的地方在于，3是在列表元素上分别调用方法，而4是在某个对象上调用方法，将列表元素作为参数传入。 重复注解在Java 5中使用注解有一个限制，即相同的注解在同一位置只能声明一次。Java 8引入重复注解，这样相同的注解在同一地方也可以声明多次。重复注解机制本身需要用@Repeatable注解。Java 8在编译器层做了优化，相同注解会以集合的方式保存，因此底层的原理并没有变化。 扩展注解的支持Java 8扩展了注解的上下文，几乎可以为任何东西添加注解，包括局部变量、泛型类、父类与接口的实现，连方法的异常也能添加注解。 OptionalJava 8引入Optional类来防止空指针异常，Optional类最先是由Google的Guava项目引入的。Optional类实际上是个容器：它可以保存类型T的值，或者保存null。使用Optional类我们就不用显式进行空指针检查了。 StreamStream API是把真正的函数式编程风格引入到Java中。其实简单来说可以把Stream理解为MapReduce，当然Google的MapReduce的灵感也是来自函数式编程。她其实是一连串支持连续、并行聚集操作的元素。从语法上看，也很像linux的管道、或者链式编程，代码写起来简洁明了，非常酷帅！ Date/Time API (JSR 310)Java 8新的Date-Time API (JSR 310)受Joda-Time的影响，提供了新的java.time包，可以用来替代 java.util.Date和java.util.Calendar。一般会用到Clock、LocaleDate、LocalTime、LocaleDateTime、ZonedDateTime、Duration这些类，对于时间日期的改进还是非常不错的。 JavaScript引擎NashornNashorn允许在JVM上开发运行JavaScript应用，允许Java与JavaScript相互调用。 Base64在Java 8中，Base64编码成为了Java类库的标准。Base64类同时还提供了对URL、MIME友好的编码器与解码器。 除了这十大新特性之外，还有另外的一些新特性： 更好的类型推测机制：Java 8在类型推测方面有了很大的提高，这就使代码更整洁，不需要太多的强制类型转换了。 编译器优化：Java 8将方法的参数名加入了字节码中，这样在运行时通过反射就能获取到参数名，只需要在编译时使用-parameters参数。 并行（parallel）数组：支持对数组进行并行处理，主要是parallelSort()方法，它可以在多核机器上极大提高数组排序的速度。 并发（Concurrency）：在新增Stream机制与Lambda的基础之上，加入了一些新方法来支持聚集操作。 Nashorn引擎jjs：基于Nashorn引擎的命令行工具。它接受一些JavaScript源代码为参数，并且执行这些源代码。 类依赖分析器jdeps：可以显示Java类的包级别或类级别的依赖。 JVM的PermGen空间被移除：取代它的是Metaspace（JEP 122）。另外Java8在JDK JUC 增加新的并发API。 三、参考资料 JDK各个版本的新特性jdk1.5-jdk8 Java8的十大新特性]]></content>
-      <categories>
-        <category>Development</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[java对象排序-Comparator和Comparable]]></title>
     <url>%2F2018%2F08%2F15%2Fjava%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F-Comparator%E5%92%8CComparable%2F</url>
     <content type="text"><![CDATA[当需要排序的集合或数组不是单纯的数字型时，通常可以使用Comparator或Comparable，以简单的方式实现对象排序或自定义排序。 一、Comparator强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。接口方法：int compare(Object o1, Object o2);举例：12345678910111213141516171819202122import java.util.Arrays;import java.util.Comparator;public class SampleComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return toInt(o1) - toInt(o2); &#125; private int toInt(Object o) &#123; String str = (String) o; str = str.replaceAll(&quot;一&quot;, &quot;1&quot;); str = str.replaceAll(&quot;二&quot;, &quot;2&quot;); str = str.replaceAll(&quot;三&quot;, &quot;3&quot;); // return Integer.parseInt(str); &#125; public static void main(String[] args) &#123; String[] array = new String[] &#123; &quot;一二&quot;, &quot;三&quot;, &quot;二&quot; &#125;; Arrays.sort(array, new SampleComparator()); for (int i = 0; i &lt; array.length; i++) &#123; System.out.println(array[i]); &#125; &#125;&#125; 二、Comparable强行对实现它的每个类的对象进行整体排序，实现此接口的对象列表（和数组）可以通过Collections.sort或Arrays.sort进行自动排序。接口方法: int compareTo(Object o);假设对象User，需要按年龄排序：123456789101112131415161718192021222324252627public class User &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 改造后的对象： 12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.Arrays;public class User implements Comparable &#123; private String id; private int age; public User(String id, int age) &#123; this.id = id; this.age = age; &#125; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125; public int compareTo(Object o) &#123; return this.age - ((User) o).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 三、Comparator和Comparable的区别先看一下使用Comparator对User集合实现排序的方式：1234567891011121314151617import java.util.Arrays;import java.util.Comparator;public class UserComparator implements Comparator &#123; public int compare(Object o1, Object o2) &#123; return ((User) o1).getAge() - ((User) o2).getAge(); &#125; public static void main(String[] args) &#123; User[] users = new User[] &#123; new User(&quot;a&quot;, 30), new User(&quot;b&quot;, 20) &#125;; Arrays.sort(users, new UserComparator()); for (int i = 0; i &lt; users.length; i++) &#123; User user = users[i]; System.out.println(user.getId() + &quot; &quot; + user.getAge()); &#125; &#125;&#125; 一个类实现了Camparable接口则表明这个类的对象之间是可以相互比较的，这个类对象组成的集合就可以直接使用sort方法排序。Comparator可以看成一种算法的实现，将算法和数据分离，Comparator也可以在下面两种环境下使用： 类的设计师没有考虑到比较问题而没有实现Comparable，可以通过Comparator来实现排序而不必改变对象本身 可以使用多种排序标准，比如升序、降序等 四、补充一个例子：12345678List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;(); Collections.sort(persons, new Comparator&lt;Person&gt;() &#123; @Override public int compare(Person o1, Person o2) &#123; Collator collator = Collator.getInstance(Locale.CHINA); return collator.compare(o1.getName(), o2.getName()); &#125; &#125;); 使用Collections.sort方法，传一个Comparator实现类，比较对象字段实现compare方法。 References java对象排序-Comparator和Comparable Java根据对象的某个字段排序]]></content>
       <categories>
         <category>Java</category>
         <category>Development</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JDK1.5与JDK8新特性]]></title>
+    <url>%2F2018%2F08%2F15%2FJDK1.5%E4%B8%8EJDK8%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[一、JDK1.5新特性 自动装箱与拆箱：自动装箱的过程：每当需要一种类型的对象时，这种基本类型就自动地封装到与它相同类型的包装中。自动拆箱的过程：每当需要一个值时，被装箱对象中的值就被自动地提取出来，没必要再去调用intValue()和doubleValue()方法。自动装箱，只需将该值赋给一个类型包装器引用，java会自动创建一个对象。自动拆箱，只需将该对象值赋给一个基本类型即可。java——类的包装器类型包装器有：Double,Float,Long,Integer,Short,Character和Boolean 枚举把集合里的对象元素一个一个提取出来。枚举类型使代码更具可读性，理解清晰，易于维护。枚举类型是强类型的，从而保证了系统安全性。而以类的静态字段实现的类似替代模型，不具有枚举的简单性和类型安全性。简单的用法：JavaEnum简单的用法一般用于代表一组常用常量，可用来代表一类相同类型的常量值。复杂用法：Java为枚举类型提供了一些内置的方法，同事枚举常量还可以有自己的方法。可以很方便的遍历枚举对象。 静态导入通过使用 import static，就可以不用指定 Constants 类名而直接使用静态成员，包括静态方法。import xxxx 和 import static xxxx的区别是前者一般导入的是类文件如import java.util.Scanner;后者一般是导入静态的方法，import static java.lang.System.out。 可变参数（Varargs）可变参数的简单语法格式为：methodName([argumentList], dataType…argumentName); 内省（Introspector）是Java语言对Bean类属性、事件的一种缺省处理方法。例如类A中有属性name,那我们可以通过getName,setName来得到其值或者设置新 的值。通过getName/setName来访问name属性，这就是默认的规则。Java中提供了一套API用来访问某个属性的getter /setter方法，通过这些API可以使你不需要了解这个规则（但你最好还是要搞清楚），这些API存放于包java.beans中。一 般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器 （PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来 调用这些方法。 泛型(Generic)C++通过模板技术可以指定集合的元素类型，而Java在1.5之前一直没有相对应的功能。一个集合可以放任何类型的对象，相应地从集合里面拿对象的时候我们也 不得不对他们进行强制得类型转换。猛虎引入了泛型，它允许指定集合里元素的类型，这样你可以得到强类型在编译时刻进行类型检查的好处。 For-Each循环For-Each循环得加入简化了集合的遍历。假设我们要遍历一个集合对其中的元素进行一些处理。 JUCConcurrentHashMap(简称CHM)是在Java 1.5作为Hashtable的替代选择新引入的,是concurrent包的重要成员。 二、JDK8新特性 Lambda表达式Lambda表达式可以说是Java 8最大的卖点，她将函数式编程引入了Java。Lambda允许把函数作为一个方法的参数，或者把代码看成数据。 接口的默认方法与静态方法我们可以在接口中定义默认方法，使用default关键字，并提供默认的实现。所有实现这个接口的类都会接受默认方法的实现，除非子类提供的自己的实现。 方法引用通常与Lambda表达式联合使用，可以直接引用已有Java类或对象的方法。一般有四种不同的方法引用。 构造器引用。语法是Class::new，或者更一般的Class&lt; T &gt;::new，要求构造器方法是没有参数。 静态方法引用。语法是Class::static_method，要求接受一个Class类型的参数。 特定类的任意对象方法引用。它的语法是Class::method。要求方法是没有参数的。 特定对象的方法引用，它的语法是instance::method。要求方法接受一个参数，与3不同的地方在于，3是在列表元素上分别调用方法，而4是在某个对象上调用方法，将列表元素作为参数传入。 重复注解在Java 5中使用注解有一个限制，即相同的注解在同一位置只能声明一次。Java 8引入重复注解，这样相同的注解在同一地方也可以声明多次。重复注解机制本身需要用@Repeatable注解。Java 8在编译器层做了优化，相同注解会以集合的方式保存，因此底层的原理并没有变化。 扩展注解的支持Java 8扩展了注解的上下文，几乎可以为任何东西添加注解，包括局部变量、泛型类、父类与接口的实现，连方法的异常也能添加注解。 OptionalJava 8引入Optional类来防止空指针异常，Optional类最先是由Google的Guava项目引入的。Optional类实际上是个容器：它可以保存类型T的值，或者保存null。使用Optional类我们就不用显式进行空指针检查了。 StreamStream API是把真正的函数式编程风格引入到Java中。其实简单来说可以把Stream理解为MapReduce，当然Google的MapReduce的灵感也是来自函数式编程。她其实是一连串支持连续、并行聚集操作的元素。从语法上看，也很像linux的管道、或者链式编程，代码写起来简洁明了，非常酷帅！ Date/Time API (JSR 310)Java 8新的Date-Time API (JSR 310)受Joda-Time的影响，提供了新的java.time包，可以用来替代 java.util.Date和java.util.Calendar。一般会用到Clock、LocaleDate、LocalTime、LocaleDateTime、ZonedDateTime、Duration这些类，对于时间日期的改进还是非常不错的。 JavaScript引擎NashornNashorn允许在JVM上开发运行JavaScript应用，允许Java与JavaScript相互调用。 Base64在Java 8中，Base64编码成为了Java类库的标准。Base64类同时还提供了对URL、MIME友好的编码器与解码器。 除了这十大新特性之外，还有另外的一些新特性： 更好的类型推测机制：Java 8在类型推测方面有了很大的提高，这就使代码更整洁，不需要太多的强制类型转换了。 编译器优化：Java 8将方法的参数名加入了字节码中，这样在运行时通过反射就能获取到参数名，只需要在编译时使用-parameters参数。 并行（parallel）数组：支持对数组进行并行处理，主要是parallelSort()方法，它可以在多核机器上极大提高数组排序的速度。 并发（Concurrency）：在新增Stream机制与Lambda的基础之上，加入了一些新方法来支持聚集操作。 Nashorn引擎jjs：基于Nashorn引擎的命令行工具。它接受一些JavaScript源代码为参数，并且执行这些源代码。 类依赖分析器jdeps：可以显示Java类的包级别或类级别的依赖。 JVM的PermGen空间被移除：取代它的是Metaspace（JEP 122）。另外Java8在JDK JUC 增加新的并发API。 三、参考资料 JDK各个版本的新特性jdk1.5-jdk8 Java8的十大新特性]]></content>
+      <categories>
+        <category>Development</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -662,8 +673,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>秋招</tag>
         <tag>java</tag>
+        <tag>秋招</tag>
         <tag>面试</tag>
       </tags>
   </entry>

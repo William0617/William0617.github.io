@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软考,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、2012下午试题 主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载； 系统瓶颈分析： 响应速度慢的原因: 没有使用合适的并发/并行策略 数据库设计/优化不够 服务器带宽不足   CPU占用率高： CPU本身性能不足 程序没有使用合适的并发/并行策略     判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。 环路">
+<meta name="keywords" content="软考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软考笔记">
+<meta property="og:url" content="http://yoursite.com/2019/10/28/下午题/index.html">
+<meta property="og:site_name" content="William&#39;s Blog">
+<meta property="og:description" content="一、2012下午试题 主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载； 系统瓶颈分析： 响应速度慢的原因: 没有使用合适的并发/并行策略 数据库设计/优化不够 服务器带宽不足   CPU占用率高： CPU本身性能不足 程序没有使用合适的并发/并行策略     判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。 环路">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-27T09:43:24.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软考笔记">
+<meta name="twitter:description" content="一、2012下午试题 主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载； 系统瓶颈分析： 响应速度慢的原因: 没有使用合适的并发/并行策略 数据库设计/优化不够 服务器带宽不足   CPU占用率高： CPU本身性能不足 程序没有使用合适的并发/并行策略     判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。 环路">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/28/下午题/">
+
+
+
+
+
+  <title>软考笔记 | William's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3c4513f4fbfc11c5b50e8b9ea0162050";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">William's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">SDET (Software Development Engineer in Test)</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/下午题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="William Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="William's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软考笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-27T15:43:02-04:00">
+                2019-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/软考/" itemprop="url" rel="index">
+                    <span itemprop="name">软考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、2012下午试题"><a href="#一、2012下午试题" class="headerlink" title="一、2012下午试题"></a>一、2012下午试题</h2><ol>
+<li>主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载；</li>
+<li>系统瓶颈分析：<ol>
+<li>响应速度慢的原因:<ol>
+<li>没有使用合适的并发/并行策略</li>
+<li>数据库设计/优化不够</li>
+<li>服务器带宽不足</li>
+</ol>
+</li>
+<li>CPU占用率高：<ol>
+<li>CPU本身性能不足</li>
+<li>程序没有使用合适的并发/并行策略</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。</li>
+<li>环路复杂度等于图中判定节点数+1.</li>
+<li><strong>控制流图的线性无关路径指的是：一条线性无关路径至少包含了一条在其他线性无关路径中从未有过的路径。</strong></li>
+<li>链接测试内容：<ol>
+<li>能否跳转到目标页面；</li>
+<li>被链接的页面是否存在；</li>
+<li>是否存在孤立页面；</li>
+</ol>
+</li>
+<li>web应用安全性测试：<ol>
+<li>部署与基础结构</li>
+<li>输入验证</li>
+<li>授权</li>
+<li>配置管理</li>
+<li>敏感数据</li>
+<li>会话管理</li>
+<li>加密</li>
+<li>参数操作</li>
+<li>异常管理</li>
+<li>审核和日志记录</li>
+</ol>
+</li>
+<li>兼容性测试：<ol>
+<li>浏览器</li>
+<li>OS</li>
+<li>移动终端</li>
+<li>打印测试</li>
+</ol>
+</li>
+<li>用户权限控制测试点：<ol>
+<li>权限控制合理性：是否采用系统管理员、业务领导和操作人员三级分离；用户名唯一性，口令强度、加密强度、口令存储位置等；</li>
+<li>权限分配合理性：系统本身分配的细致程度；特定权限用户访问系统功能的能力测试；</li>
+</ol>
+</li>
+<li>对访问控制系统攻击有：<ol>
+<li>冒充攻击：口令猜测；</li>
+<li>重放攻击：截获有效请求并重放；</li>
+<li>服务拒绝攻击：发送大量虚假请求占用系统带宽；</li>
+</ol>
+</li>
+<li>安全审计测试点：<ol>
+<li>能否进行系统数据收集、统一存储、集中审计；</li>
+<li>能否支持基于PKI的应用审计；</li>
+<li>能否支持XML等审计数据采集协议；</li>
+<li>能否提供自定义审计规则；</li>
+</ol>
+</li>
+<li>可靠性测试的目的是：<ol>
+<li>发现系统需求、设计、编码、测试、实施等方面的各种缺陷；</li>
+<li>为软件的使用和维护提供可靠性数据；</li>
+<li>是否达到可靠性的定量需求；</li>
+</ol>
+</li>
+<li>可靠性目标是指客户对软件性能满意程度的期望。通常采用<strong>失效严重程度</strong>、<strong>可靠度</strong>、<strong>故障强度</strong>、<strong>平均无故障时间</strong>来描述。<ol>
+<li>失效严重程度： 对用户具有相同程度影响的失效的集合；</li>
+<li>可靠度：规定条件和规定时间下，不发生失效的概率；</li>
+<li>故障强度：单位时间内软件出现故障的概率；</li>
+<li>平均无故障时间=平均无失效时间：软件运行后，到下一次出现失效的平均时间；</li>
+</ol>
+</li>
+</ol>
+<h2 id="二、2013年下午试题"><a href="#二、2013年下午试题" class="headerlink" title="二、2013年下午试题"></a>二、2013年下午试题</h2><ol>
+<li>常见的性能测试包括：<ol>
+<li>负载测试；</li>
+<li>压力测试</li>
+<li>并发性能测试；</li>
+<li>疲劳强度测试；</li>
+<li>大数据量测试</li>
+</ol>
+</li>
+<li>负载压力测试中内容校验：如果没有执行结果正确的保证，那么负载压力测试就失去了意义。</li>
+<li>表单测试的内容：每个字段的验证、字段的缺省值、表单中的输入、提交操作的完整性。</li>
+<li>测试故障恢复：测试系统中是否存在单点故障；是否采用磁盘镜像技术；</li>
+<li>测试数据备份：关键业务-&gt;双机热备/磁盘镜像；全部业务-&gt;外部存储器备份和恢复机制。</li>
+<li>测试容灾备份：是否建立异地容灾备份中心；备份中心是否有足够的带宽；是否有足够的处理能力；能否快速可靠地与主中心切换。</li>
+<li>数据库敏感数据的加密保护和访问方式的测试内容：<ol>
+<li>是否采用加密算法进行加密保护</li>
+<li>是否为不同业务设置不同的专门用户用于访问；杜绝在代码中直接使用超级用户以及默认密码对数据库进行访问；</li>
+</ol>
+</li>
+<li>安全防护策略：安全日志、入侵检测、漏洞扫描、隔离防护</li>
+<li>软件可靠性定义：在规定条件规定时限下，软件不引起系统失效的概率。</li>
+<li>影响软件可靠性的因素：开发环境、开发方法、软件规模、内部结构、可靠性投入、运行剖面。</li>
+</ol>
+<h2 id="三、-2014下午试题"><a href="#三、-2014下午试题" class="headerlink" title="三、 2014下午试题"></a>三、 2014下午试题</h2><ol>
+<li>公式：系统的环路复杂度=线性无关路径条数</li>
+<li>常见的黑盒测试用例设计方法：等价类划分、边界值分析、判定表、因果图、功能图、正交实验法、错误推测法。</li>
+<li>如何测试XSS攻击？输入的参数中含有<code>&lt;script&gt;&lt;/script&gt;</code>或者<code>&lt;html&gt;&lt;/html&gt;</code></li>
+<li>如何防止XSS攻击？对功能符号进行转义。</li>
+<li>图形界面测试点：<ol>
+<li>颜色饱和度和对比度是否合适</li>
+<li>链接的颜色是否容易识别</li>
+<li>是否正确加载了所有图形</li>
+</ol>
+</li>
+<li>页面测试测试点：<ol>
+<li>页面一致性</li>
+<li>用户界面友好，页面导航直观</li>
+<li>满足多种浏览器的需要</li>
+<li>是否建立了页面文件的命名体系</li>
+<li>合适的页面布局技术</li>
+</ol>
+</li>
+<li>口令攻击防护措施：<ol>
+<li>口令强度</li>
+<li>口令传输和存储</li>
+<li>口令管理：定时更新、口令锁定、历史口令不可用。</li>
+</ol>
+</li>
+<li>客户端USB key测试点：<ol>
+<li>功能测试：<ol>
+<li>是否支持AES RSA等常用加密算法</li>
+<li>是否提供外部接口以支持用户证书和私钥的导入</li>
+<li>是否提供外部接口支持数据传入key内，经过计算后导出</li>
+<li>USB key插入状态实时监测</li>
+<li>是否使用口令进行保护</li>
+</ol>
+</li>
+<li>性能测试：<ol>
+<li>私钥不能导出</li>
+<li>加密算法的执行效率是否满足需求</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>证书服务器基本测试点：<ol>
+<li>功能测试：<ol>
+<li>证书的申请、审核、签发和管理等功能</li>
+<li>证书格式.X509</li>
+<li>是否提供加密证书和签名证书</li>
+<li>证书撤销列表的发布和管理功能</li>
+</ol>
+</li>
+<li>性能测试：<ol>
+<li>（水平）扩展</li>
+<li>备份</li>
+<li>可靠性：长时间运行</li>
+<li>复杂压力、最大并发量</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="四、2015下午试题"><a href="#四、2015下午试题" class="headerlink" title="四、2015下午试题"></a>四、2015下午试题</h2><ol>
+<li>基本路径测试法：在程序控制流图的基础上，通过分析控制构造的环路复杂度，导出基本可执行路径的集合，从而设计测试用例的方法。</li>
+<li>边界值分析法是对等价类划分法的一种补充。若有a个等价类，有b个边界值，则从每个等价类中取任意一个值，然后再测b个边界值。</li>
+<li>使用决策表进行测试用例设计的主要步骤：<ol>
+<li>确定规则个数</li>
+<li>列出所有条件桩和动作桩</li>
+<li>填入条件项和动作项</li>
+<li>合并相似规则，化简决策表</li>
+</ol>
+</li>
+<li>web链接测试内容：内部链接测试、外部链接测试、邮件链接测试、断链测试。</li>
+<li>常见的安全攻击手段：网络侦听、冒充攻击、拒绝服务攻击、web安全攻击。</li>
+<li>安全测试方法：功能验证、漏洞扫描、模拟攻击实验、侦听检测。</li>
+<li>表单输入测试：输入域、错误提示、必填项、选填项。</li>
+<li>面向对象测试的对象为<strong>类和类中的方法</strong>。</li>
+<li>面向对象多态的两个方法要分别进行测试。</li>
+<li>类与类的关系主要有：继承、关联、依赖。关联包括：一般关联，组合，聚合。</li>
+<li>继承对测试的影响有2个方面：<ol>
+<li>方法进行了修改，子类需要测试；</li>
+<li>继承的方法无法修改，但是调用了子类其他修改了的方法；</li>
+</ol>
+</li>
+</ol>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ol>
+<li>运算器：算数逻辑单元ALU，累加寄存器，数据缓冲寄存器，状态条件寄存器</li>
+<li>控制器：程序计数器PC，指数寄存器IR，指令译码器，时序部件</li>
+<li>流水线计算公式2个：Nt+(k-1)t; 单条指令执行时间+（n-1）t</li>
+<li>多级存储器结构：顺序存取-无地址-磁带</li>
+<li>直接存取-有地址，与位置有关-磁盘光盘软盘</li>
+<li>随机存取-有地址，与位置无关-内存U盘</li>
+<li>相联存取-按内容存取-cache</li>
+<li>操作系统作用：通过资源管理，提高计算机系统的效率；改善人机界面，提供友好交互。</li>
+<li>进程=程序块+进程控制块（PCB）+数据块</li>
+<li>进程状态管理</li>
+<li>PV操作：信号量S&gt;=0时，S表示可用资源的数量。执行一次P操作意味着请求分配一个资源，因此S的值减1；当S&lt;0时，表示已经没有可用资源，S的绝对值表示当前等待该资源的进程数。请求者必须等待其他进程释放该类资源，才能继续运行。而执行一个V操作意味着释放一个资源，因此S的值加1。</li>
+<li>死锁的4大条件：互斥，保持和等待，不剥夺，环路等待。（预防-&gt;打破四个条件）</li>
+<li>外模式-视图；模式-表；内模式-文件；</li>
+<li>等值连接，自然连接</li>
+<li>无损压缩：熵编码法；有损压缩：熵压缩法</li>
+<li>HIS：H色调，I光的强度，S饱和度</li>
+<li>YUV：彩色空间：彩色电视制式</li>
+<li>RGB：图像像素颜色值</li>
+<li>A类地址：第一位0；B类地址：10；C类地址：110开头。</li>
+<li>一维数组：a[i]的存储位置：a+i×len</li>
+<li>二维数组a[m][n]中a[i][j]的存储位置：（1）按行存储：a+(i×n+j)<em>len<br>(2)按列存储：a+(j×n+i)</em>len</li>
+<li>项目三角形：范围，成本，时间</li>
+<li>软件过程成熟度：初始级，可重复，已定义，已管理，优化</li>
+<li>结构化分析：数据流图，数据字典，判定表判定树</li>
+<li>聚合度：偶然，逻辑，时间，过程，通信，顺序，功能（低-&gt;高）</li>
+<li>耦合度：非直接，数据，标记，控制，外部，公共，内容（低-&gt;高）</li>
+<li>使用质量：有效性，生产率，安全性，满意度</li>
+<li>软件评价过程的特性：可重复性，可再现性，公正性，客观性</li>
+<li>词法错误：非法字符。关键字或标识符拼写错误。</li>
+<li>语法错误：语法结构出错。if…end if不匹配，缺分号等。</li>
+<li>语义错误：0除数，死循环等逻辑错误。</li>
+<li>测试对象：文档，数据，程序</li>
+<li>QA 关心过程，即活动本身。软件测试关心产物，不是活动本身。是对结果的剖析。</li>
+<li>三类输入：软件配置，测试配置，测试工具。</li>
+<li>软件错误-软件缺陷-软件故障-软件失效。</li>
+<li>软件质量特性-外部质量和内部质量：功能性，可靠性，易用性，效率，维护性，可移植性。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="William Sun 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="William Sun 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软考/" rel="tag"># 软考</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/04/pytest测试用例出错重跑--flaky插件/" rel="next" title="pytest测试用例出错重跑--flaky插件">
+                <i class="fa fa-chevron-left"></i> pytest测试用例出错重跑--flaky插件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTE2NC8xNzcxMg=="></div>
+    </div>
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="William Sun">
+            
+              <p class="site-author-name" itemprop="name">William Sun</p>
+              <p class="site-description motion-element" itemprop="description">Keep moving. Don't settle.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/William0617" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:william.sun@pku.edu.cn" target="_blank" title="Email">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>Email</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、2012下午试题"><span class="nav-text">一、2012下午试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、2013年下午试题"><span class="nav-text">二、2013年下午试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-2014下午试题"><span class="nav-text">三、 2014下午试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、2015下午试题"><span class="nav-text">四、2015下午试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-text">笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">William Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
