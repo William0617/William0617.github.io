@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python发送multipart-form-data请求]]></title>
+    <url>%2F2019%2F11%2F11%2Fpython%E5%8F%91%E9%80%81multipart-form-data%E8%AF%B7%E6%B1%82%2F</url>
+    <content type="text"><![CDATA[写接口测试时，遇到这个问题，在网上看了很多文档都不太好用，自己总结了一下： 1.引包 1from requests_toolbelt import MultipartEncoder 2.准备数据 12345678910111213cookie = get_token url = ADD_IMAGE_TO_REPO_URL + REPO_ID + "/faces" binary_file = ('123.jpg', open(image_path + "123.jpg", 'rb'), 'image/jpg') arguments = json.dumps(&#123; "image": "123.jpg"&#125;) headers = &#123;'Cookie': cookie&#125; headers['Content-Type'] = multipart_encoder.content_type multipart_encoder = MultipartEncoder( fields=&#123; 'binary_file': binary_file, 'arguments': arguments, &#125;, ) 3.发送请求 12response = requests.post(url, headers=headers, data=multipart_encoder, verify=False)]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>pytest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux常用命令]]></title>
+    <url>%2F2019%2F11%2F06%2FLinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[一、常用 grep 管道符: | watch ls/ll 二、机器/资源相关 netstat ps（进程查看） top/htop（机器资源） 三、文件/文本操作相关 tail/head awk sed wc find 四、操作系统/权限 chmod/chown ps -ef | grep df -hl find / -name httpd.conf lsof |grep ‘test/test3’ kill -u wlsun top -cu wlsun du -h -d 2 未完待续]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>command</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[软考笔记]]></title>
     <url>%2F2019%2F10%2F28%2F%E4%B8%8B%E5%8D%88%E9%A2%98%2F</url>
     <content type="text"><![CDATA[一、2012下午试题 主要负载类型：（1）并发执行负载；（2）疲劳强度负载；（3）大数据量负载； 系统瓶颈分析： 响应速度慢的原因: 没有使用合适的并发/并行策略 数据库设计/优化不够 服务器带宽不足 CPU占用率高： CPU本身性能不足 程序没有使用合适的并发/并行策略 判定覆盖：每个判定表达式至少获得一次真和假。如果有5个判定表达式，则需要2*5=10个逻辑条件才能完全覆盖。 环路复杂度等于图中判定节点数+1. 控制流图的线性无关路径指的是：一条线性无关路径至少包含了一条在其他线性无关路径中从未有过的路径。 链接测试内容： 能否跳转到目标页面； 被链接的页面是否存在； 是否存在孤立页面； web应用安全性测试： 部署与基础结构 输入验证 授权 配置管理 敏感数据 会话管理 加密 参数操作 异常管理 审核和日志记录 兼容性测试： 浏览器 OS 移动终端 打印测试 用户权限控制测试点： 权限控制合理性：是否采用系统管理员、业务领导和操作人员三级分离；用户名唯一性，口令强度、加密强度、口令存储位置等； 权限分配合理性：系统本身分配的细致程度；特定权限用户访问系统功能的能力测试； 对访问控制系统攻击有： 冒充攻击：口令猜测； 重放攻击：截获有效请求并重放； 服务拒绝攻击：发送大量虚假请求占用系统带宽； 安全审计测试点： 能否进行系统数据收集、统一存储、集中审计； 能否支持基于PKI的应用审计； 能否支持XML等审计数据采集协议； 能否提供自定义审计规则； 可靠性测试的目的是： 发现系统需求、设计、编码、测试、实施等方面的各种缺陷； 为软件的使用和维护提供可靠性数据； 是否达到可靠性的定量需求； 可靠性目标是指客户对软件性能满意程度的期望。通常采用失效严重程度、可靠度、故障强度、平均无故障时间来描述。 失效严重程度： 对用户具有相同程度影响的失效的集合； 可靠度：规定条件和规定时间下，不发生失效的概率； 故障强度：单位时间内软件出现故障的概率； 平均无故障时间=平均无失效时间：软件运行后，到下一次出现失效的平均时间； 二、2013年下午试题 常见的性能测试包括： 负载测试； 压力测试 并发性能测试； 疲劳强度测试； 大数据量测试 负载压力测试中内容校验：如果没有执行结果正确的保证，那么负载压力测试就失去了意义。 表单测试的内容：每个字段的验证、字段的缺省值、表单中的输入、提交操作的完整性。 测试故障恢复：测试系统中是否存在单点故障；是否采用磁盘镜像技术； 测试数据备份：关键业务-&gt;双机热备/磁盘镜像；全部业务-&gt;外部存储器备份和恢复机制。 测试容灾备份：是否建立异地容灾备份中心；备份中心是否有足够的带宽；是否有足够的处理能力；能否快速可靠地与主中心切换。 数据库敏感数据的加密保护和访问方式的测试内容： 是否采用加密算法进行加密保护 是否为不同业务设置不同的专门用户用于访问；杜绝在代码中直接使用超级用户以及默认密码对数据库进行访问； 安全防护策略：安全日志、入侵检测、漏洞扫描、隔离防护 软件可靠性定义：在规定条件规定时限下，软件不引起系统失效的概率。 影响软件可靠性的因素：开发环境、开发方法、软件规模、内部结构、可靠性投入、运行剖面。 三、 2014下午试题 公式：系统的环路复杂度=线性无关路径条数 常见的黑盒测试用例设计方法：等价类划分、边界值分析、判定表、因果图、功能图、正交实验法、错误推测法。 如何测试XSS攻击？输入的参数中含有&lt;script&gt;&lt;/script&gt;或者&lt;html&gt;&lt;/html&gt; 如何防止XSS攻击？对功能符号进行转义。 图形界面测试点： 颜色饱和度和对比度是否合适 链接的颜色是否容易识别 是否正确加载了所有图形 页面测试测试点： 页面一致性 用户界面友好，页面导航直观 满足多种浏览器的需要 是否建立了页面文件的命名体系 合适的页面布局技术 口令攻击防护措施： 口令强度 口令传输和存储 口令管理：定时更新、口令锁定、历史口令不可用。 客户端USB key测试点： 功能测试： 是否支持AES RSA等常用加密算法 是否提供外部接口以支持用户证书和私钥的导入 是否提供外部接口支持数据传入key内，经过计算后导出 USB key插入状态实时监测 是否使用口令进行保护 性能测试： 私钥不能导出 加密算法的执行效率是否满足需求 证书服务器基本测试点： 功能测试： 证书的申请、审核、签发和管理等功能 证书格式.X509 是否提供加密证书和签名证书 证书撤销列表的发布和管理功能 性能测试： （水平）扩展 备份 可靠性：长时间运行 复杂压力、最大并发量 四、2015下午试题 基本路径测试法：在程序控制流图的基础上，通过分析控制构造的环路复杂度，导出基本可执行路径的集合，从而设计测试用例的方法。 边界值分析法是对等价类划分法的一种补充。若有a个等价类，有b个边界值，则从每个等价类中取任意一个值，然后再测b个边界值。 使用决策表进行测试用例设计的主要步骤： 确定规则个数 列出所有条件桩和动作桩 填入条件项和动作项 合并相似规则，化简决策表 web链接测试内容：内部链接测试、外部链接测试、邮件链接测试、断链测试。 常见的安全攻击手段：网络侦听、冒充攻击、拒绝服务攻击、web安全攻击。 安全测试方法：功能验证、漏洞扫描、模拟攻击实验、侦听检测。 表单输入测试：输入域、错误提示、必填项、选填项。 面向对象测试的对象为类和类中的方法。 面向对象多态的两个方法要分别进行测试。 类与类的关系主要有：继承、关联、依赖。关联包括：一般关联，组合，聚合。 继承对测试的影响有2个方面： 方法进行了修改，子类需要测试； 继承的方法无法修改，但是调用了子类其他修改了的方法； 笔记 运算器：算数逻辑单元ALU，累加寄存器，数据缓冲寄存器，状态条件寄存器 控制器：程序计数器PC，指数寄存器IR，指令译码器，时序部件 流水线计算公式2个：Nt+(k-1)t; 单条指令执行时间+（n-1）t 多级存储器结构：顺序存取-无地址-磁带 直接存取-有地址，与位置有关-磁盘光盘软盘 随机存取-有地址，与位置无关-内存U盘 相联存取-按内容存取-cache 操作系统作用：通过资源管理，提高计算机系统的效率；改善人机界面，提供友好交互。 进程=程序块+进程控制块（PCB）+数据块 进程状态管理 PV操作：信号量S&gt;=0时，S表示可用资源的数量。执行一次P操作意味着请求分配一个资源，因此S的值减1；当S&lt;0时，表示已经没有可用资源，S的绝对值表示当前等待该资源的进程数。请求者必须等待其他进程释放该类资源，才能继续运行。而执行一个V操作意味着释放一个资源，因此S的值加1。 死锁的4大条件：互斥，保持和等待，不剥夺，环路等待。（预防-&gt;打破四个条件） 外模式-视图；模式-表；内模式-文件； 等值连接，自然连接 无损压缩：熵编码法；有损压缩：熵压缩法 HIS：H色调，I光的强度，S饱和度 YUV：彩色空间：彩色电视制式 RGB：图像像素颜色值 A类地址：第一位0；B类地址：10；C类地址：110开头。 一维数组：a[i]的存储位置：a+i×len 二维数组a[m][n]中a[i][j]的存储位置：（1）按行存储：a+(i×n+j)len(2)按列存储：a+(j×n+i)len 项目三角形：范围，成本，时间 软件过程成熟度：初始级，可重复，已定义，已管理，优化 结构化分析：数据流图，数据字典，判定表判定树 聚合度：偶然，逻辑，时间，过程，通信，顺序，功能（低-&gt;高） 耦合度：非直接，数据，标记，控制，外部，公共，内容（低-&gt;高） 使用质量：有效性，生产率，安全性，满意度 软件评价过程的特性：可重复性，可再现性，公正性，客观性 词法错误：非法字符。关键字或标识符拼写错误。 语法错误：语法结构出错。if…end if不匹配，缺分号等。 语义错误：0除数，死循环等逻辑错误。 测试对象：文档，数据，程序 QA 关心过程，即活动本身。软件测试关心产物，不是活动本身。是对结果的剖析。 三类输入：软件配置，测试配置，测试工具。 软件错误-软件缺陷-软件故障-软件失效。 软件质量特性-外部质量和内部质量：功能性，可靠性，易用性，效率，维护性，可移植性。]]></content>
@@ -21,6 +43,14 @@
       <tags>
         <tag>pytest</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[K8S+Docker+Jenkins+Gradle相关资料链接]]></title>
+    <url>%2F2019%2F08%2F30%2FK8S%2BDocker%2BJenkins%2BGradle%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E9%93%BE%E6%8E%A5%2F</url>
+    <content type="text"><![CDATA[K8S+Docker+Jenkins+Gradle+MongodbPython Pycharm start guide virtualenv教程 Python最佳实践指南！ Pytest官方教程 修改ubuntu的默认python版本 Python函数（function）与方法（method）区别 【python】sys.path.append 使用Pycharm安装Python第三方库 pycharm调整字母长度分割线为80 Apache Kafka Apache Kafka 教程 Ubuntu linux 解决 “ command not found: shopt “的 “~/.bashrc” 配置问题 Ubuntu 16.04 如何把Unity启动器移动到桌面底部 K8S kubectl命令 Jenkins 【Jenkins】使用Jenkin集成单元测试 Jenkins定时构建 Mongodb mongodb启动时报错ERROR: child process failed, exited with error number 1 Ubuntu 安装 Mongodb推荐方式二，但是命令不全。 IDEA clone的文件找不到getter/setter：安装lombok插件，并在setting配置注解生效 Gradle Ubuntu安装Gradle Docker Docker菜鸟教程，Ubuntu安装部分不正确，看下面评论【Ubuntu 18.04 安装 Docker-ce】部分。该教程较为简单。 从Docker到Kubernetes进阶，该教程较深 解决docker：pull access denied for hello-wrold, repository does not exist or may require ‘docker login’. Docker 入门教程 10分钟看懂Docker和K8S oh-my-zsh 在Ubuntu上完美安装oh-my-zsh Ubuntu上搜狗输入法 Ubuntu16.04搜狗拼音输入法候选栏无法显示中文（英文乱码） Ubuntu菜单栏出现两个输入法图标 ubuntu 搜狗输入法重启方法 Postman Postman工具——下载与安装 postman（一）批量执行接口测试用例 自动化接口测试之Postman Swagger Swagger从入门到精通 Swagger Editor OL Swagger (YAML OpenAPI) 从放弃到入门 ##Sublime Sublime Text 3 配置和使用方法]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu修改系统默认使用的python版本]]></title>
@@ -67,6 +97,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Postman自动获取和填充参数]]></title>
+    <url>%2F2019%2F08%2F17%2FPostman%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%92%8C%E5%A1%AB%E5%85%85%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[在使用 Postman 调试时，经常会遇到这样的场景：首先通过一个接口获得一个 token，然后在后续的请求中使用这个 token 作为参数。使用 Postman 的测试功能，可以将获得的 token 自动保存在环境变量中，在后续的请求中通过读取环境变量就可以获取 token 的值。 1. 设置Environment 点击 Postman 右上角的齿轮按钮，选择“Manage Environments”； 点击Add添加一个 Environment； 输入 Environment 的名称； 然后在 Postman 右上角的下拉框中选中刚才建立的 Environment； 2. 获取并保存token到环境变量接下来为获取 token 的请求添加 Tests。举例来说，如果该请求的返回如下： 123456&#123; "data": &#123; "someKey": "someValue", "token": "123456789" &#125;&#125; 其中 token 的值是需要保存的值。选择该请求后，点击 Tests，输入： 12var response = JSON.parse(responseBody);postman.setEnvironmentVariable("token", response.data.token); 这里 responseBody 是该请求返回的 body，setEnvironmentVariable() 的第一个参数 “token” 是环境变量的名称；第二个参数 response.data.token 是环境变量的值。执行行该请求，成功后，点击Postman右上角的眼睛按钮，可以看到token环境变量已经被自动设置了。 3. 读取环境变量设置环境变量后，就可以通过的方式读取变量的值。 4. ReferencePostman自动获取和填充参数)]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>postman</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux打开txt文件乱码的解决方法]]></title>
     <url>%2F2019%2F08%2F16%2FLinux%E6%89%93%E5%BC%80txt%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[今天发现打开windows下的txt文本出现问题，主要是编码问题，所以这里我记录下这个问题的解决方法。 Linux显示在Windows编辑过的中文就会显示乱码是由于两个操作系统使用的编码不同所致。Linux下使用的编码是utf8，而Windows使用的是gb18030。因此，解决Linux打开txt文件中文乱码可有如下两种方法。 方法一： 在附件终端中，进入到txt文件所在目录，使用命令符“iconv -f gb18030 -t utf8 1.txt -o 2.txt”把gb18030编码的1.txt转换成utf8的2.txt。这样2.txt就成为Linux支持的编码。 方法二： 在附件终端中,使用命令符“gconf-editor”，进入环境配置，依次展开“/apps/gedit-2/preferences/encodings/”，编辑右侧的“auto_detected”将“gb18030”添加到最顶上。以后文本编辑器就可以正常显示中文了。]]></content>
@@ -101,11 +142,6 @@
         <tag>git</tag>
         <tag>cheatsheet</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2019%2F08%2F12%2FPostman%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%92%8C%E5%A1%AB%E5%85%85%E5%8F%82%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[title: Postman自动获取和填充参数date: 2019-08-10 18:19:43categories: Test tags: postman在使用 Postman 调试时，经常会遇到这样的场景：首先通过一个接口获得一个 token，然后在后续的请求中使用这个 token 作为参数。使用 Postman 的测试功能，可以将获得的 token 自动保存在环境变量中，在后续的请求中通过读取环境变量就可以获取 token 的值。 1. 设置Environment 点击 Postman 右上角的齿轮按钮，选择“Manage Environments”； 点击Add添加一个 Environment； 输入 Environment 的名称； 然后在 Postman 右上角的下拉框中选中刚才建立的 Environment； 2. 获取并保存token到环境变量接下来为获取 token 的请求添加 Tests。举例来说，如果该请求的返回如下： 123456&#123; "data": &#123; "someKey": "someValue", "token": "123456789" &#125;&#125; 其中 token 的值是需要保存的值。选择该请求后，点击 Tests，输入： 12var response = JSON.parse(responseBody);postman.setEnvironmentVariable("token", response.data.token); 这里 responseBody 是该请求返回的 body，setEnvironmentVariable() 的第一个参数 “token” 是环境变量的名称；第二个参数 response.data.token 是环境变量的值。执行行该请求，成功后，点击Postman右上角的眼睛按钮，可以看到token环境变量已经被自动设置了。 3. 读取环境变量设置环境变量后，就可以通过的方式读取变量的值。 4. ReferencePostman自动获取和填充参数)]]></content>
   </entry>
   <entry>
     <title><![CDATA[接口测试用例设计]]></title>
@@ -246,9 +282,9 @@
       </categories>
       <tags>
         <tag>software</tag>
-        <tag>docker</tag>
         <tag>env</tag>
         <tag>坑</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -360,8 +396,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java Web</tag>
+        <tag>面经</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -379,8 +415,8 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
-        <tag>面经</tag>
         <tag>Java Web</tag>
+        <tag>面经</tag>
         <tag>未整理</tag>
       </tags>
   </entry>
@@ -420,12 +456,12 @@
       <tags>
         <tag>秋招</tag>
         <tag>面试题</tag>
+        <tag>面经</tag>
         <tag>Linux</tag>
         <tag>Git</tag>
         <tag>Maven</tag>
         <tag>Jenkins</tag>
         <tag>软件工程</tag>
-        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
@@ -531,8 +567,8 @@
       </categories>
       <tags>
         <tag>面经</tag>
-        <tag>秋招总结</tag>
         <tag>Java</tag>
+        <tag>秋招总结</tag>
         <tag>基础</tag>
       </tags>
   </entry>
