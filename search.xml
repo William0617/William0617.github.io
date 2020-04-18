@@ -834,9 +834,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[整数中1出现的次数]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[###题目 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。 解题思路将每个数字连接成字符串，然后使用count函数。 代码实现12345678# -*- coding:utf-8 -*-class Solution: def NumberOf1Between1AndN_Solution(self, n): # write code here s = '' for i in range(1, n+1): s = s + str(i) return s.count('1')]]></content>
+    <title><![CDATA[数组中重复的数字]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[###题目 在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。 解题思路使用字典。 代码实现1234567891011121314151617# -*- coding:utf-8 -*-class Solution: # 这里要特别注意~找到任意重复的一个值并赋值到duplication[0] # 函数返回True/False def duplicate(self, numbers, duplication): # write code here if len(numbers) == 0: return False # 创建字典并赋值 d = dict.fromkeys(range(0, len(numbers)), 0) for i in range(0, len(numbers)): d[numbers[i]] = d[numbers[i]] + 1 for key in d: if d[key] &gt; 1: duplication[0] = key return True return False]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
@@ -846,9 +846,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[数组中重复的数字]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[###题目 在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。 解题思路使用字典。 代码实现1234567891011121314151617# -*- coding:utf-8 -*-class Solution: # 这里要特别注意~找到任意重复的一个值并赋值到duplication[0] # 函数返回True/False def duplicate(self, numbers, duplication): # write code here if len(numbers) == 0: return False # 创建字典并赋值 d = dict.fromkeys(range(0, len(numbers)), 0) for i in range(0, len(numbers)): d[numbers[i]] = d[numbers[i]] + 1 for key in d: if d[key] &gt; 1: duplication[0] = key return True return False]]></content>
+    <title><![CDATA[整数中1出现的次数]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[###题目 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。 解题思路将每个数字连接成字符串，然后使用count函数。 代码实现12345678# -*- coding:utf-8 -*-class Solution: def NumberOf1Between1AndN_Solution(self, n): # write code here s = '' for i in range(1, n+1): s = s + str(i) return s.count('1')]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
@@ -1026,15 +1026,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[删除链表中重复结点]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%BB%93%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[###题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5 解题思路递归。 代码实现12345678910111213141516171819202122232425# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = None#python2, 递归， 时间41ms，内存：5760kclass Solution: def deleteDuplication(self, pHead): # write code here if pHead is None or pHead.next is None: #首先判断是否为空，或是否只有一个结点。 return pHead else: if pHead.val != pHead.next.val: #如果当前结点值不等于下一结点值，则该结点保留并返回 pHead.next = self.deleteDuplication(pHead.next) else: #否则从下一个结点开始寻找下一个不重复的结点。找到后返回，并判断是否与当前结点相等。 temp = self.deleteDuplication(pHead.next.next) if temp is not None and pHead.val == temp.val: pHead = None else : pHead = temp return pHead]]></content>
+    <title><![CDATA[和为S的两个数字]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。对应每个测试案例，输出两个数，小的先输出。 解题思路设两个头尾两个指针i和j：若ai + aj == sum，就是答案（相差越远乘积越小）；若ai + aj &gt; sum，aj肯定不是答案之一（前面已得出 i 前面的数已是不可能），j -= 1；若ai + aj &lt; sum，ai肯定不是答案之一（前面已得出 j 后面的数已是不可能），i += 1； ###代码实现 12345678910111213141516class Solution: def FindNumbersWithSum(self, num, tsum): # write code here i = 0 j = len(num) - 1 result = [] while i &lt; j: if num[i] + num[j] == tsum: result.append(num[i]) result.append(num[j]) return result elif num[i] + num[j] &gt; tsum: j = j - 1 else: i = i + 1 return result]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>链表</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1074,18 +1074,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[和为S的两个数字]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。对应每个测试案例，输出两个数，小的先输出。 解题思路设两个头尾两个指针i和j：若ai + aj == sum，就是答案（相差越远乘积越小）；若ai + aj &gt; sum，aj肯定不是答案之一（前面已得出 i 前面的数已是不可能），j -= 1；若ai + aj &lt; sum，ai肯定不是答案之一（前面已得出 j 后面的数已是不可能），i += 1； ###代码实现 12345678910111213141516class Solution: def FindNumbersWithSum(self, num, tsum): # write code here i = 0 j = len(num) - 1 result = [] while i &lt; j: if num[i] + num[j] == tsum: result.append(num[i]) result.append(num[j]) return result elif num[i] + num[j] &gt; tsum: j = j - 1 else: i = i + 1 return result]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[把数组排成最小的数]]></title>
     <url>%2F2018%2F06%2F02%2F%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%2F</url>
     <content type="text"><![CDATA[###题目 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 解题思路自定义一个排序规则compare。 代码实现123456789101112131415# -*- coding:utf-8 -*-class Solution: def PrintMinNumber(self, numbers): # write code here if not numbers: return '' strnum = [str(numbers[i]) for i in range(len(numbers))] strnum.sort(self.compare) return int(''.join(strnum)) def compare(self, x, y): if x+y &gt; y+x: return 1 if x+y &lt; y+x: return -1 return 0]]></content>
@@ -1111,9 +1099,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[从尾到头打印链表]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。 解题思路：遍历链表，使用list的insert方法，一直往下标为0的位置插入元素值。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: # 返回从尾部到头部的列表值序列，例如[1,2,3] def printListFromTailToHead(self, listNode): # write code here result = [] if listNode is None: return result while listNode is not None: result.insert(0, listNode.val) listNode = listNode.next if listNode is None: break return result]]></content>
+    <title><![CDATA[删除链表中重复结点]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[###题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5 解题思路递归。 代码实现12345678910111213141516171819202122232425# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = None#python2, 递归， 时间41ms，内存：5760kclass Solution: def deleteDuplication(self, pHead): # write code here if pHead is None or pHead.next is None: #首先判断是否为空，或是否只有一个结点。 return pHead else: if pHead.val != pHead.next.val: #如果当前结点值不等于下一结点值，则该结点保留并返回 pHead.next = self.deleteDuplication(pHead.next) else: #否则从下一个结点开始寻找下一个不重复的结点。找到后返回，并判断是否与当前结点相等。 temp = self.deleteDuplication(pHead.next.next) if temp is not None and pHead.val == temp.val: pHead = None else : pHead = temp return pHead]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
@@ -1135,27 +1123,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[二维数组中的查找]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE%2F</url>
-    <content type="text"><![CDATA[###题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 解题思路：Target从第一行最后一个a[0][n]开始进行判断：如果Target大于此值，与该列下一行比较；如果Target小于此值，与该行前一列比较；终止条件为row和column不越界。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-class Solution: # array 二维列表 def Find(self, target, array): # write code here if len(array) == 0: return False else: index_row = 0 index_col = len(array[0]) - 1 while index_row &lt; len(array) and index_col &gt;= 0: base = array[index_row][index_col] if target &lt; base: index_col = index_col - 1 elif target &gt; base: index_row = index_row + 1 else: return True return False]]></content>
+    <title><![CDATA[从尾到头打印链表]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。 解题思路：遍历链表，使用list的insert方法，一直往下标为0的位置插入元素值。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: # 返回从尾部到头部的列表值序列，例如[1,2,3] def printListFromTailToHead(self, listNode): # write code here result = [] if listNode is None: return result while listNode is not None: result.insert(0, listNode.val) listNode = listNode.next if listNode is None: break return result]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[不用加减乘除做加法]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路转化为list然后用sum求和。 代码实现123456# -*- coding:utf-8 -*-class Solution: def Add(self, num1, num2): # write code here l = [num1, num2] return sum(l)]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>进制转化</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1180,6 +1156,30 @@
       </categories>
       <tags>
         <tag>栈与队列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[二维数组中的查找]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE%2F</url>
+    <content type="text"><![CDATA[###题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 解题思路：Target从第一行最后一个a[0][n]开始进行判断：如果Target大于此值，与该列下一行比较；如果Target小于此值，与该行前一列比较；终止条件为row和column不越界。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-class Solution: # array 二维列表 def Find(self, target, array): # write code here if len(array) == 0: return False else: index_row = 0 index_col = len(array[0]) - 1 while index_row &lt; len(array) and index_col &gt;= 0: base = array[index_row][index_col] if target &lt; base: index_col = index_col - 1 elif target &gt; base: index_row = index_row + 1 else: return True return False]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不用加减乘除做加法]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路转化为list然后用sum求和。 代码实现123456# -*- coding:utf-8 -*-class Solution: def Add(self, num1, num2): # write code here l = [num1, num2] return sum(l)]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>进制转化</tag>
       </tags>
   </entry>
   <entry>
