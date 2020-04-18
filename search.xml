@@ -643,10 +643,7 @@
     <url>%2F2018%2F08%2F14%2F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[排序 基本有序的情况下：快排最慢，堆排最快。 选择排序的最坏和平均复杂度相同。 归并排序的也是一样的。 折半插入排序，是对插入排序算法的一种改进，由于排序算法过程中，就是不断的依次将元素插入前面已排好序的序列中。由于前半部分为已排好序的数列，这样我们不用按顺序依次寻找插入点，可以采用折半查找的方法来加快寻找插入点的速度。 所以，很明显比较的次数减少了 比较次数与初始元素顺序无关的排序算法（即最好、最坏情况的时间复杂度一样）选择排序O(n^2)堆排序O(nlogn)归并排序O(nlogn)基数排序O(tn) 元素的移动次数与关键字的初始排列次序无关的是：基数排序； 元素的比较次数与初始序列无关是：选择排序 算法的时间复杂度与初始序列无关的是：直接选择排序 对n个记录的线性表进行快速排序为减少算法的递归深度，每次分区后,先处理较短的部分 外部排序指的是大文件的排序，即待排序的记录存储在外存储器上，待排序的文件无法一次装入内存，需要在内存和外部存储器之间进行多次数据交换，以达到排序整个文件的目的。外部排序最常用的算法是多路归并排序，即将原文件分解成多个能够一次性装入内存的部分，分别把每一部分调入内存完成排序。然后，对已经排序的子文件进行多路归并排序。 插入排序、选择排序、起泡排序原本时间复杂度是O(n2)，更换为链式存储后的时间复杂度还是O(n2)。希尔排序和堆排序都利用了顺序存储的随机访问特性，而链式存储不支持这种性质，所以时间复杂度会增加。 先序遍历：根左右；中序遍历：左根右；后序遍历：左右跟。 快排的阶段性排序结果的特点是，第i趟完成时，会有i个以上的数出现在它最终将要出现的位置，即它左边的数都比它小，它右边的数都比它大。 小根堆中最大的数一定是放在叶子节点上，堆本身是个完全二叉树，完全二叉树的叶子节点的位置大于[n/2] 递归算法改为非递归算法不是采用队列做辅助结构，而是栈； 影响时间复杂度的主要因素为比较的次数。 二叉排序树的主要用途是链式存储结构的二分查找，查找的最坏次数是树的高度，因此高度最小的二叉排序树是最佳的。 基数排序又称桶排序，它基于分治的思想，它将序列分为若干组，组与组之间是有序的（比如第一堆最大的元素也不会比第二堆最小的元素更大，诸如此类），因此可以把问题划分为若干个子问题进行并行处理。 二叉排序树的任一结点，左小右大。 对长度为n的线性表排序，在最坏情况下，比较次数除堆排序的比较次数是O(nlogn),其他都是n(n-1)/2。 字符串 KMP算法时间复杂度为O(m+n)，空间复杂度为O(m)。 设有两个串p和q，其中q是p的子串，求q在p中首次出现的位置的算法称为匹配。 队列和栈 深度优先遍历DFS可以用栈实现；宽度优先遍历BFS用队列实现。 用链接方式存储的队列，在进行插入运算时，一般情况下，仅需修改队尾指针；但当队列为空时，插入元素时，队头和队尾指针都需修改。 有序表中所有元素以递增或递减方式排列，对数据之间的关系进行了描述，是一种逻辑结构。 循环队列的相关条件和公式： 队空条件：rear==front 队满条件：(rear+1) %QueueSIze==front，其中QueueSize为循环队列的最大长度 计算队列长度：（rear-front+QueueSize）%QueueSize 入队：（rear+1）%QueueSize 出队：（front+1）%QueueSize 输入受限 的 双端队列 是指元素只能从 队列 的一 端输入 ,但可以从 队列 的两端 输出；输出受限 的 双端队列 是指只有一端可以进行出队操作而从两端都可以进行入队操作的 队列。 广度优先用队列，深度优先用栈。 线性表可以分顺序存储和链式存储。 抓住front=tail时，队列可能空，也可能满！ 循环队列插入时，队头指针不变，队尾指针后移一位。 所谓建初始堆意思是从这里开始调整。 一个中缀式到其他式子的转换方法：a+b*c-(d+e)第一步：按照运算符的优先级对所有的运算单位加括号： 式子变成拉：((a+(b*c))-(d+e)) 第二步：转换前缀与后缀表达式 前缀：把运算符号移动到对应的括号前面 则变成拉：-( +(a *(bc)) +(de)) 把括号去掉：-+a*bc+de 前缀式子出现 后缀：把运算符号移动到对应的括号后面 则变成拉：((a(bc)* )+ (de)+ )- 把括号去掉：abc*+de+- 后缀式子出现 先序遍历：根左右；中序遍历：左根右；后序遍历：左右根。 栈内存操作系统来分配，堆内存由程序员自己来分配。 递归过程转换为非递归过程，一般都要用栈来模拟这个过程调用. 选择排序，是每一次从未排序序列中找出一个最大或者最小的数，放到已排好序的数列最后。因此关键字比较次数跟数列的初始排列顺序是没有关系的. 初始数据集排列顺序与比较次数无关的有：归并，堆，选择排序。 插入排序、堆排序、冒泡排序、快速排序的比较：插入排序是依次比较找到自己的位置，有序的数组比较次数少；堆排序在数据有序时能够降低维护堆的性质时的交换次数；标准冒泡排序的比较次数是固定的，但是改进的冒泡排序可以对于有序的数组减少比较次数；快速排序在有序时复杂度最高达到O(n2)，完全无序时O(nlogn)； 元素的移动次数与关键字的初始排列次序无关的是：基数排序； 元素的比较次数与初始序列无关是：选择排序； 算法的时间复杂度与初始序列无关的是：直接选择排序；]]></content>
       <categories>
-        <category>秋招</category>
-        <category>面试题</category>
-        <category>排序</category>
-        <category>面经</category>
+        <category>interview</category>
       </categories>
       <tags>
         <tag>秋招</tag>
@@ -882,18 +879,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[最小k个数]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%9C%80%E5%B0%8Fk%E4%B8%AA%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[###题目 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路排序后取值。 代码实现1234567891011# -*- coding:utf-8 -*-class Solution: def GetLeastNumbers_Solution(self, num, k): # write code here result = [] if k &gt; len(num): return result num.sort() for i in range(0, k): result.append(num[i]) return result]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[替换空格]]></title>
     <url>%2F2018%2F06%2F02%2F%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%2F</url>
     <content type="text"><![CDATA[###题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 解题思路：把字符串转化为list，然后遍历list，将有空格的元素替换为20%，然后用join函数将list转化为string。 ###代码实现： 1234567891011# -*- coding:utf-8 -*-class Solution: # s 源字符串 def replaceSpace(self, s): # write code here s = list(s) length = len(s) for i in range(0, length): if s[i] == ' ': s[i] = '%20' return ''.join(s) # join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。]]></content>
@@ -903,6 +888,18 @@
       </categories>
       <tags>
         <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[最小k个数]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%9C%80%E5%B0%8Fk%E4%B8%AA%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[###题目 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路排序后取值。 代码实现1234567891011# -*- coding:utf-8 -*-class Solution: def GetLeastNumbers_Solution(self, num, k): # write code here result = [] if k &gt; len(num): return result num.sort() for i in range(0, k): result.append(num[i]) return result]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -918,18 +915,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[和为S的连续正数序列]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[###题目 小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck! 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序 解题思路左右两个指针，一个sum。 代码实现123456789101112131415161718# -*- coding:utf-8 -*-class Solution: def FindContinuousSequence(self, tsum): # write code here l, r, s, result = 1, 2, 3, [] while l &lt; r: if s &gt; tsum: s = s - l l = l + 1 else: if s == tsum: tmp = [] for i in range(l, r + 1): tmp.append(i) result.append(tmp) r = r + 1 s = s + r return result]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>穷举</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[栈的压入弹出序列]]></title>
     <url>%2F2018%2F06%2F02%2F%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97%2F</url>
     <content type="text"><![CDATA[###题目 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的） 解题思路新建一个栈，将数组A压入栈中。当栈顶元素等于数组B时，就将其出栈。当循环结束时，判断栈是否为空，若为空则返回true。 代码实现12345678910111213141516# -*- coding:utf-8 -*-class Solution: def IsPopOrder(self, pushV, popV): if pushV is None: return True stack = [] j = 0 for i in range(0, len(pushV)): stack.append(pushV[i]) while j&lt;len(popV) and stack[-1] == popV[j] : stack.pop() j = j + 1 if len(stack) == 0: return True else: return False]]></content>
@@ -939,6 +924,18 @@
       </categories>
       <tags>
         <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[和为S的连续正数序列]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[###题目 小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck! 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序 解题思路左右两个指针，一个sum。 代码实现123456789101112131415161718# -*- coding:utf-8 -*-class Solution: def FindContinuousSequence(self, tsum): # write code here l, r, s, result = 1, 2, 3, [] while l &lt; r: if s &gt; tsum: s = s - l l = l + 1 else: if s == tsum: tmp = [] for i in range(l, r + 1): tmp.append(i) result.append(tmp) r = r + 1 s = s + r return result]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>穷举</tag>
       </tags>
   </entry>
   <entry>
@@ -978,9 +975,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[表示数值的字符串]]></title>
-    <url>%2F2018%2F06%2F02%2F%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
-    <content type="text"><![CDATA[###题目 请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。 解题思路巧用异常处理。 代码实现12345678910# -*- coding:utf-8 -*-class Solution: # s字符串 def isNumeric(self, s): # write code here try: s = float(s) return True except: return False]]></content>
+    <title><![CDATA[翻转单词序列]]></title>
+    <url>%2F2018%2F06%2F02%2F%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E5%BA%8F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[###题目 牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？ 解题思路使用字符串的split和list的reverse函数，然后将list拼成字符串。 代码实现12345678910# -*- coding:utf-8 -*-class Solution: def ReverseSentence(self, s): # write code here l = s.split(' ') l.reverse() r = '' for i in range(len(l)): r = r + l[i] + ' ' return r[0:len(r)-1]]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
@@ -990,9 +987,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[翻转单词序列]]></title>
-    <url>%2F2018%2F06%2F02%2F%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E5%BA%8F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[###题目 牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？ 解题思路使用字符串的split和list的reverse函数，然后将list拼成字符串。 代码实现12345678910# -*- coding:utf-8 -*-class Solution: def ReverseSentence(self, s): # write code here l = s.split(' ') l.reverse() r = '' for i in range(len(l)): r = r + l[i] + ' ' return r[0:len(r)-1]]]></content>
+    <title><![CDATA[表示数值的字符串]]></title>
+    <url>%2F2018%2F06%2F02%2F%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[###题目 请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。 解题思路巧用异常处理。 代码实现12345678910# -*- coding:utf-8 -*-class Solution: # s字符串 def isNumeric(self, s): # write code here try: s = float(s) return True except: return False]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
@@ -1050,18 +1047,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[链表中环的入口结点]]></title>
-    <url>%2F2018%2F06%2F02%2F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。 代码实现123456789class Solution: def EntryNodeOfLoop(self, pHead): l = [] while pHead is not None: if pHead in l: return pHead l.append(pHead) pHead = pHead.next return None]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[链表中倒数第K个结点]]></title>
     <url>%2F2018%2F06%2F02%2F%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E7%BB%93%E7%82%B9%2F</url>
     <content type="text"><![CDATA[###题目 输入一个链表，输出该链表中倒数第k个结点。 ###解题思路 快慢指针，快指针先走K。 ###代码实现： 1234567891011121314151617181920# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def FindKthToTail(self, head, k): # 快慢指针，快指针先走 if k == 0 or head is None: return None fast = head slow = head for i in range(0, k-1): fast = fast.next if fast is None: return None while fast.next is not None: fast = fast.next slow = slow.next return slow]]></content>
@@ -1071,6 +1056,18 @@
       </categories>
       <tags>
         <tag>进制转换</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[链表中环的入口结点]]></title>
+    <url>%2F2018%2F06%2F02%2F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。 代码实现123456789class Solution: def EntryNodeOfLoop(self, pHead): l = [] while pHead is not None: if pHead in l: return pHead l.append(pHead) pHead = pHead.next return None]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1123,18 +1120,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[二进制中1的个数]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。 解题思路：正数使用bin方法和count方法统计1个数；负数需要对其绝对值减1统计1的个数，然后被32减去。 ###代码实现： 12345678# -*- coding:utf-8 -*-class Solution: def NumberOf1(self, n): # write code here if n&gt;=0: return bin(n).count('1') else: return 32-bin(abs(n)-1).count('1')]]></content>
-      <categories>
-        <category>刷题</category>
-        <category>剑指offer</category>
-      </categories>
-      <tags>
-        <tag>进制转换</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[二维数组中的查找]]></title>
     <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE%2F</url>
     <content type="text"><![CDATA[###题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 解题思路：Target从第一行最后一个a[0][n]开始进行判断：如果Target大于此值，与该列下一行比较；如果Target小于此值，与该行前一列比较；终止条件为row和column不越界。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-class Solution: # array 二维列表 def Find(self, target, array): # write code here if len(array) == 0: return False else: index_row = 0 index_col = len(array[0]) - 1 while index_row &lt; len(array) and index_col &gt;= 0: base = array[index_row][index_col] if target &lt; base: index_col = index_col - 1 elif target &gt; base: index_row = index_row + 1 else: return True return False]]></content>
@@ -1147,15 +1132,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[两个栈实现队列]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[###题目 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 解题思路：入队的时候都存在stack1中；出队时候把stack1导入stack2，然后stack2出栈。 ###代码实现： 123456789101112131415# -*- coding:utf-8 -*-class Solution: stack1 = [] stack2 = [] def push(self, node): # write code here self.stack1.append(node) def pop(self): # return xx if len(self.stack2) &gt; 0: return self.stack2.pop() else: for i in range(0, len(self.stack1)): self.stack2.append(self.stack1.pop()) return self.stack2.pop()]]></content>
+    <title><![CDATA[二进制中1的个数]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。 解题思路：正数使用bin方法和count方法统计1个数；负数需要对其绝对值减1统计1的个数，然后被32减去。 ###代码实现： 12345678# -*- coding:utf-8 -*-class Solution: def NumberOf1(self, n): # write code here if n&gt;=0: return bin(n).count('1') else: return 32-bin(abs(n)-1).count('1')]]></content>
       <categories>
         <category>刷题</category>
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>栈与队列</tag>
+        <tag>进制转换</tag>
       </tags>
   </entry>
   <entry>
@@ -1180,6 +1165,18 @@
       </categories>
       <tags>
         <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[两个栈实现队列]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[###题目 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 解题思路：入队的时候都存在stack1中；出队时候把stack1导入stack2，然后stack2出栈。 ###代码实现： 123456789101112131415# -*- coding:utf-8 -*-class Solution: stack1 = [] stack2 = [] def push(self, node): # write code here self.stack1.append(node) def pop(self): # return xx if len(self.stack2) &gt; 0: return self.stack2.pop() else: for i in range(0, len(self.stack1)): self.stack2.append(self.stack1.pop()) return self.stack2.pop()]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>栈与队列</tag>
       </tags>
   </entry>
   <entry>
