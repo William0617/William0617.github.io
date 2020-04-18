@@ -314,7 +314,7 @@
         <li class="menu-item menu-item-相关工具">
           <a href="/categories/tool/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-toolbox"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-hammer"></i> <br>
             
             相关工具
           </a>
@@ -1609,7 +1609,7 @@ mvn install：安装jar
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/变态跳台阶/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/数字在排序数组中出现的次数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -1628,7 +1628,7 @@ mvn install：安装jar
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/02/变态跳台阶/" itemprop="url">变态跳台阶</a></h1>
+                <a class="post-title-link" href="/2018/06/02/数字在排序数组中出现的次数/" itemprop="url">数字在排序数组中出现的次数</a></h1>
         
 
         <div class="post-meta">
@@ -1704,13 +1704,14 @@ mvn install：安装jar
           
           ###题目
 
-一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+统计一个数字在排序数组中出现的次数。
 
-解题思路：f(n) = 1 (n=0); f(n) = 1 (n=1);  f(n) = f(n-1)+f(n-2)+…+f(n-(n-1)) + f(n-n) =&gt;
+解题思路使用list内置函数count。正常应该使用二分查找。
+代码实现1234# -*- coding:utf-8 -*-class Solution:    def GetNumberOfK(self, data, k):        re
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/变态跳台阶/#more" rel="contents">
+            <a class="btn" href="/2018/06/02/数字在排序数组中出现的次数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1761,7 +1762,7 @@ mvn install：安装jar
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/数值的整数次方/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/数组中出现次数超过一半的数字/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -1780,7 +1781,7 @@ mvn install：安装jar
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/02/数值的整数次方/" itemprop="url">数值的整数次方</a></h1>
+                <a class="post-title-link" href="/2018/06/02/数组中出现次数超过一半的数字/" itemprop="url">数组中出现次数超过一半的数字</a></h1>
         
 
         <div class="post-meta">
@@ -1856,14 +1857,13 @@ mvn install：安装jar
           
           ###题目
 
-给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。保证base和exponent不同时为0。
+数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
 
-解题思路直接用Python的方法。。。
-代码实现12345# -*- coding:utf-8 -*-class Solution
+解题思路用字典保存每个数字出现的个数，然后取最大值与数组长度一半进行比较
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/数值的整数次方/#more" rel="contents">
+            <a class="btn" href="/2018/06/02/数组中出现次数超过一半的数字/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
