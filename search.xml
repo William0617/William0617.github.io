@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[与麦粒肿的爱恨情仇]]></title>
+    <url>%2F2020%2F04%2F21%2F%E4%B8%8E%E9%BA%A6%E7%B2%92%E8%82%BF%E7%9A%84%E7%88%B1%E6%81%A8%E6%83%85%E4%BB%87%2F</url>
+    <content type="text"><![CDATA[2017年初，拿到美国学校的offer以后，一股火终于发作出来，长了麦粒肿。然后去北大校医院，庸医说是皮肤发炎，开了点药膏。上了半个多月还是不好，后来去眼科一看就是麦粒肿。肿的眼镜快睁不开，然后不得不去北医三院做了个手术，切掉，把脓挤出来。然后自那以后，长了6、7个，左右眼都有，长之前会明显发胀。在美国也懒得去医院，还好长的也小，出脓以后自己就灭掉了。后来回国2019年刚工作时候，眼部发胀，我就意识到是麦粒肿，上海药店不卖抗生素，然后卖药的推荐了乐敦康复方磺胺甲恶唑钠滴眼液。滴上去，麦粒肿没长出来就好了。2020年换工作，也眼部发胀，又买了一瓶这个滴眼液，也好了。比那些什么鸟霉素好多了。每次长都是春天，都是比较焦虑、上火的时候。现在自己也十分注意，几乎不揉眼了。希望以后再也别长了。。。]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>麦粒肿</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python发送multipart-form-data请求]]></title>
     <url>%2F2019%2F11%2F11%2Fpython%E5%8F%91%E9%80%81multipart-form-data%E8%AF%B7%E6%B1%82%2F</url>
     <content type="text"><![CDATA[写接口测试时，遇到这个问题，在网上看了很多文档都不太好用，自己总结了一下： 1.引包 1from requests_toolbelt import MultipartEncoder 2.准备数据 12345678910111213cookie = get_token url = ADD_IMAGE_TO_REPO_URL + REPO_ID + "/faces" binary_file = ('123.jpg', open(image_path + "123.jpg", 'rb'), 'image/jpg') arguments = json.dumps(&#123; "image": "123.jpg"&#125;) headers = &#123;'Cookie': cookie&#125; headers['Content-Type'] = multipart_encoder.content_type multipart_encoder = MultipartEncoder( fields=&#123; 'binary_file': binary_file, 'arguments': arguments, &#125;, ) 3.发送请求 12response = requests.post(url, headers=headers, data=multipart_encoder, verify=False)]]></content>
@@ -86,7 +97,7 @@
     <url>%2F2019%2F08%2F20%2FLinux%E5%88%86%E5%8D%B7%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[1.使用tar分卷压缩 命令： 1tar cvzf - filedir | split -d -b 50m - filename 例子： 1tar cvzf - ./picture | split -d -b 10m - picture 将./picture 打包，并分割为10m的包。输出的文件为 filename00、filename01、filename02 …如果不加filename，则输出文件为 x00、x01、x02 …如果不加参数 -d，则输出aa、ab、ac … 2.解压分卷 首先将分卷包合拼： 1cat x* &gt; myzip.tar.gz 然后解压： 1tar xzvf myzip.tar.gz 例子： 12cat picture* &gt; picture.tar.gztar xzvf picture.tar.gz]]></content>
       <categories>
-        <category>tech</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>压缩</tag>
@@ -97,7 +108,7 @@
     <url>%2F2019%2F08%2F17%2Ftar.xz%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%2F</url>
     <content type="text"><![CDATA[1. XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数Linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。 我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。 最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩时间比较长，比7z压缩时间还长一些。不过压缩是一次性的，所以可以忽略。 2. xz压缩文件方法或命令xz -z 要压缩的文件 。如果要保留被压缩的文件加上参数 -k ，如果要设置压缩率加入参数 -0 到 -9调节压缩率。如果不设置，默认压缩等级是6. 3. 创建或解压tar.xz文件的方法习惯了 tar czvf 或 tar xzvf 的人可能碰到 tar.xz也会想用单一命令搞定解压或压缩。其实不行 tar里面没有征对xz格式的参数比如 z是针对 gzip，j是针对 bzip2。创建tar.xz文件：只要先 tar cvf xxx.tar xxx/ 这样创建xxx.tar文件先，然后使用 xz -z xxx.tar 来将 xxx.tar压缩成为 xxx.tar.xz解压tar.xz文件：先 xz -d xxx.tar.xz 将 xxx.tar.xz解压成 xxx.tar 然后，再用 tar xvf xxx.tar来解包。 4. Referencetar.xz压缩与解压]]></content>
       <categories>
-        <category>tech</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>打包压缩</tag>
@@ -119,7 +130,7 @@
     <url>%2F2019%2F08%2F16%2FLinux%E6%89%93%E5%BC%80txt%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[今天发现打开windows下的txt文本出现问题，主要是编码问题，所以这里我记录下这个问题的解决方法。 Linux显示在Windows编辑过的中文就会显示乱码是由于两个操作系统使用的编码不同所致。Linux下使用的编码是utf8，而Windows使用的是gb18030。因此，解决Linux打开txt文件中文乱码可有如下两种方法。 方法一： 在附件终端中，进入到txt文件所在目录，使用命令符“iconv -f gb18030 -t utf8 1.txt -o 2.txt”把gb18030编码的1.txt转换成utf8的2.txt。这样2.txt就成为Linux支持的编码。 方法二： 在附件终端中,使用命令符“gconf-editor”，进入环境配置，依次展开“/apps/gedit-2/preferences/encodings/”，编辑右侧的“auto_detected”将“gb18030”添加到最顶上。以后文本编辑器就可以正常显示中文了。]]></content>
       <categories>
-        <category>tech</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>乱码</tag>
@@ -222,10 +233,21 @@
     <url>%2F2019%2F06%2F07%2FLinux%E4%B8%8B%E9%80%9A%E8%BF%87sed%E5%91%BD%E4%BB%A4%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%2F</url>
     <content type="text"><![CDATA[sed是实现对流的编辑。通常，我们使用sed可以实现内容的编辑后然后保存成另外的一个文件，如果正确的话，才写入到源文件。但是某些时候，我们需要直接修改文件，因为，保存文件到一个文件，然后再覆盖原文件的办法显得很麻烦。 其实很简单，只需要一个-i 参数就可以了。 sed &#39;s/properties/property/g&#39; build.xml这种方式，其实并没有修改build.xml文件的内容。如果想保存修改，通常的做法就需要重定向到另外的一个文件sed &#39;s/properties/property/g&#39; build.xml &gt; build.xml.tmp这样，build.xml.tmp文件就是修改后的文件.如果无误，那么就可以用mv build.xml.tmp build.xml覆盖原文件。如果想直接修改源文件，而没有这样的过程，可以用下面的命令：sed -i &#39;s/properties/property/g&#39; build.xml 这样，就直接修改了build.xml文件。 注：还有一个更简单的方法 sed -in-place -e &#39;s/abc/cba/g&#39; build.xml。 Referencelinux下通过sed命令直接修改文件内容]]></content>
       <categories>
-        <category>tech</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[软件测试基本流程]]></title>
+    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
+      <categories>
+        <category>tech</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -238,17 +260,6 @@
       <tags>
         <tag>test</tag>
         <tag>concept</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[软件测试基本流程]]></title>
-    <url>%2F2019%2F06%2F02%2F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[软件测试基本流程 需求分析 编写测试用例：测什么，怎么测 评审测试用例 搭建测试环境 等待开发提交测试包 冒烟测试：对软件主体基本功能进行基本测试 部署测试包 执行测试用例 Bug跟踪处理：提交及回归Bug N轮之后符合需求 测试结束]]></content>
-      <categories>
-        <category>tech</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -268,7 +279,7 @@
     <url>%2F2019%2F05%2F22%2FLinux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88root%E6%9D%83%E9%99%90%2F</url>
     <content type="text"><![CDATA[1、添加用户，首先用adduser命令添加一个普通用户，命令如下： 1234567# adduser tommy//添加一个名为tommy的用户\#passwd tommy //修改密码Changing password for user tommy.New UNIX password: //在这里输入新密码Retype new UNIX password: //再次输入新密码passwd: all authentication tokens updated successfully. 2、赋予root权限 修改 /etc/sudoers 文件，找到下面一行，把前面的注释（#）去掉： 12## Allows people in group wheel to run all commands%wheel ALL=(ALL) ALL 然后修改用户，使其属于root组（wheel），命令如下： #usermod -g root tommy。修改完毕，现在可以用tommy帐号登录，然后用命令 su – ，即可获得root权限进行操作。]]></content>
       <categories>
-        <category>tech</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>权限</tag>
@@ -417,14 +428,7 @@
     <url>%2F2018%2F10%2F16%2FLinux%E3%80%81Git%E3%80%81Maven%E3%80%81Jenkins%E3%80%81%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E9%9D%A2%E7%BB%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[Linux Linux查询Java进程?ps -ef | grep javaps:将某个进程显示出来-e 显示所有程序。-f 显示UID,PPIP,C与STIME栏位。 怎么杀死进程?kill -9 PID来强制杀死进程。 Linux命令，怎么日志文件里面找关键字?cat 路径/文件名 | grep 关键词例如：cat test.log | grep &quot;http&quot; # 返回test.log中包含http的所有行 Linux环境下，在10g数据中如何找到包含某字符串的一行? 常用的Linux命令。查找某端口的进程与用户?lsof -i:端口号，用于查看某一端口的占用情况，比如查看22号端口使用情况，lsof -i:22 写出你熟悉的Linux命令?top, cd, pwd, cp, rf, mkdir, cat, touch, grep, kill, chmod 777, reboot Linux怎么把日志输入到文件中?使用&gt;输出重定向到文件中。 64位和32位的区别？32位操作系统通用寄存器的数据宽度是32位的，一次最多能处理32位数据。相应的，64位操作系统一次处理数据要比32位高一倍，一次能运行64位的数据。 讲一下系统内存是怎样的？分段分页虚拟内存？ Windows和Linux内存管理对比？ 你能解释一下Linux的软链接和硬链接吗？硬链接文件与源文件的inode节点号相同，而软链接文件相当于windows下面的快捷方式（inode节点号与源文件不同）。硬链接和源文件具有相同的inode，软链接和源文件具有不同的inode。文件的链接数显示的是硬链接的个数，和软链接个数无关。 操作系统分页、分段？ 缺页机制能说一下吗？ Git 写你知道的Git命令 初始化一个Git仓库，使用git init命令。 使用命令git commit -m &quot;备注&quot;, 提交到仓库; 掌握工作区的状态，使用git status命令。 关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git; git pull origin master git push -u origin master; git clone 远程地址 Maven 熟悉maven是吧？我们来聊下maven的源码原理，maven冲突的时候，怎么选择依赖包，我们怎么查，我们遇到两个不一样的版本，我们应该如何去选择，为什么？ JenkinsTODO 软件工程 什么是敏捷开发，防御式编程。敏捷开发： 敏捷并不是快，而是灵活。灵活地适应需求的变化； 敏捷不需要面面俱到的文档，但是离不开文档； 敏捷开发要求项目透明，最小化验证（灵活），及时调整，增量迭代； 缺点是：对人的要求高，强调自组织；强调沟通，对技术人员打断太多，降低工作效率； 防御性编程：防御性编程是一种编程习惯，是指预见在什么地方可能会出现问题，然后创建一个环境来测试错误，当预见的问题出现的时候通知你，并执行一个你指定的损害控制动作。 问面试官 你有没有什么想问的？常规三问：您是哪个部门的，做什么？对我今天面试的表现，简单评价一下？对我今后的学习或者工作提些建议？）]]></content>
       <categories>
-        <category>秋招</category>
-        <category>面试题</category>
-        <category>Linux</category>
-        <category>Git</category>
-        <category>Maven</category>
-        <category>Jenkins</category>
-        <category>软件工程</category>
-        <category>面经</category>
+        <category>os</category>
       </categories>
       <tags>
         <tag>秋招</tag>
@@ -704,18 +708,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[跳台阶]]></title>
-    <url>%2F2018%2F06%2F02%2F%E8%B7%B3%E5%8F%B0%E9%98%B6%2F</url>
-    <content type="text"><![CDATA[###题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。 解题思路：斐波那契数列。 ###代码实现： 1234567891011121314151617# -*- coding:utf-8 -*-class Solution: def jumpFloor(self, number): # write code here return fib(number) def fib(n): if n == 1: return 1 if n == 2: return 2 if n == 3: return 3 tmp = &#123;1:1, 2:2, 3:3&#125; for i in range(4, n+1): tmp[i] = tmp[i-1] + tmp[i-2] return tmp[n]]]></content>
-      <categories>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>剑指offer</tag>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[变态跳台阶]]></title>
     <url>%2F2018%2F06%2F02%2F%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6%2F</url>
     <content type="text"><![CDATA[###题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。 解题思路：f(n) = 1 (n=0); f(n) = 1 (n=1); f(n) = f(n-1)+f(n-2)+…+f(n-(n-1)) + f(n-n) =&gt; f(0) + f(1) + f(2) + f(3) + … + f(n-1) =&gt; 2*f(n-1) (n&gt;=2) ##代码实现： ###代码实现： 12345678910# -*- coding:utf-8 -*-class Solution: def jumpFloorII(self, number): # write code here if number == 0: return 1 elif number == 1: return 1 else: return 2*self.jumpFloorII(number-1)]]></content>
@@ -728,15 +720,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[数字在排序数组中出现的次数]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[###题目 统计一个数字在排序数组中出现的次数。 解题思路使用list内置函数count。正常应该使用二分查找。 代码实现1234# -*- coding:utf-8 -*-class Solution: def GetNumberOfK(self, data, k): return data.count(k)]]></content>
+    <title><![CDATA[单向链表反转]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个链表，反转链表后，输出新链表的表头。 解题思路下面一共2种方法： 最常见的是第1种，效率也高: 循环反转，逐个遍历；也相当于把链表的各个节点插入到头部 递归反转，逐个赋值，最后返回尾节点 代码实现123456789101112131415161718192021# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: # 返回ListNode def ReverseList(self, pHead): # 三指针 if pHead is None: return None if pHead.next is None: return pHead pre_node = None next_node = None while pHead is not None: next_node = pHead.next pHead.next = pre_node pre_node = pHead pHead = next_node return pre_node]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
         <tag>剑指offer</tag>
-        <tag>数组</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -752,9 +744,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[数组中只出现一次的数字]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[###题目 一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。 解题思路使用字典。 代码实现12345678910111213# -*- coding:utf-8 -*-class Solution: # 返回[a,b] 其中ab是出现一次的两个数字 def FindNumsAppearOnce(self, array): # write code here d = dict.fromkeys(array,0) for i in range(0, len(array)): d[array[i]] = d[array[i]] + 1 result = [] for key in d: if d[key] == 1: result.append(key) return result]]></content>
+    <title><![CDATA[数字在排序数组中出现的次数]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[###题目 统计一个数字在排序数组中出现的次数。 解题思路使用list内置函数count。正常应该使用二分查找。 代码实现1234# -*- coding:utf-8 -*-class Solution: def GetNumberOfK(self, data, k): return data.count(k)]]></content>
       <categories>
         <category>interview</category>
       </categories>
@@ -824,18 +816,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[替换空格]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%2F</url>
-    <content type="text"><![CDATA[###题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 解题思路：把字符串转化为list，然后遍历list，将有空格的元素替换为20%，然后用join函数将list转化为string。 ###代码实现： 1234567891011# -*- coding:utf-8 -*-class Solution: # s 源字符串 def replaceSpace(self, s): # write code here s = list(s) length = len(s) for i in range(0, length): if s[i] == ' ': s[i] = '%20' return ''.join(s) # join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。]]></content>
-      <categories>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>剑指offer</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[最小k个数]]></title>
     <url>%2F2018%2F06%2F02%2F%E6%9C%80%E5%B0%8Fk%E4%B8%AA%E6%95%B0%2F</url>
     <content type="text"><![CDATA[###题目 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路排序后取值。 代码实现1234567891011# -*- coding:utf-8 -*-class Solution: def GetLeastNumbers_Solution(self, num, k): # write code here result = [] if k &gt; len(num): return result num.sort() for i in range(0, k): result.append(num[i]) return result]]></content>
@@ -845,6 +825,18 @@
       <tags>
         <tag>剑指offer</tag>
         <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[替换空格]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%2F</url>
+    <content type="text"><![CDATA[###题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 解题思路：把字符串转化为list，然后遍历list，将有空格的元素替换为20%，然后用join函数将list转化为string。 ###代码实现： 1234567891011# -*- coding:utf-8 -*-class Solution: # s 源字符串 def replaceSpace(self, s): # write code here s = list(s) length = len(s) for i in range(0, length): if s[i] == ' ': s[i] = '%20' return ''.join(s) # join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -884,27 +876,27 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[单向链表反转]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个链表，反转链表后，输出新链表的表头。 解题思路下面一共2种方法： 最常见的是第1种，效率也高: 循环反转，逐个遍历；也相当于把链表的各个节点插入到头部 递归反转，逐个赋值，最后返回尾节点 代码实现123456789101112131415161718192021# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: # 返回ListNode def ReverseList(self, pHead): # 三指针 if pHead is None: return None if pHead.next is None: return pHead pre_node = None next_node = None while pHead is not None: next_node = pHead.next pHead.next = pre_node pre_node = pHead pHead = next_node return pre_node]]></content>
+    <title><![CDATA[数组中只出现一次的数字]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[###题目 一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。 解题思路使用字典。 代码实现12345678910111213# -*- coding:utf-8 -*-class Solution: # 返回[a,b] 其中ab是出现一次的两个数字 def FindNumsAppearOnce(self, array): # write code here d = dict.fromkeys(array,0) for i in range(0, len(array)): d[array[i]] = d[array[i]] + 1 result = [] for key in d: if d[key] == 1: result.append(key) return result]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
         <tag>剑指offer</tag>
-        <tag>链表</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[求1到n的和]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%B1%821%E5%88%B0n%E7%9A%84%E5%92%8C%2F</url>
-    <content type="text"><![CDATA[###题目 求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 解题思路偷懒作法，用list的sum方法。 代码实现12345# -*- coding:utf-8 -*-class Solution: def Sum_Solution(self, n): # write code here return sum(list(x for x in range(1, n+1)))]]></content>
+    <title><![CDATA[包含min函数的栈]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88%2F</url>
+    <content type="text"><![CDATA[###题目 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。 解题思路栈stack保存数据，辅助栈assist保存依次入栈最小的数，stack中依次入栈，6，5，8，4，3，9；assist依次入栈，6，5，4，3。每次入栈的时候，如果入栈的元素比assist中的栈顶元素小或等于则入栈，否则不如栈。 代码实现1234567891011121314151617181920# -*- coding:utf-8 -*-assist = []stack = []class Solution: def push(self, node): stack.append(node) if len(assist) == 0: assist.append(node) elif node &lt; assist[-1]: assist.append(node) def pop(self): if len(stack) &gt; 0: tmp = stack.pop() if tmp == assist[-1]: assist.pop() else: return None def min(self): return assist[-1]]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
         <tag>剑指offer</tag>
-        <tag>进制转换</tag>
+        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
@@ -944,6 +936,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[和为S的两个数字]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。对应每个测试案例，输出两个数，小的先输出。 解题思路设两个头尾两个指针i和j：若ai + aj == sum，就是答案（相差越远乘积越小）；若ai + aj &gt; sum，aj肯定不是答案之一（前面已得出 i 前面的数已是不可能），j -= 1；若ai + aj &lt; sum，ai肯定不是答案之一（前面已得出 j 后面的数已是不可能），i += 1； ###代码实现 12345678910111213141516class Solution: def FindNumbersWithSum(self, num, tsum): # write code here i = 0 j = len(num) - 1 result = [] while i &lt; j: if num[i] + num[j] == tsum: result.append(num[i]) result.append(num[j]) return result elif num[i] + num[j] &gt; tsum: j = j - 1 else: i = i + 1 return result]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[左旋转字符串]]></title>
     <url>%2F2018%2F06%2F02%2F%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
     <content type="text"><![CDATA[###题目 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。 解题思路先将字符串s两份首尾相连，再字符串截取。 代码实现12345678910# -*- coding:utf-8 -*-class Solution: def LeftRotateString(self, s, n): # write code here if len(s) == 0: return s move = n % len(s) length = len(s) s = s + s return s[move: move+length]]]></content>
@@ -956,27 +960,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[删除链表中重复结点]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%BB%93%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[###题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5 解题思路递归。 代码实现12345678910111213141516171819202122232425# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = None#python2, 递归， 时间41ms，内存：5760kclass Solution: def deleteDuplication(self, pHead): # write code here if pHead is None or pHead.next is None: #首先判断是否为空，或是否只有一个结点。 return pHead else: if pHead.val != pHead.next.val: #如果当前结点值不等于下一结点值，则该结点保留并返回 pHead.next = self.deleteDuplication(pHead.next) else: #否则从下一个结点开始寻找下一个不重复的结点。找到后返回，并判断是否与当前结点相等。 temp = self.deleteDuplication(pHead.next.next) if temp is not None and pHead.val == temp.val: pHead = None else : pHead = temp return pHead]]></content>
+    <title><![CDATA[跳台阶]]></title>
+    <url>%2F2018%2F06%2F02%2F%E8%B7%B3%E5%8F%B0%E9%98%B6%2F</url>
+    <content type="text"><![CDATA[###题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。 解题思路：斐波那契数列。 ###代码实现： 1234567891011121314151617# -*- coding:utf-8 -*-class Solution: def jumpFloor(self, number): # write code here return fib(number) def fib(n): if n == 1: return 1 if n == 2: return 2 if n == 3: return 3 tmp = &#123;1:1, 2:2, 3:3&#125; for i in range(4, n+1): tmp[i] = tmp[i-1] + tmp[i-2] return tmp[n]]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
         <tag>剑指offer</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[包含min函数的栈]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88%2F</url>
-    <content type="text"><![CDATA[###题目 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。 解题思路栈stack保存数据，辅助栈assist保存依次入栈最小的数，stack中依次入栈，6，5，8，4，3，9；assist依次入栈，6，5，4，3。每次入栈的时候，如果入栈的元素比assist中的栈顶元素小或等于则入栈，否则不如栈。 代码实现1234567891011121314151617181920# -*- coding:utf-8 -*-assist = []stack = []class Solution: def push(self, node): stack.append(node) if len(assist) == 0: assist.append(node) elif node &lt; assist[-1]: assist.append(node) def pop(self): if len(stack) &gt; 0: tmp = stack.pop() if tmp == assist[-1]: assist.pop() else: return None def min(self): return assist[-1]]]></content>
-      <categories>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>剑指offer</tag>
-        <tag>栈</tag>
+        <tag>递归</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,9 +996,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[链表中环的入口结点]]></title>
-    <url>%2F2018%2F06%2F02%2F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。 代码实现123456789class Solution: def EntryNodeOfLoop(self, pHead): l = [] while pHead is not None: if pHead in l: return pHead l.append(pHead) pHead = pHead.next return None]]></content>
+    <title><![CDATA[删除链表中重复结点]]></title>
+    <url>%2F2018%2F06%2F02%2F%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[###题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5 解题思路递归。 代码实现12345678910111213141516171819202122232425# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = None#python2, 递归， 时间41ms，内存：5760kclass Solution: def deleteDuplication(self, pHead): # write code here if pHead is None or pHead.next is None: #首先判断是否为空，或是否只有一个结点。 return pHead else: if pHead.val != pHead.next.val: #如果当前结点值不等于下一结点值，则该结点保留并返回 pHead.next = self.deleteDuplication(pHead.next) else: #否则从下一个结点开始寻找下一个不重复的结点。找到后返回，并判断是否与当前结点相等。 temp = self.deleteDuplication(pHead.next.next) if temp is not None and pHead.val == temp.val: pHead = None else : pHead = temp return pHead]]></content>
       <categories>
         <category>interview</category>
       </categories>
@@ -1016,27 +1008,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[和为S的两个数字]]></title>
-    <url>%2F2018%2F06%2F02%2F%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。对应每个测试案例，输出两个数，小的先输出。 解题思路设两个头尾两个指针i和j：若ai + aj == sum，就是答案（相差越远乘积越小）；若ai + aj &gt; sum，aj肯定不是答案之一（前面已得出 i 前面的数已是不可能），j -= 1；若ai + aj &lt; sum，ai肯定不是答案之一（前面已得出 j 后面的数已是不可能），i += 1； ###代码实现 12345678910111213141516class Solution: def FindNumbersWithSum(self, num, tsum): # write code here i = 0 j = len(num) - 1 result = [] while i &lt; j: if num[i] + num[j] == tsum: result.append(num[i]) result.append(num[j]) return result elif num[i] + num[j] &gt; tsum: j = j - 1 else: i = i + 1 return result]]></content>
+    <title><![CDATA[链表中环的入口结点]]></title>
+    <url>%2F2018%2F06%2F02%2F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[###题目 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。 代码实现123456789class Solution: def EntryNodeOfLoop(self, pHead): l = [] while pHead is not None: if pHead in l: return pHead l.append(pHead) pHead = pHead.next return None]]></content>
       <categories>
         <category>interview</category>
       </categories>
       <tags>
         <tag>剑指offer</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[把数组排成最小的数]]></title>
-    <url>%2F2018%2F06%2F02%2F%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[###题目 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 解题思路自定义一个排序规则compare。 代码实现123456789101112131415# -*- coding:utf-8 -*-class Solution: def PrintMinNumber(self, numbers): # write code here if not numbers: return '' strnum = [str(numbers[i]) for i in range(len(numbers))] strnum.sort(self.compare) return int(''.join(strnum)) def compare(self, x, y): if x+y &gt; y+x: return 1 if x+y &lt; y+x: return -1 return 0]]></content>
-      <categories>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>剑指offer</tag>
-        <tag>数组</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1050,6 +1030,18 @@
         <tag>剑指offer</tag>
         <tag>链表</tag>
         <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[把数组排成最小的数]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[###题目 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 解题思路自定义一个排序规则compare。 代码实现123456789101112131415# -*- coding:utf-8 -*-class Solution: def PrintMinNumber(self, numbers): # write code here if not numbers: return '' strnum = [str(numbers[i]) for i in range(len(numbers))] strnum.sort(self.compare) return int(''.join(strnum)) def compare(self, x, y): if x+y &gt; y+x: return 1 if x+y &lt; y+x: return -1 return 0]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1077,6 +1069,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[两个链表的第一个公共结点]]></title>
+    <url>%2F2018%2F06%2F02%2F%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[###题目 输入两个链表，找出它们的第一个公共结点。 解题思路先分别遍历两个链表并记录长度并记录。然后长的链表先走K步后，两个指针一起遍历，如果第一次出现两个指针相同，则该结点为第一个公共结点。 代码实现12345678910111213141516171819202122232425262728293031323334353637# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def FindFirstCommonNode(self, p1, p2): # 较长的链表是快指针 step = 0 slow = None fast = None c1 = 0 c2 = 0 t1 = p1 t2 = p2 while t1 is not None: t1 = t1.next c1 = c1 + 1 while t2 is not None: t2 = t2.next c2 = c2 + 1 if c1 &gt; c2: step = c1 - c2 slow = p1 fast = p2 else: step = c2 - c1 slow = p2 fast = p1 for i in range(0, step): slow = slow.next while True: if slow == fast: return slow else: slow = slow.next fast = fast.next]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[二维数组中的查找]]></title>
     <url>%2F2018%2F06%2F02%2F%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE%2F</url>
     <content type="text"><![CDATA[###题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 解题思路：Target从第一行最后一个a[0][n]开始进行判断：如果Target大于此值，与该列下一行比较；如果Target小于此值，与该行前一列比较；终止条件为row和column不越界。 ###代码实现： 12345678910111213141516171819# -*- coding:utf-8 -*-class Solution: # array 二维列表 def Find(self, target, array): # write code here if len(array) == 0: return False else: index_row = 0 index_col = len(array[0]) - 1 while index_row &lt; len(array) and index_col &gt;= 0: base = array[index_row][index_col] if target &lt; base: index_col = index_col - 1 elif target &gt; base: index_row = index_row + 1 else: return True return False]]></content>
@@ -1101,18 +1105,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[两个链表的第一个公共结点]]></title>
-    <url>%2F2018%2F06%2F02%2F%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[###题目 输入两个链表，找出它们的第一个公共结点。 解题思路先分别遍历两个链表并记录长度并记录。然后长的链表先走K步后，两个指针一起遍历，如果第一次出现两个指针相同，则该结点为第一个公共结点。 代码实现12345678910111213141516171819202122232425262728293031323334353637# -*- coding:utf-8 -*-# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def FindFirstCommonNode(self, p1, p2): # 较长的链表是快指针 step = 0 slow = None fast = None c1 = 0 c2 = 0 t1 = p1 t2 = p2 while t1 is not None: t1 = t1.next c1 = c1 + 1 while t2 is not None: t2 = t2.next c2 = c2 + 1 if c1 &gt; c2: step = c1 - c2 slow = p1 fast = p2 else: step = c2 - c1 slow = p2 fast = p1 for i in range(0, step): slow = slow.next while True: if slow == fast: return slow else: slow = slow.next fast = fast.next]]></content>
-      <categories>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>剑指offer</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[两个栈实现队列]]></title>
     <url>%2F2018%2F06%2F02%2F%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%2F</url>
     <content type="text"><![CDATA[###题目 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 解题思路：入队的时候都存在stack1中；出队时候把stack1导入stack2，然后stack2出栈。 ###代码实现： 123456789101112131415# -*- coding:utf-8 -*-class Solution: stack1 = [] stack2 = [] def push(self, node): # write code here self.stack1.append(node) def pop(self): # return xx if len(self.stack2) &gt; 0: return self.stack2.pop() else: for i in range(0, len(self.stack1)): self.stack2.append(self.stack1.pop()) return self.stack2.pop()]]></content>
@@ -1122,6 +1114,18 @@
       <tags>
         <tag>剑指offer</tag>
         <tag>栈与队列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[求1到n的和]]></title>
+    <url>%2F2018%2F06%2F02%2F%E6%B1%821%E5%88%B0n%E7%9A%84%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[###题目 求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 解题思路偷懒作法，用list的sum方法。 代码实现12345# -*- coding:utf-8 -*-class Solution: def Sum_Solution(self, n): # write code here return sum(list(x for x in range(1, n+1)))]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+        <tag>进制转换</tag>
       </tags>
   </entry>
   <entry>
