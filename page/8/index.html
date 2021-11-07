@@ -405,7 +405,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/斐波那契数列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/整数中1出现的次数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -424,7 +424,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/02/斐波那契数列/" itemprop="url">斐波那切数列</a></h1>
+                <a class="post-title-link" href="/2018/06/02/整数中1出现的次数/" itemprop="url">整数中1出现的次数</a></h1>
         
 
         <div class="post-meta">
@@ -459,8 +459,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/interview/" itemprop="url" rel="index">
+                    <span itemprop="name">interview</span>
                   </a>
                 </span>
 
@@ -500,15 +500,11 @@
           
           ###题目
 
-大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。（n&lt;=39）
-
-解题思路：使用字典存储每次的结果。
-###代码实现：
-1234567891011121314151617# -*- coding:utf-8 -*-class 
+求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/斐波那契数列/#more" rel="contents">
+            <a class="btn" href="/2018/06/02/整数中1出现的次数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1469,7 +1465,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/单向链表反转/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/变态跳台阶/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -1488,7 +1484,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/02/单向链表反转/" itemprop="url">单向链表反转</a></h1>
+                <a class="post-title-link" href="/2018/06/02/变态跳台阶/" itemprop="url">变态跳台阶</a></h1>
         
 
         <div class="post-meta">
@@ -1564,21 +1560,13 @@
           
           ###题目
 
-输入一个链表，反转链表后，输出新链表的表头。
+一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
 
-解题思路下面一共2种方法：
-最常见的是第1种，效率也高:
-
-循环反转，逐个遍历；也相当于把链表的各个节点插入到头部
-
-递归反转，逐个赋值，最后返回尾节点
-
-
-代码实现123456789101112131415161718192021# -
+解题思路：f(n) = 1 (n=0); f(n) = 1 (n=1);  f(n) = f(n-1)+f(n-2)+…+f(n-(n-1)) + f(n-n) =&gt;
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/单向链表反转/#more" rel="contents">
+            <a class="btn" href="/2018/06/02/变态跳台阶/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1782,7 +1770,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/包含min函数的栈/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/单向链表反转/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Sun">
@@ -1801,7 +1789,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/02/包含min函数的栈/" itemprop="url">包含min函数的栈</a></h1>
+                <a class="post-title-link" href="/2018/06/02/单向链表反转/" itemprop="url">单向链表反转</a></h1>
         
 
         <div class="post-meta">
@@ -1877,13 +1865,21 @@
           
           ###题目
 
-定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
+输入一个链表，反转链表后，输出新链表的表头。
 
-解题思路栈stack保存数据，辅助栈assist保存依次入栈最小的数，stack中依次入栈，6，5，8，4，3，9；assist依次入栈，6，5，4，3。每次入栈的时候，如果入栈的
+解题思路下面一共2种方法：
+最常见的是第1种，效率也高:
+
+循环反转，逐个遍历；也相当于把链表的各个节点插入到头部
+
+递归反转，逐个赋值，最后返回尾节点
+
+
+代码实现123456789101112131415161718192021# -
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/06/02/包含min函数的栈/#more" rel="contents">
+            <a class="btn" href="/2018/06/02/单向链表反转/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
